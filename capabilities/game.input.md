@@ -48,4 +48,4 @@ iPhone 游戏遥控器：本地 ASR + 人体姿态识别，转 GameCommand 直�
 
 ---
 
-<sub>由 `mac/scripts/export_capability_catalog.py` 生成（home-agent-os `24d9217`），请勿手改。</sub>
+<sub>由 `mac/scripts/export_capability_catalog.py` 生成（home-agent-os `5dc6531`），请勿手改。</sub>

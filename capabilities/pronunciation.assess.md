@@ -80,4 +80,4 @@ kind=`action` · composition=`atomic` · group=`pronunciation` · 声明=`是` �
 
 ---
 
-<sub>由 `mac/scripts/export_capability_catalog.py` 生成（home-agent-os `24d9217`），请勿手改。</sub>
+<sub>由 `mac/scripts/export_capability_catalog.py` 生成（home-agent-os `5dc6531`），请勿手改。</sub>
