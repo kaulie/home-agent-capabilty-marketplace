@@ -26,12 +26,17 @@ ENV_FILE="${BACKEND_DIR}/.env"
 PID_FILE="${BACKEND_DIR}/runtime.pid"
 LOG_FILE="${BACKEND_DIR}/server.log"
 
-# 端口：MARKETPLACE_PORT(shell) > backend/.env > SERVICE_PORT > 4250
+# 端口：MARKETPLACE_PORT(shell) > backend/.env > 4250（契约口）。
+# **刻意不读继承来的 PORT / SERVICE_PORT**：交互式 shell 与平台环境里常残留别的服务的口
+# （实测 SERVICE_PORT=4211 是 web-cursor 的），照它走会绑到别人的口上甚至直接起不来 —— 与 asset-hub 同款教训。
 PORT="${MARKETPLACE_PORT:-}"
 if [ -z "${PORT}" ] && [ -f "${ENV_FILE}" ]; then
   PORT="$(awk -F= '/^[[:space:]]*MARKETPLACE_PORT[[:space:]]*=/{gsub(/[[:space:]\"]/,"",$2); v=$2} END{print v}' "${ENV_FILE}" 2>/dev/null || true)"
 fi
-if [ -z "${PORT}" ]; then PORT="${SERVICE_PORT:-4250}"; fi
+if [ -z "${PORT}" ]; then PORT=4250; fi
+if [ -n "${SERVICE_PORT:-}" ] && [ "${SERVICE_PORT}" != "${PORT}" ]; then
+  warn "忽略继承来的 SERVICE_PORT=${SERVICE_PORT}（那是别的服务的），本服务固定用 ${PORT}"
+fi
 
 mkdir -p "${BACKEND_DIR}"
 if [ ! -f "${ENV_FILE}" ]; then

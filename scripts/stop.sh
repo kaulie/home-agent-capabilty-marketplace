@@ -6,7 +6,14 @@ DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SELF_RUNTIME_DIR="$(cd "${DIR}/.." && pwd)"
 RUNTIME_DIR="${SELF_RUNTIME_DIR}"
 PID_FILE="${RUNTIME_DIR}/backend/runtime.pid"
-PORT="${MARKETPLACE_PORT:-${SERVICE_PORT:-4250}}"
+PORT="${MARKETPLACE_PORT:-}"
+if [ -z "${PORT}" ]; then
+  env_file="${SELF_RUNTIME_DIR}/backend/.env"
+  if [ -f "${env_file}" ]; then
+    PORT="$(awk -F= '/^[[:space:]]*MARKETPLACE_PORT[[:space:]]*=/{gsub(/[[:space:]\"]/,"",$2); v=$2} END{print v}' "${env_file}" 2>/dev/null || true)"
+  fi
+fi
+if [ -z "${PORT}" ]; then PORT=4250; fi  # 契约口；刻意不读继承来的 SERVICE_PORT（那是别的服务的）
 log() { echo "[stop] $*"; }
 
 PIDS=()
