@@ -1,0 +1,36 @@
+name: catalog
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  self-check:
+    name: 目录自检 + UI 逻辑
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: UI 核心逻辑（查询/筛选/排序）
+        run: node --test tests/*.test.mjs
+      - name: 目录自洽（schema / 每页 md / 计数 / 账不平标记）
+        run: python3 tests/catalog-schema.test.py
+
+  drift:
+    name: 与 home-agent-os 代码对账（不阻塞）
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: clone home-agent-os（公开仓库）
+        run: git clone --depth 1 https://github.com/kaulie/home-agent-os /tmp/home-agent-os
+      - name: 代码改了但目录没更新？
+        run: |
+          python3 /tmp/home-agent-os/mac/scripts/export_capability_catalog.py --out . --check \
+            || echo "::warning::能力目录与 home-agent-os main 有漂移 —— 跑 scripts/sync.sh 更新（详见上一步输出）"

@@ -1,0 +1,75 @@
+# `vision.ask`
+
+Local Vision · 看图问答器
+
+kind=`action` · composition=`atomic` · group=`vision` · 声明=`是` · 在线=`是` · ℹ️ 实况与定义层不同（下列按实况）
+
+## 规划器怎么认它
+
+对着已经有的 Image Asset 问具体问题：照片里有几个人、电视画面在放什么。入参带用户原问句和 $asset_ref。自己不拍照；现场/电视画面要先拍再上传再问。不读小票上的字（那是 OCR），不编无图百科答案
+
+## 典型触发语
+
+- 照片里有几个人
+- 照片里
+- 图里有
+- 有几个人
+- 有没有人
+- 电视在放什么
+- 屏幕上是什么
+- 电视画面里是哪部剧
+- 屏幕上在放什么
+- 客厅在看什么电视
+
+## 不要派给它
+
+- 无图知识问答
+- 拍照本身
+- OCR
+- 原样读图上的字
+
+## 入参
+
+| 参数 | 类型 | 必填 | 说明 |
+|---|---|---|---|
+| `asset_ref` | string | 是 | AssetRef JSON {asset_id, type, mime_type?}。禁止 photo_url / path / 永久 URL。常为 $asset_ref。 |
+| `query` | string | 是 | 用户原话或完整问题，如「这个字读啥」「电视画面里是哪部剧」 |
+
+## 出参
+
+| 参数 | 类型 | 必填 | 说明 |
+|---|---|---|---|
+| `answer_text` | string | 是 | 针对图+问句的中文回答；不确定时直说我不知道 |
+
+## 谁提供
+
+| 设备 | edge_id | 服务 |
+|---|---|---|
+| 客厅 · Mac Edge | `edge-node-IAtuhLSy` | `local.vision` |
+
+## 服务声明
+
+- `local.vision`
+
+## 能力包
+
+- `plugins/vision-ask/`
+
+## 文档
+
+- [home-agent-os/plugins/vision-ask/capability.md](https://github.com/kaulie/home-agent-os/blob/main/plugins/vision-ask/capability.md)
+
+## 入口
+
+- mac: `mac/src/mac_edge/plugins/vision_ask.py`
+
+## 可用性
+
+- 执行前探测（checker）：无
+- 当前在线：是
+
+- 定义层来源：`ads`、`package:vision-ask`、`service:local.vision`
+
+---
+
+<sub>由 `mac/scripts/export_capability_catalog.py` 生成（home-agent-os `24d9217`），请勿手改。</sub>
