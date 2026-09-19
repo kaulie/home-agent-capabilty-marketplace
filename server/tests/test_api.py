@@ -9,7 +9,7 @@ import threading
 import unittest
 import urllib.error
 import urllib.request
-from http.server import ThreadingHTTPServer
+
 from pathlib import Path
 
 SERVER = Path(__file__).resolve().parents[1]
@@ -155,7 +155,7 @@ class SocketSmokeTest(unittest.TestCase):
         marketplace.STATE.static_dir = REPO
         marketplace._local.con = con
         cls.con = con
-        cls.httpd = ThreadingHTTPServer(("127.0.0.1", 0), marketplace.Handler)
+        cls.httpd = marketplace._Server(("127.0.0.1", 0), marketplace.Handler)
         cls.port = cls.httpd.server_address[1]
         cls.thread = threading.Thread(target=cls.httpd.serve_forever, daemon=True)
         cls.thread.start()
@@ -171,7 +171,10 @@ class SocketSmokeTest(unittest.TestCase):
             with urllib.request.urlopen(f"http://127.0.0.1:{self.port}{path}", timeout=5) as resp:
                 return int(resp.status), resp.read()
         except urllib.error.HTTPError as e:
-            return int(e.code), e.read()
+            try:
+                return int(e.code), e.read()
+            finally:
+                e.close()  # HTTPError 里挂着临时文件：不关会报 ResourceWarning
 
     def test_health_api_and_static(self) -> None:
         code, body = self._get("/health")

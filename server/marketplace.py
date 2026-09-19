@@ -280,6 +280,25 @@ class Handler(BaseHTTPRequestHandler):
         self._send(200, target.read_bytes(), MIME.get(target.suffix.lower(), "application/octet-stream"))
 
 
+class _Server(ThreadingHTTPServer):
+    """每连接一个线程；线程结束时**关掉它的 sqlite 连接**（否则解释器退出时报
+    `ResourceWarning: unclosed database`，日志里会刷一堆噪音）。"""
+
+    daemon_threads = True
+
+    def process_request_thread(self, request, client_address):  # pragma: no cover - 线程收尾
+        try:
+            super().process_request_thread(request, client_address)
+        finally:
+            con = getattr(_local, "con", None)
+            if con is not None:
+                try:
+                    con.close()
+                except Exception:  # noqa: BLE001 - 收尾不许抛
+                    pass
+                _local.con = None
+
+
 def serve(*, db_path: str, host: str, port: int, web_dir: Path, static_dir: Path) -> None:
     """起服务（阻塞）。DB 在建连时就初始化 schema（空库也能起来）。"""
     STATE.db_path = str(db_path)
@@ -287,7 +306,7 @@ def serve(*, db_path: str, host: str, port: int, web_dir: Path, static_dir: Path
     STATE.static_dir = Path(static_dir)
     conn().commit()  # 触发 schema 初始化 + 目录创建（早失败早发现）
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s %(message)s")
-    srv = ThreadingHTTPServer((host, int(port)), Handler)
+    srv = _Server((host, int(port)), Handler)
     log.info("marketplace listening on %s:%s db=%s sqlite=%s", host, port, db_path, sqlite3.sqlite_version)
     try:
         srv.serve_forever()
