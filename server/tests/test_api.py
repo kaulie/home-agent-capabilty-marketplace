@@ -29,7 +29,7 @@ class RouteTest(unittest.TestCase):
         db.import_catalog(con, CATALOG)
         con.commit()
         marketplace.STATE.db_path = str(con.execute("pragma database_list").fetchone()[2])
-        marketplace._local.con = con  # 让 route() 直接用这个测试库
+        marketplace._local.con = con
         self.con = con
         self.addCleanup(con.close)
 
@@ -39,39 +39,36 @@ class RouteTest(unittest.TestCase):
         self.assertEqual(status, 200, payload)
         return payload
 
-    def test_health_and_stats(self) -> None:
+    def test_health_and_stats_are_declaration_only(self) -> None:
         self.assertTrue(self.q("/health")["ok"])
         stats = self.q("/api/v1/stats")
         self.assertEqual(stats["service"], marketplace.SERVICE_NAME)
-        self.assertTrue(stats["schema_version"])
         self.assertGreater(stats["capabilities"], 50)
+        for gone in ("live", "declared_not_live", "live_not_declared"):
+            self.assertNotIn(gone, stats)
 
-    def test_capabilities_search_group_live(self) -> None:
+    def test_capabilities_search_and_declaration_filters(self) -> None:
         self.assertGreaterEqual(self.q("/api/v1/capabilities", q="电视")["total"], 1)
-        self.assertEqual(self.q("/api/v1/capabilities", group="display")["total"], 7)
-        ids = [c["capability_id"] for c in self.q("/api/v1/capabilities", live="live_not_declared")["capabilities"]]
-        self.assertEqual(sorted(ids), ["display.audio.control", "map.route.estimate", "xiaodu.control", "xiaodu.play"])
         self.assertGreaterEqual(self.q("/api/v1/capabilities", q="asset_ref")["total"], 1)
-        self.assertGreaterEqual(self.q("/api/v1/capabilities", edge="客厅 · Mac Edge")["total"], 40)
+        self.assertEqual(self.q("/api/v1/capabilities", group="display")["total"], 7)
+        self.assertGreaterEqual(self.q("/api/v1/capabilities", service="xiaomi.tv.display")["total"], 1)
+        self.assertGreaterEqual(self.q("/api/v1/capabilities", conditional="1")["total"], 1)
         facets = self.q("/api/v1/facets")
-        self.assertTrue(facets["groups"] and facets["kinds"] and facets["edges"])
+        self.assertTrue(facets["groups"] and facets["kinds"] and facets["services"])
+        self.assertNotIn("edges", facets)
 
     def test_capability_detail_and_patch(self) -> None:
         detail = self.q("/api/v1/capabilities/display.audio")["capability"]
         self.assertEqual(detail["capability_id"], "display.audio")
-        self.assertTrue(detail["declared_by"])
+        self.assertEqual(detail["declared_by"], ["xiaomi.tv.display"])
         self.assertIn("events", detail)
         status, payload = marketplace.route(
             "PATCH", "/api/v1/capabilities/display.audio", {}, {"status": "active", "tags": "投屏,音频", "notes": "ok"}
         )
         self.assertEqual(status, 200)
-        cap = payload["capability"]
-        self.assertEqual(cap["tags"], ["投屏", "音频"])
-        self.assertEqual(cap["notes"], "ok")
-        status, _ = marketplace.route("PATCH", "/api/v1/capabilities/display.audio", {}, {"status": "nope"})
-        self.assertEqual(status, 400)
-        status, _ = marketplace.route("GET", "/api/v1/capabilities/nope.none", {}, None)
-        self.assertEqual(status, 404)
+        self.assertEqual(payload["capability"]["tags"], ["投屏", "音频"])
+        self.assertEqual(marketplace.route("PATCH", "/api/v1/capabilities/display.audio", {}, {"status": "nope"})[0], 400)
+        self.assertEqual(marketplace.route("GET", "/api/v1/capabilities/nope.none", {}, None)[0], 404)
 
     def test_import_endpoint(self) -> None:
         status, payload = marketplace.route("POST", "/api/v1/catalog:import", {}, {"catalog": CATALOG, "note": "test"})
@@ -83,8 +80,65 @@ class RouteTest(unittest.TestCase):
     def test_services_imports_events_export(self) -> None:
         self.assertTrue(self.q("/api/v1/services")["services"])
         self.assertTrue(self.q("/api/v1/imports", limit=5)["imports"])
-        self.assertEqual(self.q("/api/v1/export")["schema"], "home-agent.capability-catalog/v1")
+        exported = self.q("/api/v1/export")
+        self.assertEqual(exported["schema"], "home-agent.capability-catalog/v1")
         self.assertTrue(self.q("/api/v1/events", capability_id="display.audio", limit=5)["ok"])
+
+
+    def test_patch_description_and_keywords(self) -> None:
+        status, payload = marketplace.route(
+            "PATCH",
+            "/api/v1/capabilities/display.audio",
+            {},
+            {"description": "给电视放音频", "keywords": "投屏，电视"},
+        )
+        self.assertEqual(status, 200, payload)
+        self.assertEqual(payload["capability"]["keywords"], ["投屏", "电视"])
+        self.assertEqual(payload["capability"]["description"], "给电视放音频")
+        # 打错字段名要立刻报错，而不是静默无效
+        code, payload = marketplace.route("PATCH", "/api/v1/capabilities/display.audio", {}, {"descriptoin": "typo"})
+        self.assertEqual(code, 400)
+        self.assertIn("descriptoin", payload["error"])
+
+    def test_keyword_and_described_filters(self) -> None:
+        self.q(
+            "/api/v1/capabilities/display.audio",
+        ) if False else None
+        marketplace.route(
+            "PATCH", "/api/v1/capabilities/display.audio", {}, {"description": "给电视放音频", "keywords": "投屏,电视"}
+        )
+        self.assertEqual(self.q("/api/v1/capabilities", keyword="电视")["total"], 1)
+        self.assertGreaterEqual(self.q("/api/v1/capabilities", described="1")["total"], 1)
+        self.assertEqual(self.q("/api/v1/capabilities", q="给电视放音频")["total"], 1)
+        facets = self.q("/api/v1/facets")
+        self.assertIn("电视", [k["name"] for k in facets["keywords"]])
+
+
+    def test_hosts_endpoints_and_host_filter(self) -> None:
+        hosts = self.q("/api/v1/hosts")
+        self.assertTrue(hosts["hosts"])
+        by_id = {h["host_id"]: h for h in hosts["hosts"]}
+        self.assertIn("mac", by_id)
+        # 宿主元数据可改
+        code, payload = marketplace.route("PATCH", "/api/v1/hosts/mac", {}, {"display_name": "客厅 Mac Edge", "status": "active"})
+        self.assertEqual(code, 200, payload)
+        self.assertEqual(payload["host"]["display_name"], "客厅 Mac Edge")
+        self.assertEqual(payload["host"]["curated"], True)
+        self.assertEqual(marketplace.route("PATCH", "/api/v1/hosts/mac", {}, {"typo": 1})[0], 400)
+        self.assertEqual(marketplace.route("PATCH", "/api/v1/hosts/nope", {}, {"notes": "x"})[0], 404)
+        self.assertEqual(marketplace.route("GET", "/api/v1/hosts/mac", {}, None)[0], 405)
+        # 能力侧：按宿主筛 + 人工设置宿主
+        self.assertGreaterEqual(self.q("/api/v1/capabilities", host="mac")["total"], 1)
+        code, payload = marketplace.route(
+            "PATCH", "/api/v1/capabilities/display.audio", {}, {"hosts": "mac, brain"}
+        )
+        self.assertEqual(code, 200, payload)
+        self.assertEqual(payload["capability"]["hosts"], ["brain", "mac"])
+        self.assertEqual(payload["capability"]["hosts_source"], "curated")
+        self.assertIn("brain", [h["host_id"] for h in self.q("/api/v1/hosts")["hosts"]])
+        self.assertGreaterEqual(self.q("/api/v1/capabilities", host="brain")["total"], 1)
+        facets = self.q("/api/v1/facets")
+        self.assertIn("mac", [h["name"] for h in facets["hosts"]])
 
 
 class SocketSmokeTest(unittest.TestCase):
@@ -112,7 +166,7 @@ class SocketSmokeTest(unittest.TestCase):
         cls.httpd.server_close()
         cls.con.close()
 
-    def _get(self, path: str) -> tuple[int, bytes]:
+    def _get(self, path: str):
         try:
             with urllib.request.urlopen(f"http://127.0.0.1:{self.port}{path}", timeout=5) as resp:
                 return int(resp.status), resp.read()
@@ -125,16 +179,13 @@ class SocketSmokeTest(unittest.TestCase):
         self.assertTrue(json.loads(body)["ok"])
         code, body = self._get("/api/v1/capabilities?q=%E7%94%B5%E8%A7%86&limit=5")
         self.assertEqual(code, 200)
-        payload = json.loads(body)
-        self.assertTrue(payload["ok"] and payload["count"] >= 1)
+        self.assertTrue(json.loads(body)["count"] >= 1)
         code, body = self._get("/web/index.html")
         self.assertEqual(code, 200)
         self.assertIn(b"<html", body.lower())
-        code, _ = self._get("/capabilities/display.audio.md")
-        self.assertEqual(code, 200)
+        self.assertEqual(self._get("/capabilities/display.audio.md")[0], 200)
         self.assertEqual(self._get("/api/v1/capabilities/nope")[0], 404)
 
 
 if __name__ == "__main__":
     unittest.main()
-

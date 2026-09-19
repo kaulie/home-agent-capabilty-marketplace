@@ -87,7 +87,7 @@ def main(argv: list[str] | None = None) -> int:
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         s = catalog["summary"]
-        print(f"[export] {out} 能力 {s['capabilities']}（在线 {s['live']} / 注解过 {s['annotated']}）")
+        print(f"[export] {out} 能力 {s['capabilities']}（有服务归属 {s['with_service']} / 条件挂载 {s['conditional']} / 已策展 {s['annotated']}）")
         return 0
 
     if args.cmd == "stats":

@@ -1,5 +1,6 @@
 /**
  * catalog-core：目录的纯逻辑（无 DOM）—— 搜索 / 筛选 / 排序 / 高亮。
+ * 集市只登记**声明**（谁声明、参数、触发语、条件挂载），不含实时状态。
  * 拆出来是为了能用 `node --test` 测：查询与过滤是这页的核心行为。
  * 浏览器挂到 globalThis.HACore；Node 里可 require。
  */
@@ -34,10 +35,12 @@
       (v.do_not_dispatch || []).join(' '),
       (v.decomposes_to || []).join(' '),
       (cap.declared_by || []).join(' '),
-      (cap.declared_lists || []).join(' '),
+      (cap.conditional_lists || []).join(' '),
       (cap.packages || []).join(' '),
       (cap.config_keys || []).join(' '),
-      (v.providers || []).map((p) => (p.edge_name || '') + ' ' + (p.service_id || '')).join(' '),
+      (cap.hosts_effective || []).join(' '),
+      cap.description,
+      (cap.keywords || []).join(' '),
       schemaText(v.input_schema),
       schemaText(v.output_schema),
     ];
@@ -52,20 +55,19 @@
     return q.split(/\s+/).every((token) => blob.includes(token));
   }
 
-  /** 状态：all / live / declared_not_live / live_not_declared / checker / no_docs */
+  /** 声明特征（静态）：all / conditional 条件声明 / preflight 执行前自检 / composite 组合能力 / unowned 无服务归属 / no_docs 缺文档 */
   function matchesStatus(cap, status) {
-    const r = cap.reconcile || {};
     switch (status) {
-      case 'live':
-        return !!cap.in_live;
-      case 'declared_not_live':
-        return !!r.declared_not_live;
-      case 'live_not_declared':
-        return !!r.live_not_declared;
-      case 'checker':
-        return !!(cap.availability && cap.availability.has_checker);
+      case 'conditional':
+        return !!(cap.conditional_lists || []).length;
+      case 'preflight':
+        return !!(cap.has_preflight || cap.has_checker);
+      case 'composite':
+        return cap.composition === 'composite';
+      case 'unowned':
+        return !(cap.declared_by || []).length;
       case 'no_docs':
-        return !(cap.docs || []).length;
+        return !(cap.docs || cap.declaration && cap.declaration.docs || []).length;
       default:
         return true;
     }
@@ -74,9 +76,13 @@
   const kindOf = (cap, view) => (view && view.kind) || cap.kind || '';
   const groupOf = (cap, view) => (view && view.group) || cap.group || '(未分类)';
 
-  function providerNames(cap, view) {
-    const src = (view && view.providers) || (cap.live || {}).providers || [];
-    return Array.from(new Set(src.map((p) => p.edge_name || p.edge_id).filter(Boolean))).sort();
+  /** 谁声明了这个能力（服务/能力包）—— 静态归属，不是在线设备。 */
+  function serviceNames(cap) {
+    const decl = cap.declaration || {};
+    const src = (cap.declared_by || decl.declared_by || []).concat(
+      (cap.packages || decl.packages || []).map((p) => 'plugins/' + p)
+    );
+    return Array.from(new Set(src.filter(Boolean))).sort();
   }
 
   const cmp = (a, b) => (String(a) < String(b) ? -1 : String(a) > String(b) ? 1 : 0);
@@ -92,7 +98,6 @@
     if (id.includes(q)) s += 20;
     if (name.includes(q)) s += 10;
     if (role.includes(q)) s += 6;
-    if (row.cap.in_live) s += 3;
     return s;
   }
 
@@ -105,7 +110,10 @@
       const view = viewOf(cap);
       if (o.group && groupOf(cap, view) !== o.group) continue;
       if (o.kind && kindOf(cap, view) !== o.kind) continue;
-      if (o.provider && !providerNames(cap, view).includes(o.provider)) continue;
+      if (o.service && !serviceNames(cap).includes(o.service)) continue;
+      if (o.keyword && !(cap.keywords || []).includes(o.keyword)) continue;
+      if (o.host && !(cap.hosts_effective || []).includes(o.host)) continue;
+      if (o.described && !String(cap.description || '').trim()) continue;
       if (!matchesStatus(cap, o.status || 'all')) continue;
       if (!matchesQuery(cap, view, o.query)) continue;
       out.push({ cap, view });
@@ -120,9 +128,9 @@
       copy.sort(
         (a, b) => cmp(groupOf(a.cap, a.view), groupOf(b.cap, b.view)) || cmp(a.cap.capability_id, b.cap.capability_id)
       );
-    } else if (s === 'live') {
+    } else if (s === 'updated') {
       copy.sort(
-        (a, b) => Number(!!b.cap.in_live) - Number(!!a.cap.in_live) || cmp(a.cap.capability_id, b.cap.capability_id)
+        (a, b) => cmp(b.cap.updated_at || '', a.cap.updated_at || '') || cmp(a.cap.capability_id, b.cap.capability_id)
       );
     } else if (s === 'relevance' && (query || '').trim()) {
       const q = query.trim().toLowerCase();
@@ -139,18 +147,28 @@
   function facets(caps, viewOf) {
     const groups = new Map();
     const kinds = new Map();
-    const providers = new Map();
+    const services = new Map();
+    const kws = new Map();
+    const hosts = new Map();
     for (const cap of caps) {
       const view = viewOf(cap);
       inc(groups, groupOf(cap, view));
       inc(kinds, kindOf(cap, view) || '(未标注)');
-      for (const name of providerNames(cap, view)) inc(providers, name);
+      for (const name of serviceNames(cap)) inc(services, name);
+      for (const k of cap.keywords || []) inc(kws, k);
+      for (const h of cap.hosts_effective || []) inc(hosts, h);
     }
     const toList = (m) =>
       Array.from(m.entries())
         .sort((a, b) => b[1] - a[1] || cmp(a[0], b[0]))
         .map(([name, count]) => ({ name, count }));
-    return { groups: toList(groups), kinds: toList(kinds), providers: toList(providers) };
+    return {
+      groups: toList(groups),
+      kinds: toList(kinds),
+      services: toList(services),
+      keywords: toList(kws),
+      hosts: toList(hosts),
+    };
   }
 
   /** 命中高亮：返回 [{text, hit}]，调用方负责转义/包裹。 */
@@ -200,7 +218,7 @@
     highlight,
     groupOf,
     kindOf,
-    providerNames,
+    serviceNames,
   };
 });
 

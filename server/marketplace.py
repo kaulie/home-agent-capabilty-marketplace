@@ -1,13 +1,15 @@
 """marketplace.py：能力集市的 HTTP 服务（Python 标准库，无第三方依赖）。
 
 职责：
-- **API**（数据源是 SQLite，不读生成好的 JSON）：
+- **API**（数据源是 SQLite，不读生成好的 JSON；**只登记声明**，不含实时状态）：
     GET  /health
     GET  /api/v1/stats
-    GET  /api/v1/capabilities?q=&group=&kind=&edge=&status=&tag=&owner=&live=&has_checker=&sort=&limit=&offset=
-    GET  /api/v1/capabilities/{id}
-    PATCH /api/v1/capabilities/{id}     改集市自有字段（status/owner/tags/notes）
+    GET  /api/v1/capabilities?q=&group=&kind=&status=&tag=&owner=&service=&keyword=&host=&described=&conditional=&preflight=&documented=&sort=&limit=&offset=
+    GET  /api/v1/capabilities/{id}      详情（声明/归属/能力包/策展/维护历史）
+    PATCH /api/v1/capabilities/{id}     改集市自有字段（status/owner/tags/notes/description/keywords/hosts）
     GET  /api/v1/facets
+    GET  /api/v1/hosts                       宿主注册表（适用宿主 + 用量）
+    PATCH /api/v1/hosts/{host_id}            改宿主展示元数据（display_name/kind/notes/status）
     GET  /api/v1/services
     GET  /api/v1/imports?limit=
     GET  /api/v1/events?capability_id=&limit=
@@ -115,6 +117,24 @@ def route(
                 "select capability_id from service_capabilities where service_id=? order by capability_id",
                 (row["service_id"],))]
         return 200, {"ok": True, "count": len(rows), "services": rows}
+    if path == "/api/v1/hosts":
+        items = db.list_hosts(con)
+        return 200, {"ok": True, "count": len(items), "hosts": items}
+    if path.startswith("/api/v1/hosts/"):
+        host_id = unquote(path[len("/api/v1/hosts/"):]).strip()
+        if method != "PATCH":
+            return 405, {"ok": False, "error": "PATCH only"}
+        if not isinstance(body, dict):
+            return 400, {"ok": False, "error": "body 必须是 JSON 对象"}
+        allowed = ("display_name", "kind", "notes", "status")
+        unknown = sorted(k for k in body if k not in allowed and not k.startswith("_"))
+        if unknown:
+            return 400, {"ok": False, "error": f"只能改 {list(allowed)}；不认识：{unknown}"}
+        try:
+            host = db.annotate_host(con, host_id, body, actor=str(body.get("_actor") or "api"))
+        except ValueError as e:
+            return 400, {"ok": False, "error": str(e)}
+        return (200, {"ok": True, "host": host}) if host else (404, {"ok": False, "error": "not found"})
     if path == "/api/v1/imports":
         items = db.list_imports(con, limit=_int(one("limit", "20"), 20))
         return 200, {"ok": True, "count": len(items), "imports": items}
@@ -137,9 +157,12 @@ def route(
     if path == "/api/v1/capabilities":
         result = db.list_capabilities(
             con,
-            q=one("q"), group=one("group"), kind=one("kind"), edge=one("edge"), status=one("status"),
-            tag=one("tag"), owner=one("owner"), live=one("live"),
-            has_checker=one("has_checker"), sort=one("sort"),
+            q=one("q"), group=one("group"), kind=one("kind"), status=one("status"),
+            tag=one("tag"), owner=one("owner"), service=one("service"), keyword=one("keyword"),
+            host=one("host"),
+            described=one("described"), conditional=one("conditional"), preflight=one("preflight"),
+            documented=one("documented"),
+            sort=one("sort"),
             limit=_int(one("limit", "500"), 500), offset=_int(one("offset", "0"), 0),
             in_catalog=(one("in_catalog", "1") not in ("0", "false")),
         )
@@ -154,6 +177,12 @@ def route(
         if method == "PATCH":
             if not isinstance(body, dict):
                 return 400, {"ok": False, "error": "body 必须是 JSON 对象"}
+            unknown = sorted(k for k in body if k not in db.MARKETPLACE_FIELDS and not k.startswith("_"))
+            if unknown:
+                return 400, {
+                    "ok": False,
+                    "error": f"只能改集市字段 {list(db.MARKETPLACE_FIELDS)}；不认识：{unknown}",
+                }
             try:
                 cap = db.annotate(con, cid, body, actor=str(body.get("_actor") or "api"))
             except ValueError as e:
