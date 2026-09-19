@@ -63,8 +63,23 @@ def _parse_args(argv: list[str] | None) -> argparse.Namespace:
 
 def main(argv: list[str] | None = None) -> int:
     args = _parse_args(argv)
-    con = db.connect(args.db)
 
+    if args.cmd == "serve":
+        import marketplace  # noqa: PLC0415  （只有起服务时才需要）
+
+        marketplace.serve(
+            db_path=args.db, host=args.host, port=args.port, web_dir=Path(args.web), static_dir=Path(args.static)
+        )
+        return 0
+
+    con = db.connect(args.db)
+    try:
+        return _dispatch(args, con)
+    finally:
+        con.close()  # 一次性命令用完就关：否则解释器退出时报 ResourceWarning: unclosed database
+
+
+def _dispatch(args: argparse.Namespace, con: "db.sqlite3.Connection") -> int:
     if args.cmd == "import":
         raw = sys.stdin.read() if args.file == "-" else Path(args.file).read_text(encoding="utf-8")
         catalog = json.loads(raw)
@@ -112,14 +127,6 @@ def main(argv: list[str] | None = None) -> int:
         print(
             f"[annotate] {cap['capability_id']} status={cap['status']} owner={cap['owner']} "
             f"tags={cap['tags']} reviewed_at={cap['reviewed_at']}"
-        )
-        return 0
-
-    if args.cmd == "serve":
-        import marketplace  # noqa: PLC0415  （只有起服务时才需要）
-
-        marketplace.serve(
-            db_path=args.db, host=args.host, port=args.port, web_dir=Path(args.web), static_dir=Path(args.static)
         )
         return 0
 
