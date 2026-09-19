@@ -41,10 +41,13 @@ def main() -> int:
         check(bool(cap.get("composition")), f"{cid}: 缺 composition")
         check(bool(cap.get("group")), f"{cid}: 缺 group（UI 分组会漏）")
         check("definition" in cap, f"{cid}: 缺 definition 层")
-        check("providers" not in cap, f"{cid}: providers 应在 live 层，不该在顶层")
+        # 集市字段（DB 拥有的那几列）必须在导出里可见 —— 否则静态 UI 看不到「谁维护过」
+        for market_field in ("status", "owner", "tags", "notes", "in_catalog"):
+            check(market_field in cap, f"{cid}: 缺集市字段 {market_field}")
         rec = cap.get("reconcile") or {}
         check(
-            rec.get("declared_not_live") == bool((cap.get("in_ads") or cap.get("declared_by") or cap.get("declared_lists")) and not cap.get("in_live")),
+            rec.get("declared_not_live")
+            == bool((cap.get("in_ads") or cap.get("declared_by") or cap.get("declared_lists")) and not cap.get("in_live")),
             f"{cid}: declared_not_live 标记与 in_ads/in_live 不自洽",
         )
         check(rec.get("live_not_declared") == bool(cap.get("in_live") and not cap.get("in_ads")), f"{cid}: live_not_declared 不自洽")
@@ -73,7 +76,16 @@ def main() -> int:
     check(pages == {c["capability_id"] for c in caps}, "capabilities/*.md 与能力集合不一致")
 
     # UI 的必需资源在
-    for rel in ("index.html", "assets/app.js", "assets/catalog-core.js", "assets/styles.css", "catalog/capabilities.md"):
+    for rel in (
+        "index.html",
+        "web/index.html",
+        "web/assets/app.js",
+        "web/assets/catalog-core.js",
+        "web/assets/styles.css",
+        "catalog/capabilities.md",
+        "server/marketplace.py",
+        "server/catalog_cli.py",
+    ):
         check((ROOT / rel).is_file(), f"缺少 {rel}")
 
     if FAILURES:

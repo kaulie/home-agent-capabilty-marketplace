@@ -4,7 +4,7 @@ import { test } from 'node:test';
 import { createRequire } from 'node:module';
 
 const require = createRequire(import.meta.url);
-const core = require('../assets/catalog-core.js');
+const core = require('../web/assets/catalog-core.js');
 
 const viewOf = (cap) => ({ ...(cap.definition || {}), ...(cap.live || {}), providers: (cap.live || {}).providers || [] });
 

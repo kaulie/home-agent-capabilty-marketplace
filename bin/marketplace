@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# 能力集市服务启动器（运维/平台方便：bin/marketplace serve --port 4250）。
+# 真正的实现是 server/catalog_cli.py serve（同一套代码）。
+set -euo pipefail
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+exec python3 "${HERE}/../server/catalog_cli.py" "$@"
