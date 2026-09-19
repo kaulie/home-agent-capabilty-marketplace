@@ -632,10 +632,22 @@ def facets(con: sqlite3.Connection, *, in_catalog: bool = True) -> dict[str, Any
 def stats(con: sqlite3.Connection) -> dict[str, Any]:
     one = lambda sql, p=(): con.execute(sql, p).fetchone()[0]  # noqa: E731
     last = con.execute("select * from imports order by import_id desc limit 1").fetchone()
+    exists_live = "exists (select 1 from live l where l.capability_id = c.capability_id)"
+    declared = (
+        "(c.in_ads = 1 or exists (select 1 from declared_lists d where d.capability_id = c.capability_id) "
+        "or exists (select 1 from service_capabilities s where s.capability_id = c.capability_id))"
+    )
     return {
         "capabilities": one("select count(*) from capabilities where in_catalog = 1"),
         "not_in_catalog": one("select count(*) from capabilities where in_catalog = 0"),
         "live": one("select count(distinct capability_id) from live"),
+        # 界面首页那两个「账不平」格子就吃这两个数（与导出/UI 的定义一致）
+        "declared_not_live": one(
+            f"select count(*) from capabilities c where c.in_catalog = 1 and not {exists_live} and {declared}"
+        ),
+        "live_not_declared": one(
+            f"select count(*) from capabilities c where c.in_catalog = 1 and c.in_ads = 0 and {exists_live}"
+        ),
         "services": one("select count(*) from services"),
         "packages": one("select count(*) from packages"),
         "declared_lists": one("select count(distinct capability_id) from declared_lists"),
