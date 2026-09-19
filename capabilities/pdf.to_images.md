@@ -2,7 +2,7 @@
 
 PDF 页面渲染器 · PDF 页面渲染器
 
-kind=`action` · composition=`atomic` · group=`convert` · 声明=`是` · 在线=`是` · ℹ️ 实况与定义层不同（下列按实况）
+kind=`action` · composition=`atomic` · group=`convert` · 声明=`是` · 执行前自检=`无`
 
 ## 规划器怎么认它
 
@@ -10,20 +10,20 @@ kind=`action` · composition=`atomic` · group=`convert` · 声明=`是` · 在�
 
 ## 典型触发语
 
-- 把这个 PDF 每页转成图片
 - PDF 转图片
-- 把这份 PDF 拆成一页一页的图
 - 把 PDF 第 3 到 5 页转成图
+- 把这个 PDF 每页转成图片
+- 把这份 PDF 拆成一页一页的图
 
 ## 不要派给它
 
-- 打印
 - OCR
-- 看图理解
-- 投屏翻页
 - PDF 旋转
 - 图片合成 PDF
+- 打印
+- 投屏翻页
 - 拍照
+- 看图理解
 
 ## 入参
 
@@ -44,11 +44,9 @@ kind=`action` · composition=`atomic` · group=`convert` · 声明=`是` · 在�
 | `rendered_pages` | number | 是 | 本次实际渲染页数 |
 | `status_text` | string | 是 | 中文一句话结果，含页范围、页数与 DPI |
 
-## 谁提供
+## 适用宿主（代码事实）
 
-| 设备 | edge_id | 服务 |
-|---|---|---|
-| 客厅 · Mac Edge | `edge-node-IAtuhLSy` | `local.pdf.images` |
+- `mac`
 
 ## 服务声明
 
@@ -70,10 +68,6 @@ kind=`action` · composition=`atomic` · group=`convert` · 声明=`是` · 在�
 
 - `MAC_EDGE_PDF_DISPLAY_DPI`
 
-## 可用性
-
-- 执行前探测（checker）：无
-- 当前在线：是
 
 - 定义层来源：`ads`、`package:pdf-to-images`、`service:local.pdf.images`
 

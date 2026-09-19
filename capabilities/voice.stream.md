@@ -2,7 +2,7 @@
 
 Local Voice Stream · 常驻语音流入口
 
-kind=`input` · composition=`atomic` · group=`voice` · 声明=`是` · 在线=`是`
+kind=`input` · composition=`atomic` · group=`voice` · 声明=`是` · 执行前自检=`无`
 
 ## 规划器怎么认它
 
@@ -16,9 +16,9 @@ kind=`input` · composition=`atomic` · group=`voice` · 声明=`是` · 在线=
 ## 不要派给它
 
 - 作为计划逐步执行
-- 知识问答
-- 控制设备
 - 投屏
+- 控制设备
+- 知识问答
 
 ## 入参
 
@@ -30,11 +30,9 @@ kind=`input` · composition=`atomic` · group=`voice` · 声明=`是` · 在线=
 |---|---|---|---|
 | `transcript` | string | 否 | 最近一次转写（观测用；常驻入口不经计划逐步产出） |
 
-## 谁提供
+## 适用宿主（代码事实）
 
-| 设备 | edge_id | 服务 |
-|---|---|---|
-| 客厅 · Mac Edge | `edge-node-IAtuhLSy` | `local.voice` |
+- `mac`
 
 ## 服务声明
 
@@ -52,10 +50,6 @@ kind=`input` · composition=`atomic` · group=`voice` · 声明=`是` · 在线=
 
 - mac: `mac/src/mac_edge/plugins/voice_stream.py`
 
-## 可用性
-
-- 执行前探测（checker）：无
-- 当前在线：是
 
 - 定义层来源：`ads`、`package:voice-stream`、`service:local.voice`
 

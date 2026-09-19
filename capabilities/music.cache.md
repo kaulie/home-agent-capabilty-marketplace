@@ -1,8 +1,8 @@
 # `music.cache`
 
-网易云音乐 · 音乐索引预取器
+音乐索引预取器
 
-kind=`action` · composition=`atomic` · group=`music` · 声明=`是` · 在线=`是` · ℹ️ 实况与定义层不同（下列按实况）
+kind=`action` · composition=`atomic` · group=`-` · 声明=`是` · 执行前自检=`有`
 
 ## 规划器怎么认它
 
@@ -11,16 +11,16 @@ kind=`action` · composition=`atomic` · group=`music` · 声明=`是` · 在线
 ## 典型触发语
 
 - 下载刘德华的歌
-- 缓存歌曲冰雨
 - 下载刘德华的歌50首
+- 缓存歌曲冰雨
 
 ## 不要派给它
 
+- TTS
+- 下载音频文件
 - 开始播放
 - 暂停
-- TTS
 - 蓝牙连接
-- 下载音频文件
 
 ## 入参
 
@@ -37,20 +37,10 @@ kind=`action` · composition=`atomic` · group=`music` · 声明=`是` · 在线
 |---|---|---|---|
 | `cached` | number | 否 | 本次写入索引的歌曲数 |
 
-## 谁提供
-
-| 设备 | edge_id | 服务 |
-|---|---|---|
-| 客厅 · Mac Edge | `edge-node-IAtuhLSy` | `netease.music` |
-
 ## 服务声明
 
 - `netease.music`
 
-## 可用性
-
-- 执行前探测（checker）：有
-- 当前在线：是
 
 - 定义层来源：`ads`、`service:netease.music`
 

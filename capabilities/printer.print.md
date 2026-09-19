@@ -2,7 +2,7 @@
 
 米家喷墨一体机 · 文档打印机
 
-kind=`output` · composition=`atomic` · group=`printer` · 声明=`是` · 在线=`是` · ℹ️ 实况与定义层不同（下列按实况）
+kind=`output` · composition=`atomic` · group=`printer` · 声明=`是` · 执行前自检=`无`
 
 ## 规划器怎么认它
 
@@ -10,20 +10,20 @@ kind=`output` · composition=`atomic` · group=`printer` · 声明=`是` · 在�
 
 ## 典型触发语
 
-- 打印这份 PDF
-- 把文档打出来
+- 彩色打印
 - 打印一下
 - 打印这个文件
-- 彩色打印
+- 打印这份 PDF
+- 把文档打出来
 
 ## 不要派给它
 
-- 配网
+- TTS
 - 切 SoftAP
 - 扫描
 - 投屏
-- TTS
 - 知识问答
+- 配网
 
 ## 入参
 
@@ -43,11 +43,9 @@ kind=`output` · composition=`atomic` · group=`printer` · 声明=`是` · 在�
 | `printer_name` | string | 是 | 实际使用的 CUPS 队列名 |
 | `status_text` | string | 是 | 人类可读状态，如「已提交打印到 …」 |
 
-## 谁提供
+## 适用宿主（代码事实）
 
-| 设备 | edge_id | 服务 |
-|---|---|---|
-| 客厅 · Mac Edge | `edge-node-IAtuhLSy` | `local.printer` |
+- `mac`
 
 ## 服务声明
 
@@ -69,10 +67,6 @@ kind=`output` · composition=`atomic` · group=`printer` · 声明=`是` · 在�
 
 - `MAC_EDGE_PRINTER_NAME`
 
-## 可用性
-
-- 执行前探测（checker）：无
-- 当前在线：是
 
 - 定义层来源：`ads`、`package:xiaomi-aio-printer`、`service:local.printer`
 

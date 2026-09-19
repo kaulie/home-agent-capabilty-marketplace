@@ -2,7 +2,7 @@
 
 Local Query · 文本知识与推理回答器
 
-kind=`action` · composition=`atomic` · group=`query` · 声明=`是` · 在线=`是` · ℹ️ 实况与定义层不同（下列按实况）
+kind=`action` · composition=`atomic` · group=`query` · 声明=`是` · 执行前自检=`无`
 
 ## 规划器怎么认它
 
@@ -11,37 +11,37 @@ kind=`action` · composition=`atomic` · group=`query` · 声明=`是` · 在线
 ## 典型触发语
 
 - 为什么天是蓝的
-- 这道应用题怎么解
 - 帮我解释一下
-- 画一只猫
-- 生成一张示意图
 - 来张战斗机的图片
+- 生成一张示意图
+- 画一只猫
+- 这道应用题怎么解
 
 ## 不要派给它
 
-- 报时
-- 现在几点了
+- OCR
+- Openverse检索
 - 今天几号
-- 墙上几点
-- 看图
-- 拍照
-- 投屏
-- 把这张图投到电视
-- 控制设备
-- 资产盘点
-- 你可以做什么
-- 能力介绍
 - 你会什么
-- 闲聊问候
-- 你可以控制
 - 你会开
+- 你可以做什么
+- 你可以控制
+- 墙上几点
+- 必应检索
+- 找真实照片
+- 把这张图投到电视
+- 投屏
+- 报时
+- 拍照
+- 控制设备
 - 搜网上实拍图
 - 文搜图
-- 找真实照片
-- Openverse检索
-- 必应检索
-- OCR
+- 现在几点了
+- 看图
+- 能力介绍
 - 读图上的字
+- 资产盘点
+- 闲聊问候
 
 ## 入参
 
@@ -59,11 +59,9 @@ kind=`action` · composition=`atomic` · group=`query` · 声明=`是` · 在线
 | `asset_ref` | string | 否 | 仅生图成功时的 AssetRef JSON {asset_id, type, mime_type?}。禁止 photo_url / path / 永久 URL。 |
 | `citations` | string | 否 | 来源 JSON 数组；拒答时为 [] |
 
-## 谁提供
+## 适用宿主（代码事实）
 
-| 设备 | edge_id | 服务 |
-|---|---|---|
-| 客厅 · Mac Edge | `edge-node-IAtuhLSy` | `local.query` |
+- `mac`
 
 ## 服务声明
 
@@ -81,10 +79,6 @@ kind=`action` · composition=`atomic` · group=`query` · 声明=`是` · 在线
 
 - mac: `mac/src/mac_edge/plugins/query_content.py`
 
-## 可用性
-
-- 执行前探测（checker）：无
-- 当前在线：是
 
 - 定义层来源：`ads`、`package:query-content`、`service:local.query`
 

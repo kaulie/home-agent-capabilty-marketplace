@@ -2,7 +2,7 @@
 
 文件格式转换器 · 文件格式转换器
 
-kind=`action` · composition=`atomic` · group=`convert` · 声明=`是` · 在线=`是` · ℹ️ 实况与定义层不同（下列按实况）
+kind=`action` · composition=`atomic` · group=`convert` · 声明=`是` · 执行前自检=`无`
 
 ## 规划器怎么认它
 
@@ -10,22 +10,22 @@ kind=`action` · composition=`atomic` · group=`convert` · 声明=`是` · 在�
 
 ## 典型触发语
 
-- 把这几张图转成 PDF
-- 图片转 PDF
 - 合成一个 PDF
+- 图片转 PDF
+- 把扫描件导成 PDF
+- 把这几张图转成 PDF
 - 把这几张照片合并成 PDF
 - 转成 PDF 文件
-- 把扫描件导成 PDF
 
 ## 不要派给它
 
-- 打印
 - OCR
-- 看图理解
+- 图片上传本身
+- 打印
 - 投屏
 - 拍照
-- 图片上传本身
 - 文字识别
+- 看图理解
 
 ## 入参
 
@@ -44,11 +44,9 @@ kind=`action` · composition=`atomic` · group=`convert` · 声明=`是` · 在�
 | `page_count` | number | 是 | PDF 页数（= 图片数） |
 | `status_text` | string | 是 | 中文一句话结果，含页数与 asset_id |
 
-## 谁提供
+## 适用宿主（代码事实）
 
-| 设备 | edge_id | 服务 |
-|---|---|---|
-| 客厅 · Mac Edge | `edge-node-IAtuhLSy` | `local.file.convert` |
+- `mac`
 
 ## 服务声明
 
@@ -66,10 +64,6 @@ kind=`action` · composition=`atomic` · group=`convert` · 声明=`是` · 在�
 
 - mac: `mac/src/mac_edge/plugins/file_convert.py`
 
-## 可用性
-
-- 执行前探测（checker）：无
-- 当前在线：是
 
 - 定义层来源：`ads`、`package:file-convert`、`service:local.file.convert`
 

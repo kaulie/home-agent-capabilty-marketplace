@@ -1,8 +1,8 @@
 # `asset.upload`
 
-Local Asset · Asset 上传器
+Asset 上传器
 
-kind=`action` · composition=`atomic` · group=`asset` · 声明=`是` · 在线=`是` · ℹ️ 实况与定义层不同（下列按实况）
+kind=`action` · composition=`atomic` · group=`-` · 声明=`是` · 执行前自检=`无`
 
 ## 规划器怎么认它
 
@@ -10,19 +10,19 @@ kind=`action` · composition=`atomic` · group=`asset` · 声明=`是` · 在线
 
 ## 典型触发语
 
-- 把这张图传到云上
-- 传到家里图床
 - 上传到图片服务器
+- 传到家里图床
 - 把刚拍的照片传到图床
+- 把这张图传到云上
 - 拍照后上传
 
 ## 不要派给它
 
-- 拍照
-- 投屏
-- 看图理解
-- Google Drive
 - Dropbox
+- Google Drive
+- 投屏
+- 拍照
+- 看图理解
 
 ## 入参
 
@@ -39,20 +39,10 @@ kind=`action` · composition=`atomic` · group=`asset` · 声明=`是` · 在线
 | `asset_ref` | string | 是 | 上传后的 AssetRef JSON。禁止 photo_url。 |
 | `dest` | string | 是 | 实际写入的 dest：img_server 或 cloud |
 
-## 谁提供
-
-| 设备 | edge_id | 服务 |
-|---|---|---|
-| 客厅 · Mac Edge | `edge-node-IAtuhLSy` | `local.asset` |
-
 ## 服务声明
 
 - `local.asset`
 
-## 可用性
-
-- 执行前探测（checker）：无
-- 当前在线：是
 
 - 定义层来源：`ads`、`service:local.asset`
 

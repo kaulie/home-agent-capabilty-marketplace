@@ -1,8 +1,8 @@
 # `voicewakeup.echo`
 
-Local Voice Stream · 唤醒回声
+唤醒回声
 
-kind=`output` · composition=`atomic` · group=`voice` · 声明=`是` · 在线=`是`
+kind=`output` · composition=`atomic` · group=`-` · 声明=`是` · 执行前自检=`无`
 
 ## 规划器怎么认它
 
@@ -15,12 +15,12 @@ kind=`output` · composition=`atomic` · group=`voice` · 声明=`是` · 在线
 ## 不要派给它
 
 - 作为计划逐步执行
-- 普通播报
-- 提醒
 - 念答案
-- 知识问答
-- 控制设备
 - 报时
+- 控制设备
+- 提醒
+- 普通播报
+- 知识问答
 
 ## 入参
 
@@ -34,20 +34,10 @@ kind=`output` · composition=`atomic` · group=`voice` · 声明=`是` · 在线
 |---|---|---|---|
 | `echo_text` | string | 是 | 实际念出的文案 |
 
-## 谁提供
-
-| 设备 | edge_id | 服务 |
-|---|---|---|
-| 客厅 · Mac Edge | `edge-node-IAtuhLSy` | `local.voice` |
-
 ## 服务声明
 
 - `local.voice`
 
-## 可用性
-
-- 执行前探测（checker）：无
-- 当前在线：是
 
 - 定义层来源：`ads`、`service:local.voice`
 

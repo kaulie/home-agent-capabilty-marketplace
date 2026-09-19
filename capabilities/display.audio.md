@@ -2,7 +2,7 @@
 
 小米电视 DLNA · 音频投电视播放器
 
-kind=`output` · composition=`atomic` · group=`display` · 声明=`是` · 在线=`是` · ℹ️ 实况与定义层不同（下列按实况）
+kind=`output` · composition=`atomic` · group=`display` · 声明=`是` · 执行前自检=`无`
 
 ## 规划器怎么认它
 
@@ -10,19 +10,19 @@ kind=`output` · composition=`atomic` · group=`display` · 声明=`是` · 在�
 
 ## 典型触发语
 
-- 把最新的音频在小米电视上放出来
-- 让小米电视播放最新的音频
-- 把这段录音投到电视上放
 - 在电视上放这段音频
+- 把最新的音频在小米电视上放出来
+- 把这段录音投到电视上放
+- 让小米电视播放最新的音频
 
 ## 不要派给它
 
-- 投图
-- 投 PDF
-- 点歌放歌
-- 打印
-- TTS 念文本
 - ChromeCast 投屏
+- TTS 念文本
+- 打印
+- 投 PDF
+- 投图
+- 点歌放歌
 
 ## 入参
 
@@ -37,11 +37,9 @@ kind=`output` · composition=`atomic` · group=`display` · 声明=`是` · 在�
 | `asset_id` | string | 否 | 实际播放的 audio asset_id |
 | `status_text` | string | 是 | 中文一句话，如「已在小米电视播放最新音频」 |
 
-## 谁提供
+## 适用宿主（代码事实）
 
-| 设备 | edge_id | 服务 |
-|---|---|---|
-| 客厅 · Mac Edge | `edge-node-IAtuhLSy` | `xiaomi.tv.display` |
+- `mac`
 
 ## 服务声明
 
@@ -70,10 +68,6 @@ kind=`output` · composition=`atomic` · group=`display` · 声明=`是` · 在�
 - `MAC_EDGE_XIAOMI_TV_HOST`
 - `MAC_EDGE_XIAOMI_TV_NAME`
 
-## 可用性
-
-- 执行前探测（checker）：无
-- 当前在线：是
 
 - 定义层来源：`ads`、`caps:AUDIO_DISPLAY_CAPABILITIES`、`package:xiaomi-tv-display`
 

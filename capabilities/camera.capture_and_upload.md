@@ -2,7 +2,7 @@
 
 拍照并上传器
 
-kind=`action` · composition=`composite` · group=`-` · 声明=`是` · 在线=`否` · ⚠️ **声明未上线**（多半是可用性门控：设备/依赖/凭证没配）
+kind=`action` · composition=`composite` · group=`-` · 声明=`是` · 执行前自检=`有`
 
 ## 规划器怎么认它
 
@@ -43,19 +43,10 @@ kind=`action` · composition=`composite` · group=`-` · 声明=`是` · 在线=
 | `asset_ref` | string | 是 | 上传后的 AssetRef JSON。禁止 photo_url / path / capture_ref 当用户可见 identity。 |
 | `dest` | string | 否 | img_server 或 cloud |
 
-## 谁提供
-
-（当前没有在线节点广告它）
-
 ## 服务声明
 
 - `gopro.camera`
 
-## 可用性
-
-- 执行前探测（checker）：有
-- 当前在线：否
-- 提示：有 checker 的能力「不在线」通常是探测没通过（设备没连/依赖没装/凭证没配）
 
 - 定义层来源：`ads`、`service:gopro.camera`
 

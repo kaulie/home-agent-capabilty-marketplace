@@ -1,8 +1,8 @@
 # `reading.point_to_character`
 
-Local Character Reading · 指字认字器
+指字认字器
 
-kind=`action` · composition=`composite` · group=`reading` · 声明=`是` · 在线=`是` · ℹ️ 实况与定义层不同（下列按实况）
+kind=`action` · composition=`composite` · group=`-` · 声明=`是` · 执行前自检=`有`
 
 ## 规划器怎么认它
 
@@ -12,20 +12,20 @@ kind=`action` · composition=`composite` · group=`reading` · 声明=`是` · �
 
 ## 典型触发语
 
-- 这个字读啥
 - 手指指的是什么字
 - 指的这个字怎么读
-- 这个字念什么
 - 指着这个字
-- 认一下这个字
 - 最新照片里手指指的字
+- 认一下这个字
+- 这个字念什么
+- 这个字读啥
 
 ## 不要派给它
 
-- 拍照本身
-- 投屏
-- 整页 OCR
 - 原样读图上的字
+- 投屏
+- 拍照本身
+- 整页 OCR
 - 无图知识问答
 - 看图理解
 - 认电视剧名
@@ -50,20 +50,10 @@ kind=`action` · composition=`composite` · group=`reading` · 声明=`是` · �
 | `character` | string | 是 | 指尖指向的汉字；认不出时为空串 |
 | `status` | string | 否 | 引擎状态：ok / ok_with_alternatives / 其它失败状态 |
 
-## 谁提供
-
-| 设备 | edge_id | 服务 |
-|---|---|---|
-| 客厅 · Mac Edge | `edge-node-IAtuhLSy` | `local.character` |
-
 ## 服务声明
 
 - `local.character`
 
-## 可用性
-
-- 执行前探测（checker）：有
-- 当前在线：是
 
 - 定义层来源：`ads`、`service:local.character`
 

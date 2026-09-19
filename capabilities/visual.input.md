@@ -2,7 +2,7 @@
 
 纸质文档扫描器
 
-kind=`input` · composition=`atomic` · group=`-` · 声明=`是` · 在线=`否` · ⚠️ **声明未上线**（多半是可用性门控：设备/依赖/凭证没配）
+kind=`input` · composition=`atomic` · group=`-` · 声明=`是` · 执行前自检=`无`
 
 ## 规划器怎么认它
 
@@ -29,14 +29,6 @@ kind=`input` · composition=`atomic` · group=`-` · 声明=`是` · 在线=`否
 
 （无）
 
-## 谁提供
-
-（当前没有在线节点广告它）
-
-## 可用性
-
-- 执行前探测（checker）：无
-- 当前在线：否
 
 - 定义层来源：`ads`
 

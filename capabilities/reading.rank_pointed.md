@@ -1,8 +1,8 @@
 # `reading.rank_pointed`
 
-Local Character Reading · 指字排序器
+指字排序器
 
-kind=`action` · composition=`atomic` · group=`reading` · 声明=`是` · 在线=`是`
+kind=`action` · composition=`atomic` · group=`-` · 声明=`是` · 执行前自检=`有`
 
 ## 规划器怎么认它
 
@@ -14,9 +14,9 @@ kind=`action` · composition=`atomic` · group=`reading` · 声明=`是` · 在�
 
 ## 不要派给它
 
+- 投屏
 - 拍照本身
 - 整页 OCR
-- 投屏
 - 无图知识问答
 - 检测手指
 
@@ -36,20 +36,10 @@ kind=`action` · composition=`atomic` · group=`reading` · 声明=`是` · 在�
 | `character` | string | 是 | 指尖指向的汉字；认不出时为空串 |
 | `status` | string | 否 | 引擎状态：ok / ok_with_alternatives / 其它失败状态 |
 
-## 谁提供
-
-| 设备 | edge_id | 服务 |
-|---|---|---|
-| 客厅 · Mac Edge | `edge-node-IAtuhLSy` | `local.character` |
-
 ## 服务声明
 
 - `local.character`
 
-## 可用性
-
-- 执行前探测（checker）：有
-- 当前在线：是
 
 - 定义层来源：`ads`、`service:local.character`
 

@@ -1,8 +1,8 @@
 # `reading.detect_finger`
 
-Local Character Reading · 食指检测器
+食指检测器
 
-kind=`action` · composition=`atomic` · group=`reading` · 声明=`是` · 在线=`是` · ℹ️ 实况与定义层不同（下列按实况）
+kind=`action` · composition=`atomic` · group=`-` · 声明=`是` · 执行前自检=`有`
 
 ## 规划器怎么认它
 
@@ -10,16 +10,16 @@ kind=`action` · composition=`atomic` · group=`reading` · 声明=`是` · 在�
 
 ## 典型触发语
 
-- 检测图里的食指
 - 指尖在哪
+- 检测图里的食指
 
 ## 不要派给它
 
-- 拍照本身
-- 认字
-- 整页 OCR
 - 投屏
+- 拍照本身
+- 整页 OCR
 - 无图知识问答
+- 认字
 
 ## 入参
 
@@ -34,20 +34,10 @@ kind=`action` · composition=`atomic` · group=`reading` · 声明=`是` · 在�
 | `finger` | object | 是 | 食指 {tip:[x,y], direction:[dx,dy]} |
 | `status` | string | 否 | 引擎状态 |
 
-## 谁提供
-
-| 设备 | edge_id | 服务 |
-|---|---|---|
-| 客厅 · Mac Edge | `edge-node-IAtuhLSy` | `local.character` |
-
 ## 服务声明
 
 - `local.character`
 
-## 可用性
-
-- 执行前探测（checker）：有
-- 当前在线：是
 
 - 定义层来源：`ads`、`service:local.character`
 

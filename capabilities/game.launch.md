@@ -1,8 +1,8 @@
 # `game.launch`
 
-Mac Game Host · 电视互动游戏启动器
+TV Game Cast · 电视互动游戏启动器
 
-kind=`output` · composition=`atomic` · group=`game` · 声明=`是` · 在线=`是` · ℹ️ 实况与定义层不同（下列按实况）
+kind=`output` · composition=`atomic` · group=`game` · 声明=`是` · 执行前自检=`无`
 
 ## 规划器怎么认它
 
@@ -10,21 +10,21 @@ kind=`output` · composition=`atomic` · group=`game` · 声明=`是` · 在线=
 
 ## 典型触发语
 
+- 启动游戏
 - 打开接金币游戏
-- 玩游戏
 - 打开电视游戏
 - 玩接金币
-- 启动游戏
+- 玩游戏
 
 ## 不要派给它
 
-- 向左
 - 向右
+- 向左
+- 实时移动
+- 帧级控制
 - 暂停
 - 继续
 - 跳
-- 实时移动
-- 帧级控制
 
 ## 入参
 
@@ -41,11 +41,9 @@ kind=`output` · composition=`atomic` · group=`game` · 声明=`是` · 在线=
 | `game_url` | string | 是 | LAN 游戏页 URL（Chromecast iframe 加载） |
 | `status` | string | 是 | ready |
 
-## 谁提供
+## 适用宿主（代码事实）
 
-| 设备 | edge_id | 服务 |
-|---|---|---|
-| 客厅 · Mac Edge | `edge-node-IAtuhLSy` | `mac.game.host` |
+- `ios`
 
 ## 服务声明
 
@@ -59,10 +57,10 @@ kind=`output` · composition=`atomic` · group=`game` · 声明=`是` · 在线=
 
 - [home-agent-os/plugins/tv-game/capability.md](https://github.com/kaulie/home-agent-os/blob/main/plugins/tv-game/capability.md)
 
-## 可用性
+## 入口
 
-- 执行前探测（checker）：无
-- 当前在线：是
+- ios: `ios/TvGamePluginEntry.swift`
+
 
 - 定义层来源：`ads`、`package:tv-game`、`service:mac.game.host`
 

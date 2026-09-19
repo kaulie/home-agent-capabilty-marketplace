@@ -2,7 +2,7 @@
 
 PDF 语音朗读器 · PDF 语音朗读器
 
-kind=`action` · composition=`atomic` · group=`convert` · 声明=`是` · 在线=`是` · ℹ️ 实况与定义层不同（下列按实况）
+kind=`action` · composition=`atomic` · group=`convert` · 声明=`是` · 执行前自检=`无`
 
 ## 规划器怎么认它
 
@@ -11,22 +11,22 @@ kind=`action` · composition=`atomic` · group=`convert` · 声明=`是` · 在�
 ## 典型触发语
 
 - 念一下这份 PDF
+- 把 PDF 转成语音
 - 把这份文档读给我听
 - 朗读这个 PDF
-- 把 PDF 转成语音
 - 读一遍这个文档
 
 ## 不要派给它
 
+- OCR 识别
+- PDF 旋转
+- PDF 转图片
 - 打印
 - 投屏
-- 看图理解
-- OCR 识别
 - 拍照
 - 提醒/公告短句播报
 - 放歌
-- PDF 转图片
-- PDF 旋转
+- 看图理解
 
 ## 入参
 
@@ -58,11 +58,9 @@ kind=`action` · composition=`atomic` · group=`convert` · 声明=`是` · 在�
 | `truncated` | boolean | 是 | 是否因字数上限截断（true=只念了前面一部分） |
 | `voice` | string | 是 | 实际使用的音色名 |
 
-## 谁提供
+## 适用宿主（代码事实）
 
-| 设备 | edge_id | 服务 |
-|---|---|---|
-| 客厅 · Mac Edge | `edge-node-IAtuhLSy` | `local.pdf.reader` |
+- `mac`
 
 ## 服务声明
 
@@ -88,10 +86,6 @@ kind=`action` · composition=`atomic` · group=`convert` · 声明=`是` · 在�
 - `MAC_EDGE_PDF_READER_TTS_FALLBACK_SAY`
 - `MAC_EDGE_PDF_READER_VOICE`
 
-## 可用性
-
-- 执行前探测（checker）：无
-- 当前在线：是
 
 - 定义层来源：`ads`、`package:pdf-reader`、`service:local.pdf.reader`
 

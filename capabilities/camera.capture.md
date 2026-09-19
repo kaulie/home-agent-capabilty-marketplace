@@ -2,7 +2,7 @@
 
 GoPro Camera · 拍照执行器
 
-kind=`input` · composition=`atomic` · group=`camera` · 声明=`是` · 在线=`否` · ⚠️ **声明未上线**（多半是可用性门控：设备/依赖/凭证没配）
+kind=`input` · composition=`atomic` · group=`camera` · 声明=`是` · 执行前自检=`有`
 
 ## 规划器怎么认它
 
@@ -38,9 +38,10 @@ kind=`input` · composition=`atomic` · group=`camera` · 声明=`是` · 在线
 |---|---|---|---|
 | `capture_ref` | string | 是 | CaptureRef JSON {capture_id, type, mime_type}。本机 inbox 句柄，还不是 Asset。禁止 path / photo_url / asset_id。 |
 
-## 谁提供
+## 适用宿主（代码事实）
 
-（当前没有在线节点广告它）
+- `ios`
+- `python`
 
 ## 服务声明
 
@@ -54,11 +55,11 @@ kind=`input` · composition=`atomic` · group=`camera` · 声明=`是` · 在线
 
 - [home-agent-os/plugins/gopro-camera/capability.md](https://github.com/kaulie/home-agent-os/blob/main/plugins/gopro-camera/capability.md)
 
-## 可用性
+## 入口
 
-- 执行前探测（checker）：有
-- 当前在线：否
-- 提示：有 checker 的能力「不在线」通常是探测没通过（设备没连/依赖没装/凭证没配）
+- ios: `ios/GoProPluginEntry.swift`
+- python: `driver.py`
+
 
 - 定义层来源：`ads`、`package:gopro-camera`、`service:gopro.camera`
 
