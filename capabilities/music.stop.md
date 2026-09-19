@@ -2,7 +2,7 @@
 
 网易云音乐 · 停止播放器
 
-kind=`action` · composition=`atomic` · group=`music` · 声明=`是` · 在线=`是`
+kind=`action` · composition=`atomic` · group=`music` · 声明=`是` · 执行前自检=`有`
 
 ## 规划器怎么认它
 
@@ -16,11 +16,11 @@ kind=`action` · composition=`atomic` · group=`music` · 声明=`是` · 在线
 
 ## 不要派给它
 
-- 选歌
-- 蓝牙连接
 - TTS
-- 暂停
 - 下一首
+- 暂停
+- 蓝牙连接
+- 选歌
 
 ## 入参
 
@@ -30,11 +30,11 @@ kind=`action` · composition=`atomic` · group=`music` · 声明=`是` · 在线
 
 （无）
 
-## 谁提供
+## 适用宿主（代码事实）
 
-| 设备 | edge_id | 服务 |
-|---|---|---|
-| 客厅 · Mac Edge | `edge-node-IAtuhLSy` | `netease.music` |
+- `android`
+- `ios`
+- `mac`
 
 ## 服务声明
 
@@ -50,12 +50,10 @@ kind=`action` · composition=`atomic` · group=`music` · 声明=`是` · 在线
 
 ## 入口
 
+- android: `android/NetEaseMusicSkill.kt`
+- ios: `ios/NetEasePluginEntry.swift`
 - mac: `mac/src/mac_edge/plugins/netease_music.py`
 
-## 可用性
-
-- 执行前探测（checker）：有
-- 当前在线：是
 
 - 定义层来源：`ads`、`package:netease-music`、`service:netease.music`
 

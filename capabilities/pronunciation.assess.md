@@ -2,7 +2,7 @@
 
 Pronunciation Assessment · 整段英文朗读评测器
 
-kind=`action` · composition=`atomic` · group=`pronunciation` · 声明=`是` · 在线=`否` · ⚠️ **声明未上线**（多半是可用性门控：设备/依赖/凭证没配）
+kind=`action` · composition=`atomic` · group=`pronunciation` · 声明=`是` · 执行前自检=`无`
 
 ## 规划器怎么认它
 
@@ -50,9 +50,9 @@ kind=`action` · composition=`atomic` · group=`pronunciation` · 声明=`是` �
 | `prosody_score` | number | 是 | 韵律/重音表现 0..100 |
 | `raw_alignment` | array | 是 | 逐词对齐明细，供调试/UI 展开 |
 
-## 谁提供
+## 适用宿主（代码事实）
 
-（当前没有在线节点广告它）
+- `mac`
 
 ## 服务声明
 
@@ -75,10 +75,6 @@ kind=`action` · composition=`atomic` · group=`pronunciation` · 声明=`是` �
 - `MAC_EDGE_PRONUNCIATION_HEALTH_URL`
 - `MAC_EDGE_PRONUNCIATION_URL`
 
-## 可用性
-
-- 执行前探测（checker）：无
-- 当前在线：否
 
 - 定义层来源：`ads`、`package:pronunciation-assess`、`service:local.pronunciation`
 

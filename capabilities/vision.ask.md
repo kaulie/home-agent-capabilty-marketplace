@@ -1,8 +1,8 @@
 # `vision.ask`
 
-Local Vision · 看图问答器
+Local Vision Ask · 看图问答器
 
-kind=`action` · composition=`atomic` · group=`vision` · 声明=`是` · 在线=`是` · ℹ️ 实况与定义层不同（下列按实况）
+kind=`action` · composition=`atomic` · group=`vision` · 声明=`是` · 执行前自检=`无`
 
 ## 规划器怎么认它
 
@@ -10,23 +10,23 @@ kind=`action` · composition=`atomic` · group=`vision` · 声明=`是` · 在�
 
 ## 典型触发语
 
-- 照片里有几个人
-- 照片里
 - 图里有
+- 客厅在看什么电视
+- 屏幕上在放什么
+- 屏幕上是什么
 - 有几个人
 - 有没有人
+- 照片里
+- 照片里有几个人
 - 电视在放什么
-- 屏幕上是什么
 - 电视画面里是哪部剧
-- 屏幕上在放什么
-- 客厅在看什么电视
 
 ## 不要派给它
 
-- 无图知识问答
-- 拍照本身
 - OCR
 - 原样读图上的字
+- 拍照本身
+- 无图知识问答
 
 ## 入参
 
@@ -41,11 +41,9 @@ kind=`action` · composition=`atomic` · group=`vision` · 声明=`是` · 在�
 |---|---|---|---|
 | `answer_text` | string | 是 | 针对图+问句的中文回答；不确定时直说我不知道 |
 
-## 谁提供
+## 适用宿主（代码事实）
 
-| 设备 | edge_id | 服务 |
-|---|---|---|
-| 客厅 · Mac Edge | `edge-node-IAtuhLSy` | `local.vision` |
+- `mac`
 
 ## 服务声明
 
@@ -63,10 +61,6 @@ kind=`action` · composition=`atomic` · group=`vision` · 声明=`是` · 在�
 
 - mac: `mac/src/mac_edge/plugins/vision_ask.py`
 
-## 可用性
-
-- 执行前探测（checker）：无
-- 当前在线：是
 
 - 定义层来源：`ads`、`package:vision-ask`、`service:local.vision`
 

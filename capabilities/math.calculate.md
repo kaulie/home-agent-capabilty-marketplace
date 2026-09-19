@@ -2,7 +2,7 @@
 
 Local Math · 确定性算术求值器
 
-kind=`action` · composition=`atomic` · group=`math` · 声明=`是` · 在线=`是` · ℹ️ 实况与定义层不同（下列按实况）
+kind=`action` · composition=`atomic` · group=`math` · 声明=`是` · 执行前自检=`无`
 
 ## 规划器怎么认它
 
@@ -11,15 +11,15 @@ kind=`action` · composition=`atomic` · group=`math` · 声明=`是` · 在线=
 ## 典型触发语
 
 - 1+1等于几
-- 根号4
 - 3×5
 - 一百除以四
+- 根号4
 
 ## 不要派给它
 
-- 应用题
-- 复杂数学
 - 单位换算
+- 复杂数学
+- 应用题
 - 知识问答
 
 ## 入参
@@ -35,11 +35,9 @@ kind=`action` · composition=`atomic` · group=`math` · 声明=`是` · 在线=
 | `answer_text` | string | 是 | 如「一加一等于二。」 |
 | `result` | string | 是 | 数值结果字符串，如「2」 |
 
-## 谁提供
+## 适用宿主（代码事实）
 
-| 设备 | edge_id | 服务 |
-|---|---|---|
-| 客厅 · Mac Edge | `edge-node-IAtuhLSy` | `local.math` |
+- `mac`
 
 ## 服务声明
 
@@ -57,10 +55,6 @@ kind=`action` · composition=`atomic` · group=`math` · 声明=`是` · 在线=
 
 - mac: `mac/src/mac_edge/plugins/math_calculate.py`
 
-## 可用性
-
-- 执行前探测（checker）：无
-- 当前在线：是
 
 - 定义层来源：`ads`、`package:math-calculate`、`service:local.math`
 

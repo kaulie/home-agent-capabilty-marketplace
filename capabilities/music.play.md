@@ -2,7 +2,7 @@
 
 网易云音乐 · 音乐播放器
 
-kind=`action` · composition=`atomic` · group=`music` · 声明=`是` · 在线=`是` · ℹ️ 实况与定义层不同（下列按实况）
+kind=`action` · composition=`atomic` · group=`music` · 声明=`是` · 执行前自检=`有`
 
 ## 规划器怎么认它
 
@@ -10,18 +10,18 @@ kind=`action` · composition=`atomic` · group=`music` · 声明=`是` · 在线
 
 ## 典型触发语
 
-- 放十年
 - 播放陈奕迅的十年
+- 放十年
 
 ## 不要派给它
 
-- 蓝牙连接
 - TTS
-- 开灯
-- 暂停
 - 下一首
 - 下载
+- 开灯
+- 暂停
 - 缓存
+- 蓝牙连接
 
 ## 入参
 
@@ -39,11 +39,11 @@ kind=`action` · composition=`atomic` · group=`music` · 声明=`是` · 在线
 | `original_id` | number | 否 | 网易云 original_id |
 | `song` | string | 否 | 正在播放的歌名 |
 
-## 谁提供
+## 适用宿主（代码事实）
 
-| 设备 | edge_id | 服务 |
-|---|---|---|
-| 客厅 · Mac Edge | `edge-node-IAtuhLSy` | `netease.music` |
+- `android`
+- `ios`
+- `mac`
 
 ## 服务声明
 
@@ -59,12 +59,10 @@ kind=`action` · composition=`atomic` · group=`music` · 声明=`是` · 在线
 
 ## 入口
 
+- android: `android/NetEaseMusicSkill.kt`
+- ios: `ios/NetEasePluginEntry.swift`
 - mac: `mac/src/mac_edge/plugins/netease_music.py`
 
-## 可用性
-
-- 执行前探测（checker）：有
-- 当前在线：是
 
 - 定义层来源：`ads`、`package:netease-music`、`service:netease.music`
 

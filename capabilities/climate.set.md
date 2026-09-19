@@ -1,35 +1,30 @@
 # `climate.set`
 
-主卧空调 · 主卧空调控制器
+客厅海信空调 · 空调控制器
 
-kind=`action` · composition=`atomic` · group=`climate` · 声明=`是` · 在线=`是` · ℹ️ 实况与定义层不同（下列按实况）
+kind=`action` · composition=`atomic` · group=`climate` · 声明=`是` · 执行前自检=`无`
 
 ## 规划器怎么认它
 
-控制「主卧空调」：开关、制冷/制热/送风、设定温度、风速、扫风。仅当用户点名该设备时使用本实例，不要派给其它同 capability 的在线节点。
+控制绑定的空调：开/关、制冷/制热/送风、设定 16–32 度、风速、左右/上下扫风。多台时用 appliance 显示名区分客厅空调/儿童房空调。不做新风、不做除湿、不开灯
 
 ## 典型触发语
 
-- 打开主卧空调
-- 关掉主卧空调
-- 关闭主卧空调
-- 开主卧空调
-- 关主卧空调
-- 打开空调
 - 关掉空调
 - 制冷 26 度
-- 风速高
-- 左右扫风
 - 制热
+- 左右扫风
+- 打开空调
 - 空调调到二十六度
+- 风速高
 
 ## 不要派给它
 
-- 放歌
 - TTS
 - 开灯
-- 知识问答
+- 放歌
 - 新风
+- 知识问答
 - 除湿
 
 ## 入参
@@ -55,14 +50,9 @@ kind=`action` · composition=`atomic` · group=`climate` · 声明=`是` · 在�
 | `swing` | string | 否 | off / on / horizontal / vertical |
 | `target_temp` | number | 否 | 当前设定温度 |
 
-## 谁提供
+## 适用宿主（代码事实）
 
-| 设备 | edge_id | 服务 |
-|---|---|---|
-| 客厅 · Mac Edge | `edge-node-IAtuhLSy` | `climate.39835afb10` |
-| 客厅 · Mac Edge | `edge-node-IAtuhLSy` | `climate.d0034cdb00` |
-| 客厅 · Mac Edge | `edge-node-IAtuhLSy` | `climate.kids_room` |
-| 客厅 · Mac Edge | `edge-node-IAtuhLSy` | `climate.living_room` |
+- `mac`
 
 ## 服务声明
 
@@ -87,10 +77,6 @@ kind=`action` · composition=`atomic` · group=`climate` · 声明=`是` · 在�
 - `MAC_EDGE_HISENSE_PASSWORD`
 - `MAC_EDGE_HISENSE_USERNAME`
 
-## 可用性
-
-- 执行前探测（checker）：无
-- 当前在线：是
 
 - 定义层来源：`ads`、`package:hisense-ac`、`service:livingroom.climate`
 

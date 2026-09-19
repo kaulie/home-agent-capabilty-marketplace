@@ -2,7 +2,7 @@
 
 在线能力口语汇总器
 
-kind=`system` · composition=`atomic` · group=`meta` · 声明=`是` · 在线=`是` · ℹ️ 实况与定义层不同（下列按实况）
+kind=`system` · composition=`atomic` · group=`meta` · 声明=`是` · 执行前自检=`无`
 
 ## 规划器怎么认它
 
@@ -10,21 +10,21 @@ kind=`system` · composition=`atomic` · group=`meta` · 声明=`是` · 在线=
 
 ## 典型触发语
 
-- 你可以做什么
-- 你能干什么
 - 你会什么
-- 有哪些能力
-- 你可以控制空调吗
 - 你会开灯吗
+- 你可以做什么
+- 你可以控制空调吗
+- 你能干什么
+- 有哪些能力
 - 能不能控制空调
 
 ## 不要派给它
 
-- 知识问答
+- 在答语里念出其它能力的编号或技术名
 - 执行开灯或开空调
 - 拍照
+- 知识问答
 - 逐条朗读自描述
-- 在答语里念出其它能力的编号或技术名
 
 ## 入参
 
@@ -32,23 +32,22 @@ kind=`system` · composition=`atomic` · group=`meta` · 声明=`是` · 在线=
 
 ## 出参
 
-| 参数 | 类型 | 必填 | 说明 |
-|---|---|---|---|
-| `answer_text` | string | 是 | 给用户听的简短口语能力介绍（非技术自描述清单） |
-| `capability_count` | string | 否 | 当前在线可调度 Runtime capability 数量 |
+（无）
 
-## 谁提供
+## 适用宿主（代码事实）
 
-| 设备 | edge_id | 服务 |
-|---|---|---|
-| Brain | `system` | `system.capabilities` |
+- `brain`
 
-## 可用性
+## 能力包
 
-- 执行前探测（checker）：无
-- 当前在线：是
+- `plugins/capabilities-summary/`
 
-- 定义层来源：`ads`
+## 文档
+
+- [home-agent-os/plugins/capabilities-summary/capability.md](https://github.com/kaulie/home-agent-os/blob/main/plugins/capabilities-summary/capability.md)
+
+
+- 定义层来源：`ads`、`package:capabilities-summary`
 
 ---
 

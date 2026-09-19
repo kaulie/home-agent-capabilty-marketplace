@@ -2,7 +2,7 @@
 
 Video Live Stream · iPhone 实时视频流入口
 
-kind=`input` · composition=`atomic` · group=`video` · 声明=`是` · 在线=`否` · ⚠️ **声明未上线**（多半是可用性门控：设备/依赖/凭证没配）
+kind=`input` · composition=`atomic` · group=`video` · 声明=`是` · 执行前自检=`无`
 
 ## 规划器怎么认它
 
@@ -28,9 +28,9 @@ kind=`input` · composition=`atomic` · group=`video` · 声明=`是` · 在线=
 
 （无）
 
-## 谁提供
+## 适用宿主（代码事实）
 
-（当前没有在线节点广告它）
+- `mac`
 
 ## 能力包
 
@@ -44,10 +44,6 @@ kind=`input` · composition=`atomic` · group=`video` · 声明=`是` · 在线=
 
 - mac: `mac/src/mac_edge/plugins/video_live_ingest.py`
 
-## 可用性
-
-- 执行前探测（checker）：无
-- 当前在线：否
 
 - 定义层来源：`ads`、`package:video-live-stream`
 

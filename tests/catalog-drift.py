@@ -3,8 +3,8 @@
 
 用法：python3 tests/catalog-drift.py <新导出.json> <仓库里的 catalog.json>
 
-只比定义层（能力增删 + 契约字段 + schema）；实况（谁在线、设备）与集市注解（status/owner/tags/notes）
-不算漂移 —— 前者随机器变，后者是集市自己维护的东西。
+只比**声明字段**（能力增删 + 契约字段）：集市注解（status/owner/tags/notes）是集市自己维护的；
+代码里已下线而库里留档的条目（in_catalog=0，软删）也不算漂移。
 """
 
 from __future__ import annotations
@@ -22,6 +22,8 @@ FIELDS = (
 def view(catalog: dict) -> dict[str, dict]:
     out: dict[str, dict] = {}
     for cap in catalog.get("capabilities") or []:
+        if not cap.get("in_catalog", 1):
+            continue  # 软删留档（代码里已下线）：不算漂移
         definition = cap.get("definition") or {}
         row = {k: definition.get(k, cap.get(k)) for k in FIELDS}
         out[cap["capability_id"]] = row

@@ -1,4 +1,4 @@
-/* app.js：能力集市 UI。
+/* app.js：能力集市 UI（展示 + 技能介绍；静态声明为主，不显示实时状态）。
  *
  * 数据源二选一（自动）：
  *   1) **marketplace 服务**（有数据库时）：走 /api/v1/*，服务端查询 + 集市注解编辑；
@@ -14,22 +14,27 @@
   const hl = (text, q) =>
     core.highlight(text, q).map((p) => (p.hit ? '<mark>' + esc(p.text) + '</mark>' : esc(p.text))).join('');
 
-  /** effective view：实况优先、定义兜底（与后端/导出器同规则）。 */
+  /** 展示视图：定义层（声明）优先，顶层便捷字段兜底。集市不掺实时状态。 */
   function viewOf(cap) {
     const def = cap.definition || {};
-    const live = cap.live || {};
     const out = {};
-    for (const key of Object.keys(def)) {
-      const v = live[key];
-      out[key] = v === undefined || v === '' || v === null ? def[key] : v;
+    for (const key of Object.keys(def)) out[key] = def[key];
+    for (const key of ['kind', 'composition', 'group', 'display_name', 'role', 'planner_recognize',
+                       'typical_triggers', 'do_not_dispatch', 'decomposes_to', 'prefer_when',
+                       'input_schema', 'output_schema']) {
+      if (out[key] === undefined && cap[key] !== undefined) out[key] = cap[key];
     }
-    for (const key of Object.keys(live)) if (!(key in out)) out[key] = live[key];
-    out.providers = live.providers || cap.providers || [];
     return out;
   }
 
-  const state = { q: '', group: '', kind: '', provider: '', status: 'all', review: '', sort: 'relevance', id: '' };
-  const KEYS = ['q', 'group', 'kind', 'provider', 'status', 'review', 'sort', 'id'];
+  const state = { q: '', group: '', kind: '', service: '', keyword: '', host: '', status: 'all', sort: 'relevance', id: '' };
+
+  /** 宿主 id → 可读名（可能没有可读名，直接显示 id）。 */
+  function hostLabel(hostId) {
+    const hit = ((SOURCE.facets || {}).hosts || []).find((x) => x.name === hostId);
+    return (hit && hit.display_name) || hostId;
+  }
+  const KEYS = ['q', 'group', 'kind', 'service', 'keyword', 'host', 'status', 'sort', 'id'];
 
   const SOURCE = { api: false, label: '加载中…', stats: null, facets: null, imports: [] };
   let CAPS = [];
@@ -98,12 +103,12 @@
     const last = s.last_import || {};
     const items = [
       ['能力', s.capabilities],
-      ['在线', s.live],
-      ['声明未上线', s.declared_not_live],
-      ['线上未声明', s.live_not_declared],
-      s.annotated != null ? ['集市注解', s.annotated] : null,
+      ['有服务归属', s.with_service],
+      ['条件声明', s.conditional],
+      ['执行前自检', s.with_preflight],
+      ['有文档包', s.with_package],
+      s.annotated != null ? ['已策展', s.annotated] : null,
       SOURCE.api ? ['导入次数', s.imports] : null,
-      SOURCE.api ? ['已下线', s.not_in_catalog] : null,
     ].filter(Boolean);
     $('stats').innerHTML = items
       .map(([label, value]) => `<div class="stat"><b>${value == null ? '–' : value}</b><span>${label}</span></div>`)
@@ -121,21 +126,25 @@
     const chips = [`<span class="chip chip--group">${esc(view.group || '(未分类)')}</span>`];
     if (view.kind) chips.push(`<span class="chip">${esc(view.kind)}</span>`);
     if (view.composition === 'composite') chips.push('<span class="chip">composite</span>');
-    if (cap.in_live) chips.push('<span class="chip chip--ok">在线</span>');
-    if ((cap.reconcile || {}).declared_not_live) chips.push('<span class="chip chip--warn">声明未上线</span>');
-    if ((cap.reconcile || {}).live_not_declared) chips.push('<span class="chip chip--warn">线上未声明</span>');
-    if ((cap.reconcile || {}).not_in_catalog) chips.push('<span class="chip chip--err">已下线</span>');
-    if (cap.has_checker) chips.push('<span class="chip">有探测</span>');
+    if (!cap.in_catalog) chips.push('<span class="chip chip--err">代码里已下线</span>');
+    if ((cap.conditional_lists || []).length) chips.push('<span class="chip">条件挂载</span>');
+    if (cap.has_preflight || cap.has_checker) chips.push('<span class="chip">执行前自检</span>');
     if (cap.owner) chips.push(`<span class="chip">owner: ${esc(cap.owner)}</span>`);
     if (cap.status && cap.status !== 'active') chips.push(`<span class="chip chip--warn">${esc(cap.status)}</span>`);
     for (const tag of (cap.tags || []).slice(0, 3)) chips.push(`<span class="chip">#${esc(tag)}</span>`);
-    const providers = core.providerNames(cap, view).join('、');
-    if (providers) chips.push(`<span class="chip">${esc(providers)}</span>`);
+    for (const h of (cap.hosts_effective || []).slice(0, 3))
+      chips.push(`<a class="chip chip--host" href="#" data-host="${esc(h)}" title="按适用宿主筛选">${esc(hostLabel(h))}</a>`);
+    for (const k of (cap.keywords || []).slice(0, 4))
+      chips.push(`<a class="chip chip--kw" href="#" data-kw="${esc(k)}" title="按关键字筛选">${esc(k)}</a>`);
+    const svc = (cap.declared_by || []).join('、');
+    if (svc) chips.push(`<span class="chip">${esc(svc)}</span>`);
     const trig = (view.typical_triggers || [])[0];
+    const desc = String(cap.description || '').trim().replace(/\s+/g, ' ').slice(0, 140);
     return `<article class="card${state.id === cap.capability_id ? ' active' : ''}" data-id="${esc(cap.capability_id)}">
       <div class="card__top"><span class="card__id mono">${hl(cap.capability_id, q)}</span>
         ${view.role ? `<span class="card__role">${hl(view.role, q)}</span>` : ''}</div>
       <div class="card__meta">${chips.join('')}</div>
+      ${desc ? `<div class="card__desc">${hl(desc, q)}</div>` : ''}
       ${trig ? `<div class="card__trig">「${hl(trig, q)}」</div>` : ''}
     </article>`;
   }
@@ -159,11 +168,46 @@
 
   function annotationEditor(cap) {
     if (!SOURCE.api) {
-      return '<h3>集市字段</h3><div class="muted small">静态托管下只读 —— 起本机 marketplace 服务后可在此维护（status / owner / tags / notes）。</div>';
+      return '<h3>集市字段</h3><div class="muted small">静态托管下只读 —— 起本机 marketplace 服务后可在此维护（描述 / 关键字 / status / owner / tags / notes）。</div>';
     }
     const tags = (cap.tags || []).join(', ');
+    const known = ((SOURCE.facets || {}).keywords || []).map((k) => k.name);
     return `<h3>集市字段（可维护）</h3>
       <div class="form">
+        <label>描述（人工维护，展示在列表与详情；重导入不会被代码覆盖）
+          <textarea id="ann-description" rows="3" placeholder="这能力干什么、什么时候该用它">${esc(cap.description || '')}</textarea></label>
+        <label>关键字（逗号分隔；进搜索，也能当下拉筛选）
+          <input id="ann-keywords" type="text" value="${esc((cap.keywords || []).join(', '))}" placeholder="例如：投屏, 电视, 音频" list="ann-kw-list" />
+          <datalist id="ann-kw-list">${known.map((k) => `<option value="${esc(k)}"></option>`).join('')}</datalist></label>
+        <label>适用宿主（勾选，或直接填 id，逗号分隔；新 id 会自动登记）
+          <div class="hosts">${((cap.hosts_all || []).length ? cap.hosts_all : (SOURCE.facets || {}).hosts || [])
+            .map((h) => {
+              const id = h.host_id || h.name;
+              const checked = (cap.hosts_effective || []).includes(id) ? ' checked' : '';
+              return `<label class="hosts__item"><input type="checkbox" class="ann-host" value="${esc(id)}"${checked}/> ${esc(h.display_name || id)} <span class="mono muted">${esc(id)}</span></label>`;
+            })
+            .join('')}</div>
+          <input id="ann-hosts" type="text" value="${esc((cap.hosts || []).join(', '))}" placeholder="人工设置，如 mac, brain（清空 = 用代码事实）" />
+        </label>
+        <details class="hostreg"><summary>宿主登记（改名 / 分类 / 备注 / 状态）</summary>
+          ${
+            (cap.hosts_all || [])
+              .map(
+                (h) => `<div class="hostreg__row" data-host="${esc(h.host_id)}">
+                  <span class="mono">${esc(h.host_id)}</span>
+                  <input class="hr-name" type="text" value="${esc(h.display_name || '')}" placeholder="显示名" />
+                  <input class="hr-kind" type="text" value="${esc(h.kind || '')}" placeholder="分类" />
+                  <input class="hr-notes" type="text" value="${esc(h.notes || '')}" placeholder="备注" />
+                  <select class="hr-status">${['active', 'planned', 'deprecated', 'blocked']
+                    .map((st) => `<option value="${st}"${h.status === st ? ' selected' : ''}>${st}</option>`)
+                    .join('')}</select>
+                  <button class="btn hr-save" data-host="${esc(h.host_id)}">保存</button>
+                  <span class="hr-msg small muted"></span>
+                </div>`
+              )
+              .join('')
+          }
+        </details>
         <label>status
           <select id="ann-status">
             ${['active', 'planned', 'deprecated', 'blocked']
@@ -187,17 +231,15 @@
       `<span class="chip">kind ${esc(view.kind || '-')}</span>`,
       `<span class="chip">${esc(view.composition || 'atomic')}</span>`,
     ];
-    if (cap.in_live) flags.push('<span class="chip chip--ok">在线</span>');
-    if ((cap.reconcile || {}).declared_not_live) flags.push('<span class="chip chip--warn">声明未上线</span>');
-    if ((cap.reconcile || {}).live_not_declared) flags.push('<span class="chip chip--warn">线上未声明</span>');
-    if ((cap.reconcile || {}).not_in_catalog) flags.push('<span class="chip chip--err">代码里已下线</span>');
+    if (!cap.in_catalog) flags.push('<span class="chip chip--err">代码里已下线</span>');
+    if ((cap.conditional_lists || []).length) flags.push('<span class="chip">条件挂载</span>');
+    if (cap.has_preflight || cap.has_checker) flags.push('<span class="chip">执行前自检</span>');
+    if (!(cap.declared_by || []).length) flags.push('<span class="chip chip--warn">无服务归属</span>');
 
     const list = (arr) =>
       arr && arr.length ? '<ul>' + arr.map((t) => `<li>${hl(t, q)}</li>`).join('') + '</ul>' : '<div class="muted small">（无）</div>';
-    const providers = (view.providers || [])
-      .map((p) => `<li>${esc(p.edge_name || '')} <span class="muted mono">${esc(p.service_id || '')}</span></li>`)
-      .join('');
-    const docs = (cap.docs || [])
+    const packages = cap.packages || [];
+    const docs = (cap.docs || (cap.declaration && cap.declaration.docs) || [])
       .map(
         (d) =>
           `<li><a href="https://github.com/kaulie/home-agent-os/blob/main/${esc(d)}" target="_blank" rel="noreferrer">${esc(
@@ -208,7 +250,7 @@
     const cfg = (cap.config_keys || []).map((k) => `<li class="mono">${esc(k)}</li>`).join('');
     const decl = []
       .concat((cap.declared_by || []).map((s) => `<li class="mono">service: ${esc(s)}</li>`))
-      .concat((cap.declared_lists || []).map((s) => `<li class="mono">条件声明: ${esc(s)}</li>`))
+      .concat((cap.conditional_lists || []).map((s) => `<li class="mono">条件声明: ${esc(s)}</li>`))
       .concat((cap.packages || []).map((s) => `<li class="mono">package: plugins/${esc(s)}/</li>`))
       .join('');
     const events = (cap.events || [])
@@ -219,6 +261,25 @@
       <div class="muted small">${esc([view.display_name, view.role].filter(Boolean).join(' · '))}</div>
       <div class="card__meta">${flags.join('')}</div>
       ${cap.notes ? `<p class="note">${esc(cap.notes)}</p>` : ''}
+      ${cap.description ? `<h3>能力描述</h3><p class="note">${hl(cap.description, q)}</p>` : ''}
+      <h3>适用宿主</h3>
+      <div class="card__meta">${
+        (cap.hosts_effective || []).length
+          ? (cap.hosts_effective || [])
+              .map((h) => `<a class="chip chip--host" href="#" data-host="${esc(h)}">${esc(hostLabel(h))} <span class="mono muted">${esc(h)}</span></a>`)
+              .join('')
+          : '<span class="muted small">（未声明宿主）</span>'
+      }</div>
+      <div class="muted small">来源：${
+        cap.hosts_source === 'curated'
+          ? '人工设置'
+          : cap.hosts_source === 'code'
+            ? '代码事实（manifest 的 platforms/entry）'
+            : '无'
+      }${(cap.runs_on || []).length ? ' · 代码事实：' + esc((cap.runs_on || []).join(', ')) : ''}</div>
+      ${(cap.keywords || []).length ? `<h3>关键字</h3><div class="card__meta">${(cap.keywords || [])
+        .map((k) => `<a class="chip chip--kw" href="#" data-kw="${esc(k)}">${esc(k)}</a>`)
+        .join('')}</div>` : ''}
       ${view.planner_recognize ? `<h3>规划器怎么认它</h3><div>${hl(view.planner_recognize, q)}</div>` : ''}
       ${view.prefer_when ? `<h3>优先本能力</h3><div>${hl(view.prefer_when, q)}</div>` : ''}
       <h3>典型触发语</h3>${list(view.typical_triggers)}
@@ -226,14 +287,14 @@
       ${(view.decomposes_to || []).length ? `<h3>分解为</h3>${list(view.decomposes_to)}` : ''}
       <h3>入参</h3>${paramsTable(view.input_schema, q)}
       <h3>出参</h3>${paramsTable(view.output_schema, q)}
-      <h3>谁提供</h3>${providers ? `<ul>${providers}</ul>` : '<div class="muted small">（当前无在线节点）</div>'}
+      ${packages.length ? `<h3>能力包</h3><ul>${packages.map((pk) => `<li class="mono">plugins/${esc(pk)}/</li>`).join('')}</ul>` : ''}
       ${decl ? `<h3>声明 / 归属</h3><ul>${decl}</ul>` : ''}
       ${cfg ? `<h3>相关配置</h3><ul>${cfg}</ul>` : ''}
       ${docs ? `<h3>文档</h3><ul>${docs}</ul>` : ''}
       ${annotationEditor(cap)}
       ${events ? `<h3>维护历史</h3><ul>${events}</ul>` : ''}
-      <h3>可用性</h3>
-      <div class="small">执行前探测：${cap.has_checker ? '有' : '无'} · 当前在线：${cap.in_live ? '是' : '否'}</p></div>
+      <h3>声明特征</h3>
+      <div class="small">ADS 声明：${cap.in_ads ? '是' : '否'} · 执行前自检：${cap.has_preflight || cap.has_checker ? '有' : '无'} · 条件挂载：${(cap.conditional_lists || []).join('、') || '无'}</div>
       <p class="small"><a href="../capabilities/${esc(cap.capability_id)}.md">静态页（md）</a></p>`;
   }
 
@@ -244,12 +305,12 @@
       if (state.q) p.set('q', state.q);
       if (state.group) p.set('group', state.group);
       if (state.kind) p.set('kind', state.kind);
-      if (state.provider) p.set('edge', state.provider);
-      if (state.review) p.set('status', state.review === 'annotated' ? '' : state.review);
-      if (state.status === 'live') p.set('live', 'live');
-      else if (state.status === 'declared_not_live') p.set('live', 'declared_not_live');
-      else if (state.status === 'live_not_declared') p.set('live', 'live_not_declared');
-      else if (state.status === 'checker') p.set('has_checker', '1');
+      if (state.service) p.set('service', state.service);
+      if (state.keyword) p.set('keyword', state.keyword);
+      if (state.host) p.set('host', state.host);
+      if (state.status === 'conditional') p.set('conditional', '1');
+      else if (state.status === 'preflight') p.set('preflight', '1');
+      else if (state.status === 'documented') p.set('documented', '1');
       if (state.sort) p.set('sort', state.sort);
       try {
         const data = await getJSON('/api/v1/capabilities?' + p.toString());
@@ -258,24 +319,17 @@
         /* 服务抖了就退回客户端过滤 */
       }
     }
-    return core
-      .filterCaps(CAPS, {
-        viewOf,
-        query: state.q,
-        group: state.group,
-        kind: state.kind,
-        provider: state.provider,
-        status: state.status,
-        sort: state.sort,
-      })
-      .filter((row) => {
-        if (!state.review) return true;
-        if (state.review === 'annotated') {
-          const c = row.cap;
-          return c.owner || c.notes || (c.tags || []).length || (c.status && c.status !== 'active');
-        }
-        return row.cap.status === state.review;
-      });
+    return core.filterCaps(CAPS, {
+      viewOf,
+      query: state.q,
+      group: state.group,
+      kind: state.kind,
+      service: state.service,
+      keyword: state.keyword,
+      host: state.host,
+      status: state.status,
+      sort: state.sort,
+    });
   }
 
   let renderToken = 0;
@@ -291,8 +345,10 @@
       const cap = CAPS.find((c) => c.capability_id === state.id);
       $('detail').innerHTML = cap ? detailHtml(cap, state.q) : '<div class="empty">未找到 ' + esc(state.id) + '</div>';
       bindAnnotation(cap);
+      bindHostRegistry();
     }
-    for (const id of ['group', 'kind', 'provider', 'status', 'review', 'sort']) $(id).value = state[id] || (id === 'status' ? 'all' : '');
+    for (const id of ['group', 'kind', 'service', 'keyword', 'host', 'status', 'sort'])
+      $(id).value = state[id] || (id === 'status' ? 'all' : '');
     $('imports').textContent = SOURCE.imports.length
       ? '最近导入：' +
         SOURCE.imports
@@ -314,6 +370,17 @@
         owner: $('ann-owner').value,
         tags: $('ann-tags').value,
         notes: $('ann-notes').value,
+        description: $('ann-description') ? $('ann-description').value : '',
+        keywords: $('ann-keywords') ? $('ann-keywords').value : '',
+        hosts: (() => {
+          const picked = Array.from(document.querySelectorAll('.ann-host:checked')).map((i) => i.value);
+          const free = ($('ann-hosts') ? $('ann-hosts').value : '')
+            .replace(/[，、]/g, ',')
+            .split(',')
+            .map((x) => x.trim())
+            .filter(Boolean);
+          return Array.from(new Set(picked.concat(free))).join(', ');
+        })(),
       };
       try {
         const r = await fetch('/api/v1/capabilities/' + encodeURIComponent(cap.capability_id), {
@@ -334,6 +401,39 @@
     });
   }
 
+  function bindHostRegistry() {
+    for (const btn of document.querySelectorAll('.hr-save')) {
+      btn.addEventListener('click', async () => {
+        const row = btn.closest('.hostreg__row');
+        const hostId = btn.dataset.host;
+        const msg = row.querySelector('.hr-msg');
+        msg.textContent = '保存中…';
+        try {
+          const r = await fetch('/api/v1/hosts/' + encodeURIComponent(hostId), {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              display_name: row.querySelector('.hr-name').value,
+              kind: row.querySelector('.hr-kind').value,
+              notes: row.querySelector('.hr-notes').value,
+              status: row.querySelector('.hr-status').value,
+            }),
+          });
+          const data = await r.json();
+          if (!r.ok || !data.ok) throw new Error(data.error || r.statusText);
+          if (SOURCE.facets && SOURCE.facets.hosts) {
+            const hit = SOURCE.facets.hosts.find((x) => x.name === hostId);
+            if (hit) hit.display_name = data.host.display_name || hostId;
+          }
+          msg.textContent = '已保存';
+          render();
+        } catch (e) {
+          msg.textContent = '失败：' + e.message;
+        }
+      });
+    }
+  }
+
   let debounce = null;
   function scheduleRender() {
     clearTimeout(debounce);
@@ -345,22 +445,45 @@
       state.q = e.target.value;
       scheduleRender();
     });
-    for (const id of ['group', 'kind', 'provider', 'status', 'review', 'sort']) {
+    for (const id of ['group', 'kind', 'service', 'keyword', 'host', 'status', 'sort']) {
       $(id).addEventListener('change', (e) => {
         state[id] = e.target.value;
         render();
       });
     }
     $('reset').addEventListener('click', () => {
-      Object.assign(state, { q: '', group: '', kind: '', provider: '', status: 'all', review: '', sort: 'relevance', id: '' });
+      Object.assign(state, {
+        q: '', group: '', kind: '', service: '', keyword: '', host: '',
+        status: 'all', sort: 'relevance', id: '',
+      });
       $('q').value = '';
       render();
     });
+    const onKeywordClick = (e) => {
+      const chip = e.target.closest('[data-kw], [data-host]');
+      if (!chip) return false;
+      e.preventDefault();
+      state.q = '';
+      $('q').value = '';
+      if (chip.dataset.host) {
+        state.host = chip.dataset.host;
+        state.keyword = '';
+      } else {
+        state.keyword = chip.dataset.kw;
+        state.host = '';
+      }
+      render();
+      return true;
+    };
     $('list').addEventListener('click', (e) => {
+      if (onKeywordClick(e)) return;
       const card = e.target.closest('[data-id]');
       if (!card) return;
       state.id = card.dataset.id;
       render();
+    });
+    $('detail').addEventListener('click', (e) => {
+      onKeywordClick(e);
     });
     document.addEventListener('keydown', (e) => {
       if (e.key === '/' && document.activeElement !== $('q')) {
@@ -389,7 +512,9 @@
     const f = SOURCE.facets || core.facets(CAPS, viewOf);
     fillSelect($('group'), f.groups || [], state.group, '全部 group');
     fillSelect($('kind'), f.kinds || [], state.kind, '全部 kind');
-    fillSelect($('provider'), f.edges || f.providers || [], state.provider, '全部设备');
+    fillSelect($('service'), f.services || [], state.service, '全部服务');
+    fillSelect($('keyword'), f.keywords || [], state.keyword, '全部关键字');
+    fillSelect($('host'), f.hosts || [], state.host, '全部宿主');
     render();
   }
 

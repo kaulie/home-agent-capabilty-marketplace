@@ -2,7 +2,7 @@
 
 TV Game Input · 游戏语音/手势输入
 
-kind=`input` · composition=`atomic` · group=`game` · 声明=`是` · 在线=`否` · ⚠️ **声明未上线**（多半是可用性门控：设备/依赖/凭证没配）
+kind=`input` · composition=`atomic` · group=`game` · 声明=`是` · 执行前自检=`无`
 
 ## 规划器怎么认它
 
@@ -27,9 +27,9 @@ iPhone 游戏遥控器：本地 ASR + 人体姿态识别，转 GameCommand 直�
 
 （无）
 
-## 谁提供
+## 适用宿主（代码事实）
 
-（当前没有在线节点广告它）
+- `ios`
 
 ## 能力包
 
@@ -39,10 +39,10 @@ iPhone 游戏遥控器：本地 ASR + 人体姿态识别，转 GameCommand 直�
 
 - [home-agent-os/plugins/tv-game-input/capability.md](https://github.com/kaulie/home-agent-os/blob/main/plugins/tv-game-input/capability.md)
 
-## 可用性
+## 入口
 
-- 执行前探测（checker）：无
-- 当前在线：否
+- ios: `ios/GameInputPluginEntry.swift`
+
 
 - 定义层来源：`ads`、`package:tv-game-input`
 

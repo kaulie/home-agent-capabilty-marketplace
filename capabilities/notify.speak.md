@@ -1,8 +1,8 @@
 # `notify.speak`
 
-Local Notify · 语音播报器
+语音播报器
 
-kind=`output` · composition=`atomic` · group=`notify` · 声明=`是` · 在线=`是` · ℹ️ 实况与定义层不同（下列按实况）
+kind=`output` · composition=`atomic` · group=`-` · 声明=`是` · 执行前自检=`无`
 
 ## 规划器怎么认它
 
@@ -10,21 +10,21 @@ kind=`output` · composition=`atomic` · group=`notify` · 声明=`是` · 在�
 
 ## 典型触发语
 
+- 一分钟后说
 - 大声念出来
 - 提醒我说
-- 一分钟后说
 - 提醒萱萱
 - 该喝水了
 
 ## 不要派给它
 
-- 知识生成
-- 拍照
-- 投图
 - 唤醒应答
-- 把答案用语音告诉我
-- 用语音播放结果
 - 念出执行结果
+- 把答案用语音告诉我
+- 投图
+- 拍照
+- 用语音播放结果
+- 知识生成
 
 ## 入参
 
@@ -38,20 +38,10 @@ kind=`output` · composition=`atomic` · group=`notify` · 声明=`是` · 在�
 
 （无）
 
-## 谁提供
-
-| 设备 | edge_id | 服务 |
-|---|---|---|
-| 客厅 · Mac Edge | `edge-node-IAtuhLSy` | `local.notify` |
-
 ## 服务声明
 
 - `local.notify`
 
-## 可用性
-
-- 执行前探测（checker）：无
-- 当前在线：是
 
 - 定义层来源：`ads`、`service:local.notify`
 

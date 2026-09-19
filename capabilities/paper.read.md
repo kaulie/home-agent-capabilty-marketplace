@@ -2,7 +2,7 @@
 
 论文听读器 · 论文听读器（论文/长文献 → 结构化听读音频）
 
-kind=`action` · composition=`atomic` · group=`read` · 声明=`是` · 在线=`是` · ℹ️ 实况与定义层不同（下列按实况）
+kind=`action` · composition=`atomic` · group=`read` · 声明=`是` · 执行前自检=`无`
 
 ## 规划器怎么认它
 
@@ -10,24 +10,24 @@ kind=`action` · composition=`atomic` · group=`read` · 声明=`是` · 在线=
 
 ## 典型触发语
 
-- 把这篇论文念给我听
 - 听读这篇 paper
-- 这篇论文太长了，听一遍
 - 帮我听读这篇研究
+- 把这篇论文念给我听
 - 朗读这篇论文
+- 这篇论文太长了，听一遍
 
 ## 不要派给它
 
+- OCR 识别
+- PDF 旋转
+- PDF 转图片
 - 念一份普通 PDF/说明书（用 pdf.reader）
-- 论文总结 / Markdown 报告
-- 论文问答
 - 打印
 - 投屏
-- OCR 识别
-- PDF 转图片
-- PDF 旋转
 - 提醒/公告短句播报
 - 放歌
+- 论文总结 / Markdown 报告
+- 论文问答
 
 ## 入参
 
@@ -66,11 +66,9 @@ kind=`action` · composition=`atomic` · group=`read` · 声明=`是` · 在线=
 | `truncated` | boolean | 是 | 是否因字数上限截断（true=只念了前面一部分） |
 | `voice` | string | 是 | 实际使用的音色名 |
 
-## 谁提供
+## 适用宿主（代码事实）
 
-| 设备 | edge_id | 服务 |
-|---|---|---|
-| 客厅 · Mac Edge | `edge-node-IAtuhLSy` | `local.paper.read` |
+- `mac`
 
 ## 服务声明
 
@@ -96,10 +94,6 @@ kind=`action` · composition=`atomic` · group=`read` · 声明=`是` · 在线=
 - `MAC_EDGE_PDF_READER_TTS_FALLBACK_SAY`
 - `MAC_EDGE_PDF_READER_VOICE`
 
-## 可用性
-
-- 执行前探测（checker）：无
-- 当前在线：是
 
 - 定义层来源：`ads`、`package:paper-reader`、`service:local.paper.read`
 

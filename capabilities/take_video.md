@@ -2,7 +2,7 @@
 
 GoPro Camera · 短视频拍摄器
 
-kind=`input` · composition=`atomic` · group=`camera` · 声明=`是` · 在线=`否` · ⚠️ **声明未上线**（多半是可用性门控：设备/依赖/凭证没配）
+kind=`input` · composition=`atomic` · group=`camera` · 声明=`是` · 执行前自检=`无`
 
 ## 规划器怎么认它
 
@@ -28,9 +28,10 @@ kind=`input` · composition=`atomic` · group=`camera` · 声明=`是` · 在线
 
 （无）
 
-## 谁提供
+## 适用宿主（代码事实）
 
-（当前没有在线节点广告它）
+- `ios`
+- `python`
 
 ## 能力包
 
@@ -40,10 +41,11 @@ kind=`input` · composition=`atomic` · group=`camera` · 声明=`是` · 在线
 
 - [home-agent-os/plugins/gopro-camera/capability.md](https://github.com/kaulie/home-agent-os/blob/main/plugins/gopro-camera/capability.md)
 
-## 可用性
+## 入口
 
-- 执行前探测（checker）：无
-- 当前在线：否
+- ios: `ios/GoProPluginEntry.swift`
+- python: `driver.py`
+
 
 - 定义层来源：`ads`、`package:gopro-camera`
 

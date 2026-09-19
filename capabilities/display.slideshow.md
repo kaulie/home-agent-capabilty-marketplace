@@ -2,7 +2,7 @@
 
 小米电视 DLNA · 多图幻灯片投屏器
 
-kind=`output` · composition=`atomic` · group=`display` · 声明=`是` · 在线=`是` · ℹ️ 实况与定义层不同（下列按实况）
+kind=`output` · composition=`atomic` · group=`display` · 声明=`是` · 执行前自检=`无`
 
 ## 规划器怎么认它
 
@@ -10,16 +10,16 @@ kind=`output` · composition=`atomic` · group=`display` · 声明=`是` · 在�
 
 ## 典型触发语
 
-- 轮播这几张照片
-- 电视上放幻灯片
 - 把这些照片轮播
+- 电视上放幻灯片
+- 轮播这几张照片
 
 ## 不要派给它
 
 - 单图投屏
 - 拍照
-- 看图
 - 按厂商选设备
+- 看图
 
 ## 入参
 
@@ -33,11 +33,11 @@ kind=`output` · composition=`atomic` · group=`display` · 声明=`是` · 在�
 
 （无）
 
-## 谁提供
+## 适用宿主（代码事实）
 
-| 设备 | edge_id | 服务 |
-|---|---|---|
-| 客厅 · Mac Edge | `edge-node-IAtuhLSy` | `xiaomi.tv.display` |
+- `android`
+- `ios`
+- `mac`
 
 ## 服务声明
 
@@ -56,6 +56,8 @@ kind=`output` · composition=`atomic` · group=`display` · 声明=`是` · 在�
 
 ## 入口
 
+- android: `android/ChromecastDisplaySkill.kt`
+- ios: `ios/ChromecastPluginEntry.swift`
 - mac: `mac/src/mac_edge/plugins/xiaomi_tv_display.py`
 
 ## 相关配置
@@ -65,10 +67,6 @@ kind=`output` · composition=`atomic` · group=`display` · 声明=`是` · 在�
 - `MAC_EDGE_XIAOMI_TV_HOST`
 - `MAC_EDGE_XIAOMI_TV_NAME`
 
-## 可用性
-
-- 执行前探测（checker）：无
-- 当前在线：是
 
 - 定义层来源：`ads`、`package:chromecast-display`、`package:xiaomi-tv-display`、`service:chromecast.display`、`service:xiaomi.tv.display`
 

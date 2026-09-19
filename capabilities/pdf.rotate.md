@@ -1,8 +1,8 @@
 # `pdf.rotate`
 
-PDF 旋转器 · PDF 旋转器（横版/竖版）
+PDF 旋转器（横版/竖版） · PDF 旋转器（横版/竖版）
 
-kind=`action` · composition=`atomic` · group=`convert` · 声明=`是` · 在线=`是` · ℹ️ 实况与定义层不同（下列按实况）
+kind=`action` · composition=`atomic` · group=`convert` · 声明=`是` · 执行前自检=`无`
 
 ## 规划器怎么认它
 
@@ -10,21 +10,21 @@ kind=`action` · composition=`atomic` · group=`convert` · 声明=`是` · 在�
 
 ## 典型触发语
 
+- PDF 横竖切换
+- 把 PDF 旋转成横版
 - 把这个 PDF 转成横版
 - 把这个 PDF 转成竖版
 - 横着打这份 PDF
 - 竖着打这份 PDF
-- 把 PDF 旋转成横版
-- PDF 横竖切换
 
 ## 不要派给它
 
-- 打印
 - OCR
-- 看图理解
-- 扫描
-- 识别内容
 - PDF 合成/转图片
+- 打印
+- 扫描
+- 看图理解
+- 识别内容
 - 配网
 
 ## 入参
@@ -46,11 +46,9 @@ kind=`action` · composition=`atomic` · group=`convert` · 声明=`是` · 在�
 | `status_text` | string | 是 | 中文一句话结果，含页数、方向与 asset_id |
 | `target_orientation` | string | 是 | 请求的目标方向：portrait / landscape |
 
-## 谁提供
+## 适用宿主（代码事实）
 
-| 设备 | edge_id | 服务 |
-|---|---|---|
-| 客厅 · Mac Edge | `edge-node-IAtuhLSy` | `local.pdf.rotate` |
+- `mac`
 
 ## 服务声明
 
@@ -68,10 +66,6 @@ kind=`action` · composition=`atomic` · group=`convert` · 声明=`是` · 在�
 
 - mac: `mac/src/mac_edge/plugins/pdf_rotate.py`
 
-## 可用性
-
-- 执行前探测（checker）：无
-- 当前在线：是
 
 - 定义层来源：`ads`、`package:pdf-rotate`、`service:local.pdf.rotate`
 

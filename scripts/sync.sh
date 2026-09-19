@@ -2,24 +2,24 @@
 #
 # 同步能力目录：从 home-agent-os 导出 → **导入 marketplace 数据库** → 从库里导出 catalog。
 #
-#   scripts/sync.sh /path/to/home-agent-os            # 导出 + 入库 + 回写 + 自检 + 提交
-#   scripts/sync.sh /path/to/home-agent-os --no-live  # 不拉实况（离线）
-#   scripts/sync.sh /path/to/home-agent-os --check    # 只对账（CI）：与代码比对，有漂移非零退出
+#   scripts/sync.sh /path/to/home-agent-os          # 导出（**声明层**）+ 入库 + 回写 + 自检 + 提交
+#   scripts/sync.sh /path/to/home-agent-os --check  # 只对账（CI）：与代码比对，有漂移非零退出
+#
+# 定位：集市是「能力展示与技能介绍」——只登记**声明**（能力/服务/条件挂载/参数/触发语/文档 + 人工策展），
+# 不保存任何实时状态（在线、设备、探测结果）。要看实时状态请用 Brain `GET /api/v1/capabilities`。
 #
 # 数据流（**库是权威，catalog/capabilities.json 是库的导出**）：
 #   home-agent-os 代码 ──导出器──▶ 临时 catalog.json ──导入──▶ SQLite（保留集市注解）
 #        └─▶ capabilities/*.md + catalog/capabilities.md（代码视图，随代码 PR 审阅）
-#        └─▶ 库导出 ─▶ catalog/capabilities.json（含集市注解，供静态 UI/Pages/diff）
+#        └─▶ 库导出 ─▶ catalog/capabilities.json（声明视图 + 集市注解，供静态 UI/Pages/diff）
 set -euo pipefail
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 HOS="${1:-}"
 shift || true
-LIVE="--live"
 CHECK=""
 for arg in "$@"; do
   case "$arg" in
-    --no-live) LIVE="" ;;
     --check) CHECK="--check" ;;
     *) echo "[sync][错误] 未知参数 $arg" >&2; exit 2 ;;
   esac
@@ -27,7 +27,7 @@ done
 
 EXPORTER="${HOS}/mac/scripts/export_capability_catalog.py"
 if [ -z "${HOS}" ] || [ ! -f "${EXPORTER}" ]; then
-  echo "[sync][错误] 用法：scripts/sync.sh /path/to/home-agent-os [--no-live] [--check]" >&2
+  echo "[sync][错误] 用法：scripts/sync.sh /path/to/home-agent-os [--check]" >&2
   exit 2
 fi
 
@@ -36,9 +36,9 @@ TMP="$(mktemp -d)"
 trap 'rm -rf "${TMP}"' EXIT
 
 if [ -n "${CHECK}" ]; then
-  echo "[sync] 对账：代码 → 临时库 → 与仓库里 catalog 的契约字段比（实况/注解不算差异）"
+  echo "[sync] 对账：代码 → 临时库 → 与仓库里 catalog 的声明字段比（集市注解不算差异）"
   OUT="${TMP}/out.json"
-  python3 "${EXPORTER}" --out "${TMP}/code" ${LIVE} >/dev/null
+  python3 "${EXPORTER}" --out "${TMP}/code" >/dev/null
   python3 "${HERE}/server/catalog_cli.py" --db "${TMP}/check.sqlite3" import "${TMP}/code/catalog/capabilities.json" >/dev/null
   python3 "${HERE}/server/catalog_cli.py" --db "${TMP}/check.sqlite3" export --out "${OUT}" >/dev/null
   python3 "${HERE}/tests/catalog-drift.py" "${OUT}" "${HERE}/catalog/capabilities.json"
@@ -46,13 +46,15 @@ if [ -n "${CHECK}" ]; then
 fi
 
 echo "[sync] 导出（${HOS}）→ ${TMP}"
-python3 "${EXPORTER}" --out "${TMP}" ${LIVE}
+python3 "${EXPORTER}" --out "${TMP}"
 echo "[sync] 入库：${DB}"
 python3 "${HERE}/server/catalog_cli.py" --db "${DB}" import "${TMP}/catalog/capabilities.json" \
   --note "sync from home-agent-os $(git -C "${HOS}" rev-parse --short HEAD 2>/dev/null || echo unknown)"
 echo "[sync] 回写仓库：catalog/（库导出，含注解）+ capabilities/*.md（代码视图）"
 python3 "${HERE}/server/catalog_cli.py" --db "${DB}" export --out "${HERE}/catalog/capabilities.json"
 cp "${TMP}/catalog/capabilities.md" "${HERE}/catalog/capabilities.md"
+mkdir -p "${HERE}/schema"
+cp "${TMP}/schema/catalog.schema.json" "${HERE}/schema/catalog.schema.json"
 mkdir -p "${HERE}/capabilities"
 rm -f "${HERE}/capabilities/"*.md
 cp "${TMP}/capabilities/"*.md "${HERE}/capabilities/"

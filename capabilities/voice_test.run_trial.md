@@ -2,7 +2,7 @@
 
 台灯语音控制实验 · 台灯语音控制实验器
 
-kind=`action` · composition=`atomic` · group=`experiment` · 声明=`是` · 在线=`是` · ℹ️ 实况与定义层不同（下列按实况）
+kind=`action` · composition=`atomic` · group=`experiment` · 声明=`是` · 执行前自检=`无`
 
 ## 规划器怎么认它
 
@@ -10,16 +10,16 @@ kind=`action` · composition=`atomic` · group=`experiment` · 声明=`是` · �
 
 ## 典型触发语
 
-- 测试台灯语音识别成功率
 - 测一下语音控制台灯
+- 测试台灯语音识别成功率
 - 跑一轮台灯语音测试
 
 ## 不要派给它
 
-- 日常开灯
 - 关灯
-- 知识问答
 - 投屏
+- 日常开灯
+- 知识问答
 - 给用户看照片
 
 ## 入参
@@ -48,11 +48,9 @@ kind=`action` · composition=`atomic` · group=`experiment` · 声明=`是` · �
 | `timeline_text` | string | 否 | 逐步墙钟：第一句/第二句触发、拍照、看图、拾音确认、最终结果 |
 | `verification_result` | string | 否 | on / off / unknown |
 
-## 谁提供
+## 适用宿主（代码事实）
 
-| 设备 | edge_id | 服务 |
-|---|---|---|
-| 客厅 · Mac Edge | `edge-node-IAtuhLSy` | `local.voice_test` |
+- `mac`
 
 ## 服务声明
 
@@ -76,10 +74,6 @@ kind=`action` · composition=`atomic` · group=`experiment` · 声明=`是` · �
 - `MAC_EDGE_VOICE_TEST_PROFILE`
 - `MAC_EDGE_WEBCAM_DEVICE`
 
-## 可用性
-
-- 执行前探测（checker）：无
-- 当前在线：是
 
 - 定义层来源：`ads`、`package:voice-lamp-test`、`service:local.voice_test`
 

@@ -1,8 +1,8 @@
 # `chat.smalltalk`
 
-Local Chat · 闲聊问候回复器
+闲聊问候回复器
 
-kind=`action` · composition=`atomic` · group=`chat` · 声明=`是` · 在线=`是` · ℹ️ 实况与定义层不同（下列按实况）
+kind=`action` · composition=`atomic` · group=`chat` · 声明=`是` · 执行前自检=`无`
 
 ## 规划器怎么认它
 
@@ -10,26 +10,26 @@ kind=`action` · composition=`atomic` · group=`chat` · 声明=`是` · 在线=
 
 ## 典型触发语
 
-- 早啊
 - 你好啊
-- 谢谢
 - 再见
 - 在吗
 - 早上好
+- 早啊
+- 谢谢
 
 ## 不要派给它
 
-- 知识问答
-- 算式
-- 报时
-- 看图
-- 拍照
-- 投屏
-- 控制设备
-- 能力介绍
 - 你会…吗
 - 你可以…吗
+- 投屏
+- 报时
+- 拍照
+- 控制设备
+- 看图
+- 知识问答
+- 算式
 - 能不能…
+- 能力介绍
 
 ## 入参
 
@@ -43,22 +43,24 @@ kind=`action` · composition=`atomic` · group=`chat` · 声明=`是` · 在线=
 |---|---|---|---|
 | `reply` | string | 是 | 回复的话 |
 
-## 谁提供
+## 适用宿主（代码事实）
 
-| 设备 | edge_id | 服务 |
-|---|---|---|
-| 客厅 · Mac Edge | `edge-node-IAtuhLSy` | `local.chat` |
+- `mac`
 
 ## 服务声明
 
 - `local.chat`
 
-## 可用性
+## 能力包
 
-- 执行前探测（checker）：无
-- 当前在线：是
+- `plugins/chat-smalltalk/`
 
-- 定义层来源：`ads`、`service:local.chat`
+## 文档
+
+- [home-agent-os/plugins/chat-smalltalk/capability.md](https://github.com/kaulie/home-agent-os/blob/main/plugins/chat-smalltalk/capability.md)
+
+
+- 定义层来源：`ads`、`package:chat-smalltalk`、`service:local.chat`
 
 ---
 

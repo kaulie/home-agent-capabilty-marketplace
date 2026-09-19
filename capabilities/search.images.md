@@ -1,8 +1,8 @@
 # `search.images`
 
-Web Image Search · 互联网实拍图检索器
+互联网实拍图检索器
 
-kind=`action` · composition=`atomic` · group=`search` · 声明=`是` · 在线=`是` · ℹ️ 实况与定义层不同（下列按实况）
+kind=`action` · composition=`atomic` · group=`-` · 声明=`是` · 执行前自检=`无`
 
 ## 规划器怎么认它
 
@@ -10,8 +10,8 @@ kind=`action` · composition=`atomic` · group=`search` · 声明=`是` · 在�
 
 ## 典型触发语
 
-- 搜一张猫的照片
 - 找网上的实拍图
+- 搜一张猫的照片
 - 搜索故宫的照片
 - 给我找几张风景图
 - 网上搜几张实拍
@@ -19,13 +19,13 @@ kind=`action` · composition=`atomic` · group=`search` · 声明=`是` · 在�
 ## 不要派给它
 
 - AI文生图
-- 画一张
-- 生成图片
-- 知识问答
-- 拍照
-- 看本地相册
-- 投屏本身
 - OCR
+- 投屏本身
+- 拍照
+- 生成图片
+- 画一张
+- 看本地相册
+- 知识问答
 - 读图上的字
 
 ## 入参
@@ -49,20 +49,10 @@ kind=`action` · composition=`atomic` · group=`search` · 声明=`是` · 在�
 | `query_used` | string | 是 | 实际搜索关键词 |
 | `sources` | string | 否 | 来源页 JSON 数组 [{name, host_page, license?}] |
 
-## 谁提供
-
-| 设备 | edge_id | 服务 |
-|---|---|---|
-| 客厅 · Mac Edge | `edge-node-IAtuhLSy` | `local.search` |
-
 ## 服务声明
 
 - `local.search`
 
-## 可用性
-
-- 执行前探测（checker）：无
-- 当前在线：是
 
 - 定义层来源：`ads`、`service:local.search`
 

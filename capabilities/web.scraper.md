@@ -1,8 +1,8 @@
 # `web.scraper`
 
-网页抓取器 · 网页抓取器（URL / url 资产 → 核心正文/整页 → PDF/文本）
+网页抓取器（URL → 核心正文/整页 → PDF/文本） · 网页抓取器（URL / url 资产 → 核心正文/整页 → PDF/文本）
 
-kind=`action` · composition=`atomic` · group=`convert` · 声明=`是` · 在线=`是` · ℹ️ 实况与定义层不同（下列按实况）
+kind=`action` · composition=`atomic` · group=`convert` · 声明=`是` · 执行前自检=`无`
 
 ## 规划器怎么认它
 
@@ -10,25 +10,25 @@ kind=`action` · composition=`atomic` · group=`convert` · 声明=`是` · 在�
 
 ## 典型触发语
 
-- 把这个网页存成 PDF
-- 把网址 http… 的文章转成 PDF
-- 抓取这篇文章转成 PDF
-- 把我存的链接转成 PDF
-- 把网页正文导出成文本
 - 保存这个网页
+- 把我存的链接转成 PDF
+- 把网址 http… 的文章转成 PDF
+- 把网页正文导出成文本
+- 把这个网页存成 PDF
+- 抓取这篇文章转成 PDF
 - 网页转 PDF
 
 ## 不要派给它
 
-- 打印
 - OCR
-- 翻译
-- 整页截图
 - 下载图片
-- 看图理解
+- 打印
 - 投屏
-- 配网
+- 整页截图
 - 浏览网页问答
+- 看图理解
+- 翻译
+- 配网
 
 ## 入参
 
@@ -61,11 +61,9 @@ kind=`action` · composition=`atomic` · group=`convert` · 声明=`是` · 在�
 | `title` | string | 是 | 网页标题 |
 | `url` | string | 是 | 抓取到的最终 URL（跟随重定向后） |
 
-## 谁提供
+## 适用宿主（代码事实）
 
-| 设备 | edge_id | 服务 |
-|---|---|---|
-| 客厅 · Mac Edge | `edge-node-IAtuhLSy` | `local.web.scraper` |
+- `mac`
 
 ## 服务声明
 
@@ -83,10 +81,6 @@ kind=`action` · composition=`atomic` · group=`convert` · 声明=`是` · 在�
 
 - mac: `mac/src/mac_edge/plugins/web_scraper.py`
 
-## 可用性
-
-- 执行前探测（checker）：无
-- 当前在线：是
 
 - 定义层来源：`ads`、`package:web-scraper`、`service:local.web.scraper`
 

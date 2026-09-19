@@ -2,7 +2,7 @@
 
 识曲（听歌识曲） · 识曲器（听歌识曲）
 
-kind=`action` · composition=`atomic` · group=`music` · 声明=`是` · 在线=`是` · ℹ️ 实况与定义层不同（下列按实况）
+kind=`action` · composition=`atomic` · group=`music` · 声明=`是` · 执行前自检=`无`
 
 ## 规划器怎么认它
 
@@ -10,21 +10,21 @@ kind=`action` · composition=`atomic` · group=`music` · 声明=`是` · 在线
 
 ## 典型触发语
 
-- 打开识曲模式
-- 这是什么歌
-- 帮我听一下这首歌
 - 听歌识曲
+- 帮我听一下这首歌
+- 打开识曲模式
 - 识别一下现在放的歌
+- 这是什么歌
 
 ## 不要派给它
 
-- 按歌名点播
-- 暂停
 - 切歌
-- 连蓝牙
+- 按歌名点播
+- 播放音乐
+- 暂停
 - 知识问答
 - 读 ncm 正在播放元数据
-- 播放音乐
+- 连蓝牙
 
 ## 入参
 
@@ -43,11 +43,9 @@ kind=`action` · composition=`atomic` · group=`music` · 声明=`是` · 在线
 | `matched` | boolean | 否 | 是否识别成功 |
 | `song_title` | string | 否 | 识别出的歌名 |
 
-## 谁提供
+## 适用宿主（代码事实）
 
-| 设备 | edge_id | 服务 |
-|---|---|---|
-| 客厅 · Mac Edge | `edge-node-IAtuhLSy` | `music.recognize` |
+- `mac`
 
 ## 服务声明
 
@@ -78,10 +76,6 @@ kind=`action` · composition=`atomic` · group=`music` · 声明=`是` · 在线
 - `MAC_EDGE_MUSIC_RECOGNIZE_SHAZAM_HOST`
 - `MAC_EDGE_MUSIC_RECOGNIZE_SHAZAM_KEY`
 
-## 可用性
-
-- 执行前探测（checker）：无
-- 当前在线：是
 
 - 定义层来源：`ads`、`package:music-recognize`、`service:music.recognize`
 

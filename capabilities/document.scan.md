@@ -2,7 +2,7 @@
 
 Document Scanner · 纸质文档扫描器
 
-kind=`input` · composition=`atomic` · group=`document` · 声明=`是` · 在线=`否` · ⚠️ **声明未上线**（多半是可用性门控：设备/依赖/凭证没配）
+kind=`input` · composition=`atomic` · group=`document` · 声明=`是` · 执行前自检=`无`
 
 ## 规划器怎么认它
 
@@ -32,9 +32,9 @@ kind=`input` · composition=`atomic` · group=`document` · 声明=`是` · 在�
 
 （无）
 
-## 谁提供
+## 适用宿主（代码事实）
 
-（当前没有在线节点广告它）
+- `ios`
 
 ## 能力包
 
@@ -44,10 +44,10 @@ kind=`input` · composition=`atomic` · group=`document` · 声明=`是` · 在�
 
 - [home-agent-os/plugins/document-scanner/capability.md](https://github.com/kaulie/home-agent-os/blob/main/plugins/document-scanner/capability.md)
 
-## 可用性
+## 入口
 
-- 执行前探测（checker）：无
-- 当前在线：否
+- ios: `ios/LivingRoomEdge/LivingRoomEdge/VisualInput/VisualInput.swift`
+
 
 - 定义层来源：`ads`、`package:document-scanner`
 

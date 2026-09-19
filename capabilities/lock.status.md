@@ -2,7 +2,7 @@
 
 小米门锁 · 门锁状态读取器
 
-kind=`input` · composition=`atomic` · group=`lock` · 声明=`是` · 在线=`否` · ⚠️ **声明未上线**（多半是可用性门控：设备/依赖/凭证没配）
+kind=`input` · composition=`atomic` · group=`lock` · 声明=`是` · 执行前自检=`无`
 
 ## 规划器怎么认它
 
@@ -35,9 +35,9 @@ kind=`input` · composition=`atomic` · group=`lock` · 声明=`是` · 在线=`
 | `online` | boolean | 是 | 门锁云端是否在线 |
 | `status_text` | string | 是 | 人类可读状态，如「已上锁，门关着」 |
 
-## 谁提供
+## 适用宿主（代码事实）
 
-（当前没有在线节点广告它）
+- `mac`
 
 ## 服务声明
 
@@ -61,10 +61,6 @@ kind=`input` · composition=`atomic` · group=`lock` · 声明=`是` · 在线=`
 - `MAC_EDGE_XIAOMI_PASSWORD`
 - `MAC_EDGE_XIAOMI_USERNAME`
 
-## 可用性
-
-- 执行前探测（checker）：无
-- 当前在线：否
 
 - 定义层来源：`ads`、`package:xiaomi-lock`、`service:entry.lock`
 

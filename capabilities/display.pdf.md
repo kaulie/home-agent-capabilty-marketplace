@@ -1,8 +1,8 @@
 # `display.pdf`
 
-小米电视 DLNA · PDF 投屏打开器
+PDF 投屏（逐页渲染） · PDF 投屏打开器
 
-kind=`output` · composition=`atomic` · group=`display` · 声明=`是` · 在线=`是` · ℹ️ 实况与定义层不同（下列按实况）
+kind=`output` · composition=`atomic` · group=`display` · 声明=`是` · 执行前自检=`无`
 
 ## 规划器怎么认它
 
@@ -10,20 +10,20 @@ kind=`output` · composition=`atomic` · group=`display` · 声明=`是` · 在�
 
 ## 典型触发语
 
-- 把这份 PDF 投到电视
-- 把最新的 PDF 投屏到电视上
 - PDF 上电视
+- 把最新的 PDF 投屏到电视上
 - 把这个文档投到电视上看
+- 把这份 PDF 投到电视
 
 ## 不要派给它
 
-- 打印
 - OCR
-- 看图理解
+- 下一页
 - 单图投屏
 - 幻灯片
+- 打印
+- 看图理解
 - 翻页
-- 下一页
 
 ## 入参
 
@@ -40,11 +40,9 @@ kind=`output` · composition=`atomic` · group=`display` · 声明=`是` · 在�
 | `page_count` | number | 是 | PDF 总页数 |
 | `status_text` | string | 是 | 中文一句话，如「已把 PDF 投到电视，第 1 页 / 共 12 页」 |
 
-## 谁提供
+## 适用宿主（代码事实）
 
-| 设备 | edge_id | 服务 |
-|---|---|---|
-| 客厅 · Mac Edge | `edge-node-IAtuhLSy` | `xiaomi.tv.display` |
+- `mac`
 
 ## 服务声明
 
@@ -73,10 +71,6 @@ kind=`output` · composition=`atomic` · group=`display` · 声明=`是` · 在�
 - `MAC_EDGE_PDF_DISPLAY_DPI`
 - `MAC_EDGE_XIAOMI_TV_HOST`
 
-## 可用性
-
-- 执行前探测（checker）：无
-- 当前在线：是
 
 - 定义层来源：`ads`、`caps:PDF_DISPLAY_CAPABILITIES`、`package:pdf-display`
 

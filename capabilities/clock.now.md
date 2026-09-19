@@ -2,48 +2,45 @@
 
 Local Clock · 本机时钟读取器
 
-kind=`system` · composition=`atomic` · group=`clock` · 声明=`是` · 在线=`是` · ℹ️ 实况与定义层不同（下列按实况）
+kind=`input` · composition=`atomic` · group=`clock` · 声明=`是` · 执行前自检=`无`
 
 ## 规划器怎么认它
 
-Brain 就地读本机墙上钟，回答「现在几点了」「今天几号」。一次性读取，应当排进计划，assigned_edge_id=system。产出 now_iso 和给人听的 time_text。不要用文本问答编时刻
+读执行边本机墙上钟，回答「现在几点了」「今天几号」。一次性读取，应当排进计划。产出 now_iso 和给人听的 time_text。不要用文本问答编时刻
 
 ## 典型触发语
 
-- 现在几点了
-- 几点了
-- 现在时间
 - 今天几号
 - 今天日期
-- 几月几号
 - 几号了
+- 几月几号
+- 几点了
+- 现在几点了
+- 现在时间
 
 ## 不要派给它
 
-- 知识问答
-- 计算
 - 看图
+- 知识问答
 - 编一个时刻
+- 计算
 
 ## 入参
 
 | 参数 | 类型 | 必填 | 说明 |
 |---|---|---|---|
-| `appliance` | string | 否 | 绑定名（如 Local Clock），仅用于多实例区分，不影响读钟 |
-| `timezone` | string | 否 | IANA 时区，默认 Asia/Shanghai |
+| `timezone` | string | 否 | IANA 时区，如 Asia/Shanghai；缺省为本机本地时区 |
 
 ## 出参
 
 | 参数 | 类型 | 必填 | 说明 |
 |---|---|---|---|
-| `now_iso` | string | 是 | 本机当前时间 ISO 8601（带时区），如 2026-08-27T22:30:00+08:00 |
-| `time_text` | string | 是 | 给人听/看的当前时间中文，如「现在是 22 点 30 分」 |
+| `now_iso` | string | 是 | ISO-8601 时刻，含 UTC 偏移 |
+| `time_text` | string | 是 | 给人听/看的中文时刻（现在是…点…分）；时区在 now_iso，不要念 IANA 名或 UTC+08:00 |
 
-## 谁提供
+## 适用宿主（代码事实）
 
-| 设备 | edge_id | 服务 |
-|---|---|---|
-| Brain | `system` | `system.clock` |
+- `mac`
 
 ## 服务声明
 
@@ -61,10 +58,6 @@ Brain 就地读本机墙上钟，回答「现在几点了」「今天几号」�
 
 - mac: `mac/src/mac_edge/plugins/clock_now.py`
 
-## 可用性
-
-- 执行前探测（checker）：无
-- 当前在线：是
 
 - 定义层来源：`ads`、`package:clock-now`、`service:local.clock`
 

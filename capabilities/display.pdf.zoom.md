@@ -1,8 +1,8 @@
 # `display.pdf.zoom`
 
-小米电视 DLNA · PDF 投屏缩放器
+PDF 投屏缩放器
 
-kind=`output` · composition=`atomic` · group=`display` · 声明=`是` · 在线=`是` · ℹ️ 实况与定义层不同（下列按实况）
+kind=`output` · composition=`atomic` · group=`-` · 声明=`是` · 执行前自检=`无`
 
 ## 规划器怎么认它
 
@@ -10,19 +10,19 @@ kind=`output` · composition=`atomic` · group=`display` · 声明=`是` · 在�
 
 ## 典型触发语
 
+- 放大一点
 - 电视放大
 - 电视缩小
 - 电视还原
-- 放大一点
 - 看不清，放大
 
 ## 不要派给它
 
+- 打印
 - 打开 PDF
 - 投屏新文档
-- 翻页
 - 照片放大
-- 打印
+- 翻页
 
 ## 入参
 
@@ -39,12 +39,6 @@ kind=`output` · composition=`atomic` · group=`display` · 声明=`是` · 在�
 | `status_text` | string | 是 | 中文一句话，如「已放大到 2 倍（第 2 页 / 共 12 页）」 |
 | `zoom` | number | 是 | 缩放后倍数（1.0 = 原图） |
 
-## 谁提供
-
-| 设备 | edge_id | 服务 |
-|---|---|---|
-| 客厅 · Mac Edge | `edge-node-IAtuhLSy` | `xiaomi.tv.display` |
-
 ## 服务声明
 
 - `chromecast.display`
@@ -54,10 +48,6 @@ kind=`output` · composition=`atomic` · group=`display` · 声明=`是` · 在�
 
 - `PDF_DISPLAY_CAPABILITIES`（按依赖/后端决定是否挂上）
 
-## 可用性
-
-- 执行前探测（checker）：无
-- 当前在线：是
 
 - 定义层来源：`ads`、`caps:PDF_DISPLAY_CAPABILITIES`
 

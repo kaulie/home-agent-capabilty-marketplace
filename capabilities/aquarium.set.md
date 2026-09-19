@@ -2,7 +2,7 @@
 
 米家智能鱼缸 · 鱼缸控制器
 
-kind=`action` · composition=`atomic` · group=`aquarium` · 声明=`是` · 在线=`否` · ⚠️ **声明未上线**（多半是可用性门控：设备/依赖/凭证没配）
+kind=`action` · composition=`atomic` · group=`aquarium` · 声明=`是` · 执行前自检=`无`
 
 ## 规划器怎么认它
 
@@ -46,9 +46,9 @@ kind=`action` · composition=`atomic` · group=`aquarium` · 声明=`是` · 在
 | `status_text` | string | 是 | 人类可读状态，如「鱼缸已开，灯开，水温26°C」 |
 | `water_temp` | number | 否 | 水温摄氏 |
 
-## 谁提供
+## 适用宿主（代码事实）
 
-（当前没有在线节点广告它）
+- `mac`
 
 ## 服务声明
 
@@ -73,10 +73,6 @@ kind=`action` · composition=`atomic` · group=`aquarium` · 声明=`是` · 在
 - `MAC_EDGE_XIAOMI_PASSWORD`
 - `MAC_EDGE_XIAOMI_USERNAME`
 
-## 可用性
-
-- 执行前探测（checker）：无
-- 当前在线：否
 
 - 定义层来源：`ads`、`package:xiaomi-aquarium`、`service:livingroom.aquarium`
 
