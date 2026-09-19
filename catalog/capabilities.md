@@ -1,6 +1,6 @@
 # 能力总表（mac edge）
 
-> 由 `mac/scripts/export_capability_catalog.py` 从 home-agent-os `24d9217` 生成（2026-09-19T01:04:51Z）；**请勿手改** —— 改能力请改 home-agent-os 再跑 `scripts/sync.sh`。
+> 由 `mac/scripts/export_capability_catalog.py` 从 home-agent-os `5dc6531` 生成（2026-09-19T01:26:08Z）；**请勿手改** —— 改能力请改 home-agent-os 再跑 `scripts/sync.sh`。
 
 ## 概览
 
