@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>能力集市 · Home Agent</title>
+<link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+<header class="top">
+  <div class="top__main">
+    <h1>能力集市 <span class="muted">home-agent</span></h1>
+    <p id="source" class="muted small">加载中…</p>
+  </div>
+  <div class="stats" id="stats"></div>
+</header>
+
+<nav class="toolbar">
+  <input id="q" class="search" type="search" placeholder="搜能力 / 触发语 / 参数 / 设备…（按 / 聚焦，空格分隔=AND）" autocomplete="off" />
+  <select id="group" title="类别 group"></select>
+  <select id="kind" title="kind"></select>
+  <select id="provider" title="设备"></select>
+  <select id="status" title="状态">
+    <option value="all">全部状态</option>
+    <option value="live">在线</option>
+    <option value="declared_not_live">声明未上线</option>
+    <option value="live_not_declared">线上未声明</option>
+    <option value="checker">有可用性探测</option>
+    <option value="no_docs">缺文档</option>
+  </select>
+  <select id="review" title="集市状态（自有字段）">
+    <option value="">全部（不看集市状态）</option>
+    <option value="active">active</option>
+    <option value="planned">planned</option>
+    <option value="deprecated">deprecated</option>
+    <option value="blocked">blocked</option>
+    <option value="annotated">有人维护过</option>
+  </select>
+  <select id="sort" title="排序">
+    <option value="relevance">相关性 / 默认</option>
+    <option value="group">按 group</option>
+    <option value="live">在线优先</option>
+  </select>
+  <button id="reset" class="btn">重置</button>
+</nav>
+
+<main class="layout">
+  <section class="list" id="list" aria-live="polite"></section>
+  <aside class="detail" id="detail">
+    <div class="empty">选一条能力看详情</div>
+  </aside>
+</main>
+
+<footer class="foot">
+  <span id="count" class="muted small"></span>
+  <span id="imports" class="muted small"></span>
+  <a href="../catalog/capabilities.md">总表 (md)</a>
+  <a href="../catalog/capabilities.json">catalog (json)</a>
+  <a href="../schema/catalog.schema.json">schema</a>
+  <a href="../README.md">怎么维护</a>
+</footer>
+
+<script src="assets/catalog-core.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
