@@ -45,32 +45,19 @@ kind=`output` · composition=`atomic` · group=`display` · 声明=`是` · 执�
 
 - `xiaomi.tv.display`
 
-## 条件声明
-
-- `AUDIO_DISPLAY_CAPABILITIES`（按依赖/后端决定是否挂上）
-
 ## 能力包
 
 - `plugins/xiaomi-tv-display/`
 
 ## 文档
 
-- [home-agent-os/plugins/xiaomi-tv-display/capability.md](https://github.com/kaulie/home-agent-os/blob/main/plugins/xiaomi-tv-display/capability.md)
+- [plugins/xiaomi-tv-display/capability.md](../plugins/xiaomi-tv-display/capability.md)
 
 ## 入口
 
 - mac: `mac/src/mac_edge/plugins/xiaomi_tv_display.py`
 
-## 相关配置
-
-- `MAC_EDGE_DISPLAY_BACKEND`
-- `MAC_EDGE_XIAOMI_TV`
-- `MAC_EDGE_XIAOMI_TV_HOST`
-- `MAC_EDGE_XIAOMI_TV_NAME`
-
-
-- 定义层来源：`ads`、`caps:AUDIO_DISPLAY_CAPABILITIES`、`package:xiaomi-tv-display`
 
 ---
 
-<sub>由 `mac/scripts/export_capability_catalog.py` 生成（home-agent-os `5dc6531`），请勿手改。</sub>
+<sub>由 `scripts/export_catalog.py` 生成（marketplace `c272647`），请勿手改。</sub>

@@ -2,7 +2,7 @@
 
 图片文字识别器
 
-kind=`system` · composition=`atomic` · group=`-` · 声明=`是` · 执行前自检=`无`
+kind=`system` · composition=`atomic` · group=`ocr` · 声明=`是` · 执行前自检=`无`
 
 ## 规划器怎么认它
 
@@ -32,15 +32,28 @@ kind=`system` · composition=`atomic` · group=`-` · 声明=`是` · 执行前�
 
 ## 入参
 
-（无）
+| 参数 | 类型 | 必填 | 说明 |
+|---|---|---|---|
+| `asset_ref` | string | 是 | 图片 AssetRef JSON {asset_id, type}。禁止 image_url / path / base64。 |
+| `language` | string | 否 | zh（默认）或 en |
 
 ## 出参
 
-（无）
+| 参数 | 类型 | 必填 | 说明 |
+|---|---|---|---|
+| `asset_id` | string | 是 | 入参图片 asset_id |
+| `blocks` | string | 是 | OCR 块 JSON 数组 |
+| `text` | string | 是 | 图上全部识别文字 |
 
+## 适用宿主（代码事实）
 
-- 定义层来源：`ads`
+- `brain`
+
+## 服务声明
+
+- `system.ocr`
+
 
 ---
 
-<sub>由 `mac/scripts/export_capability_catalog.py` 生成（home-agent-os `5dc6531`），请勿手改。</sub>
+<sub>由 `scripts/export_catalog.py` 生成（marketplace `c272647`），请勿手改。</sub>

@@ -1,16 +1,14 @@
-# 能力总表（mac edge）
+# 能力总表
 
-> 由 `mac/scripts/export_capability_catalog.py` 从 home-agent-os `5dc6531` 生成（2026-09-19T01:26:08Z）；**请勿手改** —— 改能力请改 home-agent-os 再跑 `scripts/sync.sh`。
+> 由 `scripts/export_catalog.py` 从本仓 `plugins/` + `declarations/` 生成（2026-10-11T01:00:56Z，commit `c272647`）；**请勿手改**。 改声明请改本仓再跑 `scripts/sync.sh`。
 
 ## 概览
 
 | 项 | 数 |
 |---|---|
-| 能力总数（并集） | 60 |
-| 规划器广告定义（ADS） | 60 |
-| 服务声明（services.py 静态） | 44（30 个 service） |
-| 能力包（plugins/*/manifest.yaml） | 33 |
-| 有执行前探测（checker） | 13 |
+| 能力总数 | 62 |
+| 服务 | 40 |
+| 能力包（plugins/*/manifest.yaml） | 34 |
 
 ### 按 group
 
@@ -21,23 +19,25 @@
 | `convert` | 5 |
 | `camera` | 4 |
 | `reading` | 4 |
+| `notify` | 3 |
 | `asset` | 2 |
-| `bluetooth` | 2 |
+| `document` | 2 |
 | `game` | 2 |
 | `network` | 2 |
-| `notify` | 2 |
+| `speaker` | 2 |
 | `vision` | 2 |
+| `voice` | 2 |
 | `aquarium` | 1 |
 | `chat` | 1 |
 | `climate` | 1 |
 | `clock` | 1 |
-| `document` | 1 |
 | `experiment` | 1 |
-| `image` | 1 |
 | `light` | 1 |
 | `lock` | 1 |
+| `map` | 1 |
 | `math` | 1 |
 | `meta` | 1 |
+| `ocr` | 1 |
 | `phone` | 1 |
 | `printer` | 1 |
 | `pronunciation` | 1 |
@@ -45,18 +45,6 @@
 | `read` | 1 |
 | `search` | 1 |
 | `video` | 1 |
-| `visual` | 1 |
-| `voice` | 1 |
-| `voicewakeup` | 1 |
-
-### 按 kind
-
-| kind | 能力数 |
-|---|---|
-| `action` | 36 |
-| `output` | 11 |
-| `input` | 10 |
-| `system` | 3 |
 
 ## 能力清单（按 group）
 
@@ -72,13 +60,6 @@
 |---|---|---|---|
 | [`asset.inventory`](capabilities/asset.inventory.md) | system | Asset 盘点查询器 | 刚才的照片 |
 | [`asset.upload`](capabilities/asset.upload.md) | action | Asset 上传器 | 上传到图片服务器 |
-
-### `bluetooth`
-
-| 能力 | kind | 角色 | 触发语（示例） |
-|---|---|---|---|
-| [`bluetooth.connect`](capabilities/bluetooth.connect.md) | action | 蓝牙音箱连接器 | 连上音箱 |
-| [`bluetooth.disconnect`](capabilities/bluetooth.disconnect.md) | action | 蓝牙音箱断开器 | 断开蓝牙 |
 
 ### `camera`
 
@@ -133,6 +114,7 @@
 | 能力 | kind | 角色 | 触发语（示例） |
 |---|---|---|---|
 | [`document.scan`](capabilities/document.scan.md) | input | 纸质文档扫描器 | 扫一下 |
+| [`visual.input`](capabilities/visual.input.md) | input | 纸质文档扫描器 | 扫一下小票 |
 
 ### `experiment`
 
@@ -147,12 +129,6 @@
 | [`game.input`](capabilities/game.input.md) | input | 游戏语音/手势输入 | 挥手玩游戏 |
 | [`game.launch`](capabilities/game.launch.md) | output | 电视互动游戏启动器 | 启动游戏 |
 
-### `image`
-
-| 能力 | kind | 角色 | 触发语（示例） |
-|---|---|---|---|
-| [`image.ocr`](capabilities/image.ocr.md) | system | 图片文字识别器 | OCR |
-
 ### `light`
 
 | 能力 | kind | 角色 | 触发语（示例） |
@@ -164,6 +140,12 @@
 | 能力 | kind | 角色 | 触发语（示例） |
 |---|---|---|---|
 | [`lock.status`](capabilities/lock.status.md) | input | 门锁状态读取器 | 门关了吗 |
+
+### `map`
+
+| 能力 | kind | 角色 | 触发语（示例） |
+|---|---|---|---|
+| [`map.route.estimate`](capabilities/map.route.estimate.md) | system | 路线距离与耗时查询器 | 从哪到哪开车多久 |
 
 ### `math`
 
@@ -202,7 +184,14 @@
 | 能力 | kind | 角色 | 触发语（示例） |
 |---|---|---|---|
 | [`notify.speak`](capabilities/notify.speak.md) | output | 语音播报器 | 一分钟后说 |
+| [`xiaodu.play`](capabilities/xiaodu.play.md) | output | 小度音箱音频播放器 | 把最新的音频用小度音箱播放 |
 | [`xiaodu.speak`](capabilities/xiaodu.speak.md) | output | 小度音箱播报器 | 客厅音箱说 |
+
+### `ocr`
+
+| 能力 | kind | 角色 | 触发语（示例） |
+|---|---|---|---|
+| [`image.ocr`](capabilities/image.ocr.md) | system | 图片文字识别器 | OCR |
 
 ### `phone`
 
@@ -249,6 +238,13 @@
 |---|---|---|---|
 | [`search.images`](capabilities/search.images.md) | action | 互联网实拍图检索器 | 找网上的实拍图 |
 
+### `speaker`
+
+| 能力 | kind | 角色 | 触发语（示例） |
+|---|---|---|---|
+| [`bluetooth.connect`](capabilities/bluetooth.connect.md) | action | 蓝牙音箱连接器 | 连上音箱 |
+| [`bluetooth.disconnect`](capabilities/bluetooth.disconnect.md) | action | 蓝牙音箱断开器 | 断开蓝牙 |
+
 ### `video`
 
 | 能力 | kind | 角色 | 触发语（示例） |
@@ -262,22 +258,11 @@
 | [`vision.ask`](capabilities/vision.ask.md) | action | 看图问答器 | 图里有 |
 | [`vision.perceive`](capabilities/vision.perceive.md) | action | 视觉结构化感知器 | 客厅现在什么样 |
 
-### `visual`
-
-| 能力 | kind | 角色 | 触发语（示例） |
-|---|---|---|---|
-| [`visual.input`](capabilities/visual.input.md) | input | 纸质文档扫描器 | 扫一下小票 |
-
 ### `voice`
 
 | 能力 | kind | 角色 | 触发语（示例） |
 |---|---|---|---|
 | [`voice.stream`](capabilities/voice.stream.md) | input | 常驻语音流入口 | 对着麦克风说话 |
-
-### `voicewakeup`
-
-| 能力 | kind | 角色 | 触发语（示例） |
-|---|---|---|---|
 | [`voicewakeup.echo`](capabilities/voicewakeup.echo.md) | output | 唤醒回声 | 系统内部唤醒回声（非用户指令） |
 
 

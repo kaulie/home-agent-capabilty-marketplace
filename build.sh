@@ -22,13 +22,14 @@ echo "[build] 语法检查 + 单测"
 python3 -m compileall -q server >/dev/null
 python3 -m unittest discover -s server/tests -t . >/dev/null
 python3 tests/catalog-schema.test.py >/dev/null
+python3 -m unittest tests.test_export_catalog >/dev/null
 
 rm -rf "${OUT}"
 mkdir -p "${OUT}/bin" "${OUT}/scripts"
-cp -R "${ROOT}/server" "${ROOT}/web" "${ROOT}/catalog" "${ROOT}/capabilities" "${ROOT}/schema" "${ROOT}/tests" "${OUT}/"
+cp -R "${ROOT}/server" "${ROOT}/web" "${ROOT}/catalog" "${ROOT}/capabilities" "${ROOT}/schema" "${ROOT}/tests" "${ROOT}/plugins" "${ROOT}/declarations" "${OUT}/"
 cp "${ROOT}/bin/marketplace" "${OUT}/bin/marketplace"
 cp "${ROOT}/README.md" "${OUT}/README.md" 2>/dev/null || true
-cp "${ROOT}/scripts/start.sh" "${ROOT}/scripts/stop.sh" "${ROOT}/scripts/restart.sh" "${ROOT}/scripts/sync.sh" "${OUT}/scripts/"
+cp "${ROOT}/scripts/start.sh" "${ROOT}/scripts/stop.sh" "${ROOT}/scripts/restart.sh" "${ROOT}/scripts/sync.sh" "${ROOT}/scripts/export_catalog.py" "${OUT}/scripts/"
 cp "${ROOT}/index.html" "${OUT}/index.html"
 [ -f "${ROOT}/.env.example" ] && cp "${ROOT}/.env.example" "${OUT}/.env.example"
 find "${OUT}" -name '__pycache__' -type d -prune -exec rm -rf {} + 2>/dev/null || true

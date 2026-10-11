@@ -32,15 +32,36 @@ kind=`system` · composition=`atomic` · group=`asset` · 声明=`是` · 执行
 
 ## 入参
 
-（无）
+| 参数 | 类型 | 必填 | 说明 |
+|---|---|---|---|
+| `day` | string | 否 | today / yesterday / YYYY-MM-DD；问昨天拍了几张填 yesterday |
+| `include_refs` | string | 否 | true/false，是否产出 asset_refs |
+| `index` | number | 否 | 1 起取第 N 条；最新一份配合 order=newest_first 填 1 |
+| `limit` | number | 否 | 返回 asset_refs 上限，默认 50 |
+| `offset` | number | 否 | 跳过前 N 条（0 起）；与 index 二选一，优先 index |
+| `order` | string | 否 | newest_first（默认列表/取最新）或 oldest_first（index 默认） |
+| `producer_capability` | string | 否 | 只统计该生产者产出的 Asset（可选过滤） |
+| `since` | string | 否 | 起始时间 ISO 或 unix |
+| `timezone` | string | 否 | IANA 时区，默认 Asia/Shanghai |
+| `type` | string | 否 | asset 类型：image / video / audio / document / url 等；最新 PDF 填 document、保存的链接填 url |
+| `until` | string | 否 | 结束时间 ISO 或 unix（不含） |
 
 ## 出参
 
-（无）
+| 参数 | 类型 | 必填 | 说明 |
+|---|---|---|---|
+| `answer_text` | string | 是 | 中文盘点结果 |
+| `asset_ref` | string | 否 | 单条 AssetRef（index 或仅一条时）；打印可交给 printer.print |
+| `asset_refs` | string | 否 | AssetRef JSON 数组 |
+| `count` | string | 是 | 匹配数量 |
 
 ## 适用宿主（代码事实）
 
 - `brain`
+
+## 服务声明
+
+- `system.asset`
 
 ## 能力包
 
@@ -48,11 +69,9 @@ kind=`system` · composition=`atomic` · group=`asset` · 声明=`是` · 执行
 
 ## 文档
 
-- [home-agent-os/plugins/asset-inventory/capability.md](https://github.com/kaulie/home-agent-os/blob/main/plugins/asset-inventory/capability.md)
+- [plugins/asset-inventory/capability.md](../plugins/asset-inventory/capability.md)
 
-
-- 定义层来源：`ads`、`package:asset-inventory`
 
 ---
 
-<sub>由 `mac/scripts/export_capability_catalog.py` 生成（home-agent-os `5dc6531`），请勿手改。</sub>
+<sub>由 `scripts/export_catalog.py` 生成（marketplace `c272647`），请勿手改。</sub>

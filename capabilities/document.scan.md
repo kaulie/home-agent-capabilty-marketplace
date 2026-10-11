@@ -26,15 +26,24 @@ kind=`input` · composition=`atomic` · group=`document` · 声明=`是` · 执�
 
 ## 入参
 
-（无）
+| 参数 | 类型 | 必填 | 说明 |
+|---|---|---|---|
+| `mode` | string | 否 | 默认 document |
 
 ## 出参
 
-（无）
+| 参数 | 类型 | 必填 | 说明 |
+|---|---|---|---|
+| `asset_ref` | string | 是 | Image AssetRef JSON。禁止 photo_url / path / 永久 URL。 |
+| `status` | string | 是 | completed 或 cancelled |
 
 ## 适用宿主（代码事实）
 
 - `ios`
+
+## 服务声明
+
+- `document.scanner`
 
 ## 能力包
 
@@ -42,15 +51,13 @@ kind=`input` · composition=`atomic` · group=`document` · 声明=`是` · 执�
 
 ## 文档
 
-- [home-agent-os/plugins/document-scanner/capability.md](https://github.com/kaulie/home-agent-os/blob/main/plugins/document-scanner/capability.md)
+- [plugins/document-scanner/capability.md](../plugins/document-scanner/capability.md)
 
 ## 入口
 
 - ios: `ios/LivingRoomEdge/LivingRoomEdge/VisualInput/VisualInput.swift`
 
 
-- 定义层来源：`ads`、`package:document-scanner`
-
 ---
 
-<sub>由 `mac/scripts/export_capability_catalog.py` 生成（home-agent-os `5dc6531`），请勿手改。</sub>
+<sub>由 `scripts/export_catalog.py` 生成（marketplace `c272647`），请勿手改。</sub>

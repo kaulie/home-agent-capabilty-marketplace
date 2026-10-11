@@ -57,28 +57,13 @@ kind=`action` · composition=`atomic` · group=`music` · 声明=`是` · 执行
 
 ## 文档
 
-- [home-agent-os/plugins/music-recognize/capability.md](https://github.com/kaulie/home-agent-os/blob/main/plugins/music-recognize/capability.md)
+- [plugins/music-recognize/capability.md](../plugins/music-recognize/capability.md)
 
 ## 入口
 
 - mac: `mac/src/mac_edge/plugins/music_recognize/__init__.py`
 
-## 相关配置
-
-- `MAC_EDGE_MUSIC_RECOGNIZE_ACR_ACCESS_KEY`
-- `MAC_EDGE_MUSIC_RECOGNIZE_ACR_ACCESS_SECRET`
-- `MAC_EDGE_MUSIC_RECOGNIZE_ACR_HOST`
-- `MAC_EDGE_MUSIC_RECOGNIZE_AUDD_TOKEN`
-- `MAC_EDGE_MUSIC_RECOGNIZE_MAX_SEC`
-- `MAC_EDGE_MUSIC_RECOGNIZE_MIN_SEC`
-- `MAC_EDGE_MUSIC_RECOGNIZE_PROVIDER`
-- `MAC_EDGE_MUSIC_RECOGNIZE_RETRY_EVERY_SEC`
-- `MAC_EDGE_MUSIC_RECOGNIZE_SHAZAM_HOST`
-- `MAC_EDGE_MUSIC_RECOGNIZE_SHAZAM_KEY`
-
-
-- 定义层来源：`ads`、`package:music-recognize`、`service:music.recognize`
 
 ---
 
-<sub>由 `mac/scripts/export_capability_catalog.py` 生成（home-agent-os `5dc6531`），请勿手改。</sub>
+<sub>由 `scripts/export_catalog.py` 生成（marketplace `c272647`），请勿手改。</sub>

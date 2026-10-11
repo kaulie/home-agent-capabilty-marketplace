@@ -2,7 +2,7 @@
 
 蓝牙音箱连接器
 
-kind=`action` · composition=`atomic` · group=`-` · 声明=`是` · 执行前自检=`无`
+kind=`action` · composition=`atomic` · group=`speaker` · 声明=`是` · 执行前自检=`无`
 
 ## 规划器怎么认它
 
@@ -29,9 +29,11 @@ kind=`action` · composition=`atomic` · group=`-` · 声明=`是` · 执行前�
 
 （无）
 
+## 服务声明
 
-- 定义层来源：`ads`
+- `marshall.willen`
+
 
 ---
 
-<sub>由 `mac/scripts/export_capability_catalog.py` 生成（home-agent-os `5dc6531`），请勿手改。</sub>
+<sub>由 `scripts/export_catalog.py` 生成（marketplace `c272647`），请勿手改。</sub>

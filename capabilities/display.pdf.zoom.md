@@ -44,13 +44,7 @@ kind=`output` · composition=`atomic` · group=`-` · 声明=`是` · 执行前�
 - `chromecast.display`
 - `xiaomi.tv.display`
 
-## 条件声明
-
-- `PDF_DISPLAY_CAPABILITIES`（按依赖/后端决定是否挂上）
-
-
-- 定义层来源：`ads`、`caps:PDF_DISPLAY_CAPABILITIES`
 
 ---
 
-<sub>由 `mac/scripts/export_capability_catalog.py` 生成（home-agent-os `5dc6531`），请勿手改。</sub>
+<sub>由 `scripts/export_catalog.py` 生成（marketplace `c272647`），请勿手改。</sub>

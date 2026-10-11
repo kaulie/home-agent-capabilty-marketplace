@@ -32,11 +32,18 @@ kind=`system` · composition=`atomic` · group=`meta` · 声明=`是` · 执行�
 
 ## 出参
 
-（无）
+| 参数 | 类型 | 必填 | 说明 |
+|---|---|---|---|
+| `answer_text` | string | 是 | 给用户听的简短口语能力介绍 |
+| `capability_count` | string | 否 | 当前在线可调度能力数量 |
 
 ## 适用宿主（代码事实）
 
 - `brain`
+
+## 服务声明
+
+- `system.capabilities`
 
 ## 能力包
 
@@ -44,11 +51,9 @@ kind=`system` · composition=`atomic` · group=`meta` · 声明=`是` · 执行�
 
 ## 文档
 
-- [home-agent-os/plugins/capabilities-summary/capability.md](https://github.com/kaulie/home-agent-os/blob/main/plugins/capabilities-summary/capability.md)
+- [plugins/capabilities-summary/capability.md](../plugins/capabilities-summary/capability.md)
 
-
-- 定义层来源：`ads`、`package:capabilities-summary`
 
 ---
 
-<sub>由 `mac/scripts/export_capability_catalog.py` 生成（home-agent-os `5dc6531`），请勿手改。</sub>
+<sub>由 `scripts/export_catalog.py` 生成（marketplace `c272647`），请勿手改。</sub>

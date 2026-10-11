@@ -72,23 +72,13 @@ kind=`action` · composition=`atomic` · group=`convert` · 声明=`是` · 执�
 
 ## 文档
 
-- [home-agent-os/plugins/pdf-reader/capability.md](https://github.com/kaulie/home-agent-os/blob/main/plugins/pdf-reader/capability.md)
+- [plugins/pdf-reader/capability.md](../plugins/pdf-reader/capability.md)
 
 ## 入口
 
 - mac: `mac/src/mac_edge/plugins/pdf_reader.py`
 
-## 相关配置
-
-- `MAC_EDGE_PDF_READER_MAX_CHARS`
-- `MAC_EDGE_PDF_READER_TIMEOUT_SEC`
-- `MAC_EDGE_PDF_READER_TTS_BACKEND`
-- `MAC_EDGE_PDF_READER_TTS_FALLBACK_SAY`
-- `MAC_EDGE_PDF_READER_VOICE`
-
-
-- 定义层来源：`ads`、`package:pdf-reader`、`service:local.pdf.reader`
 
 ---
 
-<sub>由 `mac/scripts/export_capability_catalog.py` 生成（home-agent-os `5dc6531`），请勿手改。</sub>
+<sub>由 `scripts/export_catalog.py` 生成（marketplace `c272647`），请勿手改。</sub>

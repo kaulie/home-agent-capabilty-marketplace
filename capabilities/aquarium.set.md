@@ -60,22 +60,13 @@ kind=`action` · composition=`atomic` · group=`aquarium` · 声明=`是` · 执
 
 ## 文档
 
-- [home-agent-os/plugins/xiaomi-aquarium/capability.md](https://github.com/kaulie/home-agent-os/blob/main/plugins/xiaomi-aquarium/capability.md)
+- [plugins/xiaomi-aquarium/capability.md](../plugins/xiaomi-aquarium/capability.md)
 
 ## 入口
 
 - mac: `mac/src/mac_edge/plugins/xiaomi_aquarium.py`
 
-## 相关配置
-
-- `MAC_EDGE_XIAOMI_AQUARIUM_DID`
-- `MAC_EDGE_XIAOMI_COUNTRY`
-- `MAC_EDGE_XIAOMI_PASSWORD`
-- `MAC_EDGE_XIAOMI_USERNAME`
-
-
-- 定义层来源：`ads`、`package:xiaomi-aquarium`、`service:livingroom.aquarium`
 
 ---
 
-<sub>由 `mac/scripts/export_capability_catalog.py` 生成（home-agent-os `5dc6531`），请勿手改。</sub>
+<sub>由 `scripts/export_catalog.py` 生成（marketplace `c272647`），请勿手改。</sub>
