@@ -49,15 +49,13 @@ kind=`action` · composition=`atomic` · group=`math` · 声明=`是` · 执行�
 
 ## 文档
 
-- [home-agent-os/plugins/math-calculate/capability.md](https://github.com/kaulie/home-agent-os/blob/main/plugins/math-calculate/capability.md)
+- [plugins/math-calculate/capability.md](../plugins/math-calculate/capability.md)
 
 ## 入口
 
 - mac: `mac/src/mac_edge/plugins/math_calculate.py`
 
 
-- 定义层来源：`ads`、`package:math-calculate`、`service:local.math`
-
 ---
 
-<sub>由 `mac/scripts/export_capability_catalog.py` 生成（home-agent-os `5dc6531`），请勿手改。</sub>
+<sub>由 `scripts/export_catalog.py` 生成（marketplace `c272647`），请勿手改。</sub>

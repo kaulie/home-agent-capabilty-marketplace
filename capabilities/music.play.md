@@ -6,12 +6,13 @@ kind=`action` · composition=`atomic` · group=`music` · 声明=`是` · 执行
 
 ## 规划器怎么认它
 
-从用户话里拆出歌名 song、可选作者 artist；不要把整句当 keyword。本轮必须有 song，不能只按歌手或专辑点播。不负责暂停/切歌。
+从用户话里拆出歌名 song、可选作者 artist；不要把整句当 keyword。用户说「用小度音箱播放」时不要派本步，改派 xiaodu.play。本轮必须有 song，不能只按歌手或专辑点播。不负责暂停/切歌。
 
 ## 典型触发语
 
 - 播放陈奕迅的十年
 - 放十年
+- 用小度音箱播放
 
 ## 不要派给它
 
@@ -30,6 +31,7 @@ kind=`action` · composition=`atomic` · group=`music` · 声明=`是` · 执行
 | `album` | string | 否 | 专辑（本轮忽略） |
 | `artist` | string | 否 | 作者，仅收窄搜索 |
 | `song` | string | 否 | 歌名（本机 Mac 本轮必填） |
+| `speaker` | string | 否 | 输出音箱；xiaodu/小度=客厅小度 |
 
 ## 出参
 
@@ -55,7 +57,7 @@ kind=`action` · composition=`atomic` · group=`music` · 声明=`是` · 执行
 
 ## 文档
 
-- [home-agent-os/plugins/netease-music/capability.md](https://github.com/kaulie/home-agent-os/blob/main/plugins/netease-music/capability.md)
+- [plugins/netease-music/capability.md](../plugins/netease-music/capability.md)
 
 ## 入口
 
@@ -64,8 +66,6 @@ kind=`action` · composition=`atomic` · group=`music` · 声明=`是` · 执行
 - mac: `mac/src/mac_edge/plugins/netease_music.py`
 
 
-- 定义层来源：`ads`、`package:netease-music`、`service:netease.music`
-
 ---
 
-<sub>由 `mac/scripts/export_capability_catalog.py` 生成（home-agent-os `5dc6531`），请勿手改。</sub>
+<sub>由 `scripts/export_catalog.py` 生成（marketplace `c272647`），请勿手改。</sub>

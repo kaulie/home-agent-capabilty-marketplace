@@ -50,31 +50,19 @@ kind=`output` · composition=`atomic` · group=`display` · 声明=`是` · 执�
 - `chromecast.display`
 - `xiaomi.tv.display`
 
-## 条件声明
-
-- `PDF_DISPLAY_CAPABILITIES`（按依赖/后端决定是否挂上）
-
 ## 能力包
 
 - `plugins/pdf-display/`
 
 ## 文档
 
-- [home-agent-os/plugins/pdf-display/capability.md](https://github.com/kaulie/home-agent-os/blob/main/plugins/pdf-display/capability.md)
+- [plugins/pdf-display/capability.md](../plugins/pdf-display/capability.md)
 
 ## 入口
 
 - mac: `mac/src/mac_edge/plugins/pdf_display.py`
 
-## 相关配置
-
-- `MAC_EDGE_DISPLAY_BACKEND`
-- `MAC_EDGE_PDF_DISPLAY_DPI`
-- `MAC_EDGE_XIAOMI_TV_HOST`
-
-
-- 定义层来源：`ads`、`caps:PDF_DISPLAY_CAPABILITIES`、`package:pdf-display`
 
 ---
 
-<sub>由 `mac/scripts/export_capability_catalog.py` 生成（home-agent-os `5dc6531`），请勿手改。</sub>
+<sub>由 `scripts/export_catalog.py` 生成（marketplace `c272647`），请勿手改。</sub>

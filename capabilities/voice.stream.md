@@ -44,15 +44,13 @@ kind=`input` · composition=`atomic` · group=`voice` · 声明=`是` · 执行�
 
 ## 文档
 
-- [home-agent-os/plugins/voice-stream/capability.md](https://github.com/kaulie/home-agent-os/blob/main/plugins/voice-stream/capability.md)
+- [plugins/voice-stream/capability.md](../plugins/voice-stream/capability.md)
 
 ## 入口
 
 - mac: `mac/src/mac_edge/plugins/voice_stream.py`
 
 
-- 定义层来源：`ads`、`package:voice-stream`、`service:local.voice`
-
 ---
 
-<sub>由 `mac/scripts/export_capability_catalog.py` 生成（home-agent-os `5dc6531`），请勿手改。</sub>
+<sub>由 `scripts/export_catalog.py` 生成（marketplace `c272647`），请勿手改。</sub>

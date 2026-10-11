@@ -47,6 +47,7 @@ kind=`output` · composition=`atomic` · group=`game` · 声明=`是` · 执行�
 
 ## 服务声明
 
+- `chromecast.game`
 - `mac.game.host`
 
 ## 能力包
@@ -55,15 +56,13 @@ kind=`output` · composition=`atomic` · group=`game` · 声明=`是` · 执行�
 
 ## 文档
 
-- [home-agent-os/plugins/tv-game/capability.md](https://github.com/kaulie/home-agent-os/blob/main/plugins/tv-game/capability.md)
+- [plugins/tv-game/capability.md](../plugins/tv-game/capability.md)
 
 ## 入口
 
 - ios: `ios/TvGamePluginEntry.swift`
 
 
-- 定义层来源：`ads`、`package:tv-game`、`service:mac.game.host`
-
 ---
 
-<sub>由 `mac/scripts/export_capability_catalog.py` 生成（home-agent-os `5dc6531`），请勿手改。</sub>
+<sub>由 `scripts/export_catalog.py` 生成（marketplace `c272647`），请勿手改。</sub>

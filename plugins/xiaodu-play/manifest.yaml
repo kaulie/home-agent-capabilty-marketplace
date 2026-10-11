@@ -1,0 +1,20 @@
+id: xiaodu-play
+service_id: xiaodu.play
+group: notify
+version: "0.1.0"
+display_name: 小度音箱播放
+description: 经 UPnP DLNA 把一条 http(s) 音频 URL 交给小度拉流播放；与 xiaodu.speaker（TTS 播报）独立
+
+capabilities:
+  - capability_id: xiaodu.play
+    description: >
+      能：把指定音频 URL（或按歌名解析出的 URL / 已有 audio Asset）交给客厅小度 DLNA 播放。
+      用户说「用小度音箱播放歌曲十年」时用本能力。
+      不能：本机网易云开播（music.play）；念文案（xiaodu.speak）；投屏。
+
+entry:
+  mac: mac/src/mac_edge/plugins/xiaodu_speaker.py
+config:
+  - MAC_EDGE_XIAODU_IP
+  - MAC_EDGE_XIAODU_HTTP_PORT
+  - MAC_EDGE_XIAODU_PUBLIC_HOST

@@ -64,20 +64,13 @@ kind=`action` · composition=`atomic` · group=`pronunciation` · 声明=`是` �
 
 ## 文档
 
-- [home-agent-os/plugins/pronunciation-assess/capability.md](https://github.com/kaulie/home-agent-os/blob/main/plugins/pronunciation-assess/capability.md)
+- [plugins/pronunciation-assess/capability.md](../plugins/pronunciation-assess/capability.md)
 
 ## 入口
 
 - mac: `mac/src/mac_edge/plugins/pronunciation_assess.py`
 
-## 相关配置
-
-- `MAC_EDGE_PRONUNCIATION_HEALTH_URL`
-- `MAC_EDGE_PRONUNCIATION_URL`
-
-
-- 定义层来源：`ads`、`package:pronunciation-assess`、`service:local.pronunciation`
 
 ---
 
-<sub>由 `mac/scripts/export_capability_catalog.py` 生成（home-agent-os `5dc6531`），请勿手改。</sub>
+<sub>由 `scripts/export_catalog.py` 生成（marketplace `c272647`），请勿手改。</sub>

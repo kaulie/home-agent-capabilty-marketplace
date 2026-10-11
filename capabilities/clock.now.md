@@ -40,6 +40,7 @@ kind=`input` · composition=`atomic` · group=`clock` · 声明=`是` · 执行�
 
 ## 适用宿主（代码事实）
 
+- `brain`
 - `mac`
 
 ## 服务声明
@@ -52,15 +53,13 @@ kind=`input` · composition=`atomic` · group=`clock` · 声明=`是` · 执行�
 
 ## 文档
 
-- [home-agent-os/plugins/clock-now/capability.md](https://github.com/kaulie/home-agent-os/blob/main/plugins/clock-now/capability.md)
+- [plugins/clock-now/capability.md](../plugins/clock-now/capability.md)
 
 ## 入口
 
 - mac: `mac/src/mac_edge/plugins/clock_now.py`
 
 
-- 定义层来源：`ads`、`package:clock-now`、`service:local.clock`
-
 ---
 
-<sub>由 `mac/scripts/export_capability_catalog.py` 生成（home-agent-os `5dc6531`），请勿手改。</sub>
+<sub>由 `scripts/export_catalog.py` 生成（marketplace `c272647`），请勿手改。</sub>

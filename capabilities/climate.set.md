@@ -64,22 +64,13 @@ kind=`action` · composition=`atomic` · group=`climate` · 声明=`是` · 执�
 
 ## 文档
 
-- [home-agent-os/plugins/hisense-ac/capability.md](https://github.com/kaulie/home-agent-os/blob/main/plugins/hisense-ac/capability.md)
+- [plugins/hisense-ac/capability.md](../plugins/hisense-ac/capability.md)
 
 ## 入口
 
 - mac: `mac/src/mac_edge/plugins/hisense_ac.py`
 
-## 相关配置
-
-- `MAC_EDGE_HISENSE_DEVICE_ID`
-- `MAC_EDGE_HISENSE_HOME_ID`
-- `MAC_EDGE_HISENSE_PASSWORD`
-- `MAC_EDGE_HISENSE_USERNAME`
-
-
-- 定义层来源：`ads`、`package:hisense-ac`、`service:livingroom.climate`
 
 ---
 
-<sub>由 `mac/scripts/export_capability_catalog.py` 生成（home-agent-os `5dc6531`），请勿手改。</sub>
+<sub>由 `scripts/export_catalog.py` 生成（marketplace `c272647`），请勿手改。</sub>

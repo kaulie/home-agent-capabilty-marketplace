@@ -8,7 +8,7 @@
 
 - **有独立数据库**（SQLite）：目录 / 注解 / 导入历史都在库里，服务端可查、可改；
 - **有可查 UI**：关键字、group、kind、服务归属、声明特征、集市状态多维筛选 + 详情 + 注解编辑；
-- **内容自动生成**：能力定义来自 `home-agent-os` 的代码（导出器），导入库里，人只维护「集市字段」。
+- **内容从本仓声明生成**：`plugins/`（能力包）+ `declarations/`（契约底稿）是权威；brain / gateway 实现并心跳广告，不倒灌目录。
 
 ## 一、跑起来
 
@@ -16,8 +16,8 @@
 # 1) 起服务（默认 :4250；库默认 ~/database/home-agent-capability-marketplace/marketplace.sqlite3）
 python3 server/catalog_cli.py serve          # 或 bash scripts/start.sh（平台用的同一套）
 
-# 2) 导入能力目录（从 home-agent-os 导出 → 入库 → 回写仓库）
-scripts/sync.sh /path/to/home-agent-os
+# 2) 从本仓 plugins/ + declarations/ 导出 → 入库 → 回写仓库
+scripts/sync.sh
 
 # 3) 打开 UI
 open http://127.0.0.1:4250/                   # 服务版（可注解）；web/index.html 也支持静态托管
@@ -94,13 +94,12 @@ curl -X PATCH 127.0.0.1:4250/api/v1/capabilities/display.audio \
 ## 五、同步与防腐烂
 
 ```bash
-scripts/sync.sh /path/to/home-agent-os          # 导出 → 入库 → 回写仓库 → 自检 → 提交
-scripts/sync.sh /path/to/home-agent-os --check  # CI：与代码对账（有漂移非零退出）
+scripts/sync.sh          # 本仓声明 → 入库 → 回写仓库 → 自检 → 提交
+scripts/sync.sh --check  # CI：与本仓声明对账（有漂移非零退出）
 ```
 
-数据流：**代码 → 导出器 → 库 → `catalog/capabilities.json`（库导出，含注解）**；
-`capabilities/*.md` 与 `catalog/capabilities.md` 仍是**代码视图**（随代码 PR 审阅）。
-`--check` 只比声明字段（能力增删 + 契约字段），集市注解不算漂移（见 `tests/catalog-drift.py`）。
+数据流：**本仓 `plugins/` + `declarations/` → 导出器 → 库 → `catalog/capabilities.json`（库导出，含注解）**。
+不读 home-agent-os / brain / gateway。`--check` 只比声明字段，集市注解不算漂移。
 
 ## 六、自检
 

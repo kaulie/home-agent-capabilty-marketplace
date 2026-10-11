@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """catalog_cli.py：能力集市数据库的命令行入口（导入 / 导出 / 统计 / 注解 / 起服务）。
 
-    python3 server/catalog_cli.py import  catalog/capabilities.json --note "sync from home-agent-os"
+    python3 server/catalog_cli.py import  catalog/capabilities.json --note "sync from marketplace plugins"
     python3 server/catalog_cli.py export  --out catalog/capabilities.json     # DB → JSON（含注解）
     python3 server/catalog_cli.py stats
     python3 server/catalog_cli.py annotate display.audio --status active --owner gaolei --tags 投屏,音频 --notes "电视出声确认过"

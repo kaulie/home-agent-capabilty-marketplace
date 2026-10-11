@@ -57,11 +57,9 @@ kind=`action` · composition=`atomic` · group=`chat` · 声明=`是` · 执行�
 
 ## 文档
 
-- [home-agent-os/plugins/chat-smalltalk/capability.md](https://github.com/kaulie/home-agent-os/blob/main/plugins/chat-smalltalk/capability.md)
+- [plugins/chat-smalltalk/capability.md](../plugins/chat-smalltalk/capability.md)
 
-
-- 定义层来源：`ads`、`package:chat-smalltalk`、`service:local.chat`
 
 ---
 
-<sub>由 `mac/scripts/export_capability_catalog.py` 生成（home-agent-os `5dc6531`），请勿手改。</sub>
+<sub>由 `scripts/export_catalog.py` 生成（marketplace `c272647`），请勿手改。</sub>

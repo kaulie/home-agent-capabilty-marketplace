@@ -2,7 +2,7 @@
 
 纸质文档扫描器
 
-kind=`input` · composition=`atomic` · group=`-` · 声明=`是` · 执行前自检=`无`
+kind=`input` · composition=`atomic` · group=`document` · 声明=`是` · 执行前自检=`无`
 
 ## 规划器怎么认它
 
@@ -23,15 +23,22 @@ kind=`input` · composition=`atomic` · group=`-` · 声明=`是` · 执行前�
 
 ## 入参
 
-（无）
+| 参数 | 类型 | 必填 | 说明 |
+|---|---|---|---|
+| `mode` | string | 否 | 默认 document |
 
 ## 出参
 
-（无）
+| 参数 | 类型 | 必填 | 说明 |
+|---|---|---|---|
+| `asset_ref` | string | 是 | Image AssetRef JSON。禁止 photo_url / path / 永久 URL。 |
+| `status` | string | 是 | completed 或 cancelled |
 
+## 服务声明
 
-- 定义层来源：`ads`
+- `document.scanner`
+
 
 ---
 
-<sub>由 `mac/scripts/export_capability_catalog.py` 生成（home-agent-os `5dc6531`），请勿手改。</sub>
+<sub>由 `scripts/export_catalog.py` 生成（marketplace `c272647`），请勿手改。</sub>

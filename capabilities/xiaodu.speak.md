@@ -49,15 +49,13 @@ kind=`output` · composition=`atomic` · group=`notify` · 声明=`是` · 执�
 
 ## 文档
 
-- [home-agent-os/plugins/xiaodu-speaker/capability.md](https://github.com/kaulie/home-agent-os/blob/main/plugins/xiaodu-speaker/capability.md)
+- [plugins/xiaodu-speaker/capability.md](../plugins/xiaodu-speaker/capability.md)
 
 ## 入口
 
 - mac: `mac/src/mac_edge/plugins/xiaodu_speaker.py`
 
 
-- 定义层来源：`ads`、`package:xiaodu-speaker`、`service:xiaodu.speaker`
-
 ---
 
-<sub>由 `mac/scripts/export_capability_catalog.py` 生成（home-agent-os `5dc6531`），请勿手改。</sub>
+<sub>由 `scripts/export_catalog.py` 生成（marketplace `c272647`），请勿手改。</sub>

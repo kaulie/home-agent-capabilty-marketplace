@@ -2,44 +2,44 @@
   "schema": "home-agent.capability-catalog/v1",
   "kind": "declaration",
   "generated_by": "marketplace-db (server/catalog_cli.py export)",
-  "generated_at": "2026-09-19T09:26:09+0800",
+  "generated_at": "2026-10-11T09:00:57+0800",
   "source": {
-    "repo": "home-agent-os",
-    "commit": "5dc6531",
+    "repo": "home-agent-capabilty-marketplace",
+    "commit": "c272647",
     "edge": "mac_edge",
-    "imported_at": "2026-09-19T09:26:09+0800"
+    "imported_at": "2026-10-11T09:00:57+0800"
   },
   "summary": {
-    "capabilities": 60,
-    "not_in_catalog": 4,
-    "with_service": 46,
+    "capabilities": 62,
+    "not_in_catalog": 2,
+    "with_service": 58,
     "conditional": 4,
     "with_preflight": 13,
-    "with_package": 41,
-    "with_hosts": 41,
+    "with_package": 42,
+    "with_hosts": 44,
     "hosts_curated": 0,
     "annotated": 0,
     "groups": {
       "aquarium": 1,
       "asset": 2,
-      "bluetooth": 2,
       "camera": 4,
       "chat": 1,
       "climate": 1,
       "clock": 1,
       "convert": 5,
       "display": 6,
-      "document": 1,
+      "document": 2,
       "experiment": 1,
       "game": 2,
-      "image": 1,
       "light": 1,
       "lock": 1,
+      "map": 1,
       "math": 1,
       "meta": 1,
       "music": 8,
       "network": 2,
-      "notify": 2,
+      "notify": 3,
+      "ocr": 1,
       "phone": 1,
       "printer": 1,
       "pronunciation": 1,
@@ -47,17 +47,16 @@
       "read": 1,
       "reading": 4,
       "search": 1,
+      "speaker": 2,
       "video": 1,
       "vision": 2,
-      "visual": 1,
-      "voice": 1,
-      "voicewakeup": 1
+      "voice": 2
     },
     "kinds": {
       "action": 36,
       "input": 10,
-      "output": 11,
-      "system": 3
+      "output": 12,
+      "system": 4
     }
   },
   "services": [
@@ -67,7 +66,23 @@
       "group_id": "display",
       "version": "0.4.0",
       "constant": "CHROMECAST_DISPLAY_SERVICE",
-      "updated_at": "2026-09-19T09:26:09+0800"
+      "updated_at": "2026-10-11T09:00:57+0800"
+    },
+    {
+      "service_id": "chromecast.game",
+      "display_name": "",
+      "group_id": "",
+      "version": "",
+      "constant": "",
+      "updated_at": "2026-10-11T09:00:57+0800"
+    },
+    {
+      "service_id": "document.scanner",
+      "display_name": "",
+      "group_id": "",
+      "version": "",
+      "constant": "",
+      "updated_at": "2026-10-11T09:00:57+0800"
     },
     {
       "service_id": "entry.lock",
@@ -75,7 +90,7 @@
       "group_id": "lock",
       "version": "0.1.0",
       "constant": "ENTRY_LOCK_SERVICE",
-      "updated_at": "2026-09-19T09:26:09+0800"
+      "updated_at": "2026-10-11T09:00:57+0800"
     },
     {
       "service_id": "gopro.camera",
@@ -83,7 +98,23 @@
       "group_id": "camera",
       "version": "0.9.0",
       "constant": "GOPRO_CAMERA_SERVICE",
-      "updated_at": "2026-09-19T09:26:09+0800"
+      "updated_at": "2026-10-11T09:00:57+0800"
+    },
+    {
+      "service_id": "iphone.game.input",
+      "display_name": "",
+      "group_id": "",
+      "version": "",
+      "constant": "",
+      "updated_at": "2026-10-11T09:00:57+0800"
+    },
+    {
+      "service_id": "iphone.video",
+      "display_name": "",
+      "group_id": "",
+      "version": "",
+      "constant": "",
+      "updated_at": "2026-10-11T09:00:57+0800"
     },
     {
       "service_id": "livingroom.aquarium",
@@ -91,7 +122,7 @@
       "group_id": "aquarium",
       "version": "0.1.0",
       "constant": "LIVINGROOM_AQUARIUM_SERVICE",
-      "updated_at": "2026-09-19T09:26:09+0800"
+      "updated_at": "2026-10-11T09:00:57+0800"
     },
     {
       "service_id": "livingroom.ceiling_light",
@@ -99,7 +130,7 @@
       "group_id": "light",
       "version": "0.1.1",
       "constant": "LIVINGROOM_LIGHT_SERVICE",
-      "updated_at": "2026-09-19T09:26:09+0800"
+      "updated_at": "2026-10-11T09:00:57+0800"
     },
     {
       "service_id": "livingroom.climate",
@@ -107,7 +138,7 @@
       "group_id": "climate",
       "version": "0.1.0",
       "constant": "LIVINGROOM_CLIMATE_SERVICE",
-      "updated_at": "2026-09-19T09:26:09+0800"
+      "updated_at": "2026-10-11T09:00:57+0800"
     },
     {
       "service_id": "local.asset",
@@ -115,7 +146,7 @@
       "group_id": "asset",
       "version": "0.3.0",
       "constant": "LOCAL_ASSET_SERVICE",
-      "updated_at": "2026-09-19T09:26:09+0800"
+      "updated_at": "2026-10-11T09:00:57+0800"
     },
     {
       "service_id": "local.character",
@@ -123,7 +154,7 @@
       "group_id": "reading",
       "version": "0.3.0",
       "constant": "LOCAL_CHARACTER_SERVICE",
-      "updated_at": "2026-09-19T09:26:09+0800"
+      "updated_at": "2026-10-11T09:00:57+0800"
     },
     {
       "service_id": "local.chat",
@@ -131,7 +162,7 @@
       "group_id": "chat",
       "version": "0.1.0",
       "constant": "LOCAL_CHAT_SERVICE",
-      "updated_at": "2026-09-19T09:26:09+0800"
+      "updated_at": "2026-10-11T09:00:57+0800"
     },
     {
       "service_id": "local.clock",
@@ -139,7 +170,7 @@
       "group_id": "clock",
       "version": "0.1.1",
       "constant": "LOCAL_CLOCK_SERVICE",
-      "updated_at": "2026-09-19T09:26:09+0800"
+      "updated_at": "2026-10-11T09:00:57+0800"
     },
     {
       "service_id": "local.file.convert",
@@ -147,7 +178,7 @@
       "group_id": "convert",
       "version": "0.1.0",
       "constant": "LOCAL_FILE_CONVERT_SERVICE",
-      "updated_at": "2026-09-19T09:26:09+0800"
+      "updated_at": "2026-10-11T09:00:57+0800"
     },
     {
       "service_id": "local.math",
@@ -155,7 +186,7 @@
       "group_id": "math",
       "version": "0.1.0",
       "constant": "LOCAL_MATH_SERVICE",
-      "updated_at": "2026-09-19T09:26:09+0800"
+      "updated_at": "2026-10-11T09:00:57+0800"
     },
     {
       "service_id": "local.notify",
@@ -163,7 +194,7 @@
       "group_id": "notify",
       "version": "0.1.1",
       "constant": "LOCAL_NOTIFY_SERVICE",
-      "updated_at": "2026-09-19T09:26:09+0800"
+      "updated_at": "2026-10-11T09:00:57+0800"
     },
     {
       "service_id": "local.paper.read",
@@ -171,7 +202,7 @@
       "group_id": "read",
       "version": "0.1.0",
       "constant": "LOCAL_PAPER_READ_SERVICE",
-      "updated_at": "2026-09-19T09:26:09+0800"
+      "updated_at": "2026-10-11T09:00:57+0800"
     },
     {
       "service_id": "local.pdf.images",
@@ -179,7 +210,7 @@
       "group_id": "convert",
       "version": "0.1.0",
       "constant": "LOCAL_PDF_IMAGES_SERVICE",
-      "updated_at": "2026-09-19T09:26:09+0800"
+      "updated_at": "2026-10-11T09:00:57+0800"
     },
     {
       "service_id": "local.pdf.reader",
@@ -187,7 +218,7 @@
       "group_id": "convert",
       "version": "0.1.0",
       "constant": "LOCAL_PDF_READER_SERVICE",
-      "updated_at": "2026-09-19T09:26:09+0800"
+      "updated_at": "2026-10-11T09:00:57+0800"
     },
     {
       "service_id": "local.pdf.rotate",
@@ -195,7 +226,7 @@
       "group_id": "convert",
       "version": "0.1.0",
       "constant": "LOCAL_PDF_ROTATE_SERVICE",
-      "updated_at": "2026-09-19T09:26:09+0800"
+      "updated_at": "2026-10-11T09:00:57+0800"
     },
     {
       "service_id": "local.printer",
@@ -203,7 +234,7 @@
       "group_id": "printer",
       "version": "0.1.0",
       "constant": "LOCAL_PRINTER_SERVICE",
-      "updated_at": "2026-09-19T09:26:09+0800"
+      "updated_at": "2026-10-11T09:00:57+0800"
     },
     {
       "service_id": "local.pronunciation",
@@ -211,7 +242,7 @@
       "group_id": "pronunciation",
       "version": "0.1.0",
       "constant": "LOCAL_PRONUNCIATION_SERVICE",
-      "updated_at": "2026-09-19T09:26:09+0800"
+      "updated_at": "2026-10-11T09:00:57+0800"
     },
     {
       "service_id": "local.query",
@@ -219,7 +250,7 @@
       "group_id": "query",
       "version": "0.2.1",
       "constant": "LOCAL_QUERY_SERVICE",
-      "updated_at": "2026-09-19T09:26:09+0800"
+      "updated_at": "2026-10-11T09:00:57+0800"
     },
     {
       "service_id": "local.search",
@@ -227,7 +258,7 @@
       "group_id": "search",
       "version": "0.1.0",
       "constant": "LOCAL_SEARCH_SERVICE",
-      "updated_at": "2026-09-19T09:26:09+0800"
+      "updated_at": "2026-10-11T09:00:57+0800"
     },
     {
       "service_id": "local.vision",
@@ -235,7 +266,7 @@
       "group_id": "vision",
       "version": "0.5.0",
       "constant": "LOCAL_VISION_SERVICE",
-      "updated_at": "2026-09-19T09:26:09+0800"
+      "updated_at": "2026-10-11T09:00:57+0800"
     },
     {
       "service_id": "local.voice",
@@ -243,7 +274,7 @@
       "group_id": "voice",
       "version": "0.2.0",
       "constant": "LOCAL_VOICE_SERVICE",
-      "updated_at": "2026-09-19T09:26:09+0800"
+      "updated_at": "2026-10-11T09:00:57+0800"
     },
     {
       "service_id": "local.voice_test",
@@ -251,7 +282,7 @@
       "group_id": "experiment",
       "version": "0.1.0",
       "constant": "LOCAL_VOICE_TEST_SERVICE",
-      "updated_at": "2026-09-19T09:26:09+0800"
+      "updated_at": "2026-10-11T09:00:57+0800"
     },
     {
       "service_id": "local.web.scraper",
@@ -259,7 +290,7 @@
       "group_id": "convert",
       "version": "0.1.0",
       "constant": "LOCAL_WEB_SCRAPER_SERVICE",
-      "updated_at": "2026-09-19T09:26:09+0800"
+      "updated_at": "2026-10-11T09:00:57+0800"
     },
     {
       "service_id": "mac.game.host",
@@ -267,7 +298,15 @@
       "group_id": "game",
       "version": "0.1.0",
       "constant": "GAME_HOST_SERVICE",
-      "updated_at": "2026-09-19T09:26:09+0800"
+      "updated_at": "2026-10-11T09:00:57+0800"
+    },
+    {
+      "service_id": "marshall.willen",
+      "display_name": "",
+      "group_id": "",
+      "version": "",
+      "constant": "",
+      "updated_at": "2026-10-11T09:00:57+0800"
     },
     {
       "service_id": "music.recognize",
@@ -275,7 +314,7 @@
       "group_id": "music",
       "version": "0.1.0",
       "constant": "MUSIC_RECOGNIZE_SERVICE",
-      "updated_at": "2026-09-19T09:26:09+0800"
+      "updated_at": "2026-10-11T09:00:57+0800"
     },
     {
       "service_id": "netease.music",
@@ -283,15 +322,55 @@
       "group_id": "music",
       "version": "0.5.0",
       "constant": "NETEASE_MUSIC_SERVICE",
-      "updated_at": "2026-09-19T09:26:09+0800"
+      "updated_at": "2026-10-11T09:00:57+0800"
+    },
+    {
+      "service_id": "system.asset",
+      "display_name": "",
+      "group_id": "",
+      "version": "",
+      "constant": "",
+      "updated_at": "2026-10-11T09:00:57+0800"
+    },
+    {
+      "service_id": "system.capabilities",
+      "display_name": "",
+      "group_id": "",
+      "version": "",
+      "constant": "",
+      "updated_at": "2026-10-11T09:00:57+0800"
+    },
+    {
+      "service_id": "system.map",
+      "display_name": "",
+      "group_id": "",
+      "version": "",
+      "constant": "",
+      "updated_at": "2026-10-11T09:00:57+0800"
+    },
+    {
+      "service_id": "system.ocr",
+      "display_name": "",
+      "group_id": "",
+      "version": "",
+      "constant": "",
+      "updated_at": "2026-10-11T09:00:57+0800"
+    },
+    {
+      "service_id": "xiaodu.play",
+      "display_name": "小度音箱播放",
+      "group_id": "notify",
+      "version": "0.1.0",
+      "constant": "XIAODU_PLAY_SERVICE",
+      "updated_at": "2026-10-11T09:00:57+0800"
     },
     {
       "service_id": "xiaodu.speaker",
-      "display_name": "小度音箱",
+      "display_name": "小度音箱播报",
       "group_id": "notify",
       "version": "0.1.0",
       "constant": "XIAODU_SPEAKER_SERVICE",
-      "updated_at": "2026-09-19T09:26:09+0800"
+      "updated_at": "2026-10-11T09:00:57+0800"
     },
     {
       "service_id": "xiaomi.tv.display",
@@ -299,7 +378,7 @@
       "group_id": "display",
       "version": "0.1.0",
       "constant": "XIAOMI_TV_DISPLAY_SERVICE",
-      "updated_at": "2026-09-19T09:26:09+0800"
+      "updated_at": "2026-10-11T09:00:57+0800"
     }
   ],
   "hosts": [
@@ -310,7 +389,7 @@
       "notes": "",
       "status": "active",
       "curated": false,
-      "updated_at": "2026-09-19T09:04:51+0800",
+      "updated_at": "2026-10-11T09:00:57+0800",
       "capabilities": 8
     },
     {
@@ -320,8 +399,8 @@
       "notes": "",
       "status": "active",
       "curated": false,
-      "updated_at": "2026-09-19T09:04:51+0800",
-      "capabilities": 2
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "capabilities": 5
     },
     {
       "host_id": "ios",
@@ -330,7 +409,7 @@
       "notes": "",
       "status": "active",
       "curated": false,
-      "updated_at": "2026-09-19T09:04:51+0800",
+      "updated_at": "2026-10-11T09:00:57+0800",
       "capabilities": 14
     },
     {
@@ -340,8 +419,8 @@
       "notes": "",
       "status": "active",
       "curated": false,
-      "updated_at": "2026-09-19T09:05:02+0800",
-      "capabilities": 34
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "capabilities": 35
     },
     {
       "host_id": "python",
@@ -350,7 +429,7 @@
       "notes": "",
       "status": "active",
       "curated": false,
-      "updated_at": "2026-09-19T09:04:51+0800",
+      "updated_at": "2026-10-11T09:00:57+0800",
       "capabilities": 2
     }
   ],
@@ -453,15 +532,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "livingroom.aquarium"
       ],
@@ -613,10 +692,88 @@
         "看图理解"
       ],
       "decomposes_to": [],
-      "input_schema": {},
-      "output_schema": {},
+      "input_schema": {
+        "type": {
+          "type": "string",
+          "required": false,
+          "description": "asset 类型：image / video / audio / document / url 等；最新 PDF 填 document、保存的链接填 url"
+        },
+        "day": {
+          "type": "string",
+          "required": false,
+          "description": "today / yesterday / YYYY-MM-DD；问昨天拍了几张填 yesterday"
+        },
+        "timezone": {
+          "type": "string",
+          "required": false,
+          "description": "IANA 时区，默认 Asia/Shanghai"
+        },
+        "since": {
+          "type": "string",
+          "required": false,
+          "description": "起始时间 ISO 或 unix"
+        },
+        "until": {
+          "type": "string",
+          "required": false,
+          "description": "结束时间 ISO 或 unix（不含）"
+        },
+        "producer_capability": {
+          "type": "string",
+          "required": false,
+          "description": "只统计该生产者产出的 Asset（可选过滤）"
+        },
+        "limit": {
+          "type": "number",
+          "required": false,
+          "description": "返回 asset_refs 上限，默认 50"
+        },
+        "offset": {
+          "type": "number",
+          "required": false,
+          "description": "跳过前 N 条（0 起）；与 index 二选一，优先 index"
+        },
+        "index": {
+          "type": "number",
+          "required": false,
+          "description": "1 起取第 N 条；最新一份配合 order=newest_first 填 1"
+        },
+        "order": {
+          "type": "string",
+          "required": false,
+          "description": "newest_first（默认列表/取最新）或 oldest_first（index 默认）"
+        },
+        "include_refs": {
+          "type": "string",
+          "required": false,
+          "description": "true/false，是否产出 asset_refs"
+        }
+      },
+      "output_schema": {
+        "count": {
+          "type": "string",
+          "required": true,
+          "description": "匹配数量"
+        },
+        "answer_text": {
+          "type": "string",
+          "required": true,
+          "description": "中文盘点结果"
+        },
+        "asset_ref": {
+          "type": "string",
+          "required": false,
+          "description": "单条 AssetRef（index 或仅一条时）；打印可交给 printer.print"
+        },
+        "asset_refs": {
+          "type": "string",
+          "required": false,
+          "description": "AssetRef JSON 数组"
+        }
+      },
       "definition_sources": [
         "ads",
+        "brain.wire",
         "package:asset-inventory"
       ],
       "has_checker": 0,
@@ -625,16 +782,18 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "brain"
       ],
-      "declared_by": [],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
+      "declared_by": [
+        "system.asset"
+      ],
       "packages": [
         "asset-inventory"
       ],
@@ -674,16 +833,96 @@
           "看图理解"
         ],
         "decomposes_to": [],
-        "input_schema": {},
-        "output_schema": {},
+        "input_schema": {
+          "type": {
+            "type": "string",
+            "required": false,
+            "description": "asset 类型：image / video / audio / document / url 等；最新 PDF 填 document、保存的链接填 url"
+          },
+          "day": {
+            "type": "string",
+            "required": false,
+            "description": "today / yesterday / YYYY-MM-DD；问昨天拍了几张填 yesterday"
+          },
+          "timezone": {
+            "type": "string",
+            "required": false,
+            "description": "IANA 时区，默认 Asia/Shanghai"
+          },
+          "since": {
+            "type": "string",
+            "required": false,
+            "description": "起始时间 ISO 或 unix"
+          },
+          "until": {
+            "type": "string",
+            "required": false,
+            "description": "结束时间 ISO 或 unix（不含）"
+          },
+          "producer_capability": {
+            "type": "string",
+            "required": false,
+            "description": "只统计该生产者产出的 Asset（可选过滤）"
+          },
+          "limit": {
+            "type": "number",
+            "required": false,
+            "description": "返回 asset_refs 上限，默认 50"
+          },
+          "offset": {
+            "type": "number",
+            "required": false,
+            "description": "跳过前 N 条（0 起）；与 index 二选一，优先 index"
+          },
+          "index": {
+            "type": "number",
+            "required": false,
+            "description": "1 起取第 N 条；最新一份配合 order=newest_first 填 1"
+          },
+          "order": {
+            "type": "string",
+            "required": false,
+            "description": "newest_first（默认列表/取最新）或 oldest_first（index 默认）"
+          },
+          "include_refs": {
+            "type": "string",
+            "required": false,
+            "description": "true/false，是否产出 asset_refs"
+          }
+        },
+        "output_schema": {
+          "count": {
+            "type": "string",
+            "required": true,
+            "description": "匹配数量"
+          },
+          "answer_text": {
+            "type": "string",
+            "required": true,
+            "description": "中文盘点结果"
+          },
+          "asset_ref": {
+            "type": "string",
+            "required": false,
+            "description": "单条 AssetRef（index 或仅一条时）；打印可交给 printer.print"
+          },
+          "asset_refs": {
+            "type": "string",
+            "required": false,
+            "description": "AssetRef JSON 数组"
+          }
+        },
         "sources": [
           "ads",
+          "brain.wire",
           "package:asset-inventory"
         ]
       },
       "declaration": {
         "in_ads": true,
-        "declared_by": [],
+        "declared_by": [
+          "system.asset"
+        ],
         "conditional_lists": [],
         "packages": [
           "asset-inventory"
@@ -749,6 +988,7 @@
       },
       "definition_sources": [
         "ads",
+        "brain.wire",
         "service:local.asset"
       ],
       "has_checker": 0,
@@ -757,13 +997,13 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "local.asset"
       ],
@@ -827,6 +1067,7 @@
         },
         "sources": [
           "ads",
+          "brain.wire",
           "service:local.asset"
         ]
       },
@@ -865,7 +1106,8 @@
       "input_schema": {},
       "output_schema": {},
       "definition_sources": [
-        "ads"
+        "ads",
+        "brain.wire"
       ],
       "has_checker": 0,
       "in_ads": true,
@@ -873,14 +1115,16 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
-      "declared_by": [],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
+      "declared_by": [
+        "marshall.willen"
+      ],
       "packages": [],
       "conditional_lists": [],
       "declared": true,
@@ -890,7 +1134,7 @@
       "definition": {
         "kind": "action",
         "composition": "atomic",
-        "group": "bluetooth",
+        "group": "speaker",
         "display_name": "",
         "role": "蓝牙音箱连接器",
         "planner_recognize": "把 Marshall 一类蓝牙音箱连上。只负责连接，不负责选歌播放",
@@ -910,18 +1154,21 @@
         "input_schema": {},
         "output_schema": {},
         "sources": [
-          "ads"
+          "ads",
+          "brain.wire"
         ]
       },
       "declaration": {
         "in_ads": true,
-        "declared_by": [],
+        "declared_by": [
+          "marshall.willen"
+        ],
         "conditional_lists": [],
         "packages": [],
         "has_preflight": false,
         "docs": []
       },
-      "group": "bluetooth"
+      "group": "speaker"
     },
     {
       "capability_id": "bluetooth.disconnect",
@@ -946,7 +1193,8 @@
       "input_schema": {},
       "output_schema": {},
       "definition_sources": [
-        "ads"
+        "ads",
+        "brain.wire"
       ],
       "has_checker": 0,
       "in_ads": true,
@@ -954,14 +1202,16 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
-      "declared_by": [],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
+      "declared_by": [
+        "marshall.willen"
+      ],
       "packages": [],
       "conditional_lists": [],
       "declared": true,
@@ -971,7 +1221,7 @@
       "definition": {
         "kind": "action",
         "composition": "atomic",
-        "group": "bluetooth",
+        "group": "speaker",
         "display_name": "",
         "role": "蓝牙音箱断开器",
         "planner_recognize": "断开已连接的蓝牙音箱。只负责断开，不负责停歌或放歌",
@@ -991,18 +1241,21 @@
         "input_schema": {},
         "output_schema": {},
         "sources": [
-          "ads"
+          "ads",
+          "brain.wire"
         ]
       },
       "declaration": {
         "in_ads": true,
-        "declared_by": [],
+        "declared_by": [
+          "marshall.willen"
+        ],
         "conditional_lists": [],
         "packages": [],
         "has_preflight": false,
         "docs": []
       },
-      "group": "bluetooth"
+      "group": "speaker"
     },
     {
       "capability_id": "camera.capture",
@@ -1050,9 +1303,6 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
@@ -1060,6 +1310,9 @@
         "ios",
         "python"
       ],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "gopro.camera"
       ],
@@ -1177,6 +1430,7 @@
       },
       "definition_sources": [
         "ads",
+        "brain.wire",
         "service:gopro.camera"
       ],
       "has_checker": 1,
@@ -1185,13 +1439,13 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "gopro.camera"
       ],
@@ -1247,6 +1501,7 @@
         },
         "sources": [
           "ads",
+          "brain.wire",
           "service:gopro.camera"
         ]
       },
@@ -1292,13 +1547,13 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [],
       "packages": [],
       "conditional_lists": [],
@@ -1367,9 +1622,21 @@
       ],
       "decomposes_to": [],
       "input_schema": {},
-      "output_schema": {},
+      "output_schema": {
+        "answer_text": {
+          "type": "string",
+          "required": true,
+          "description": "给用户听的简短口语能力介绍"
+        },
+        "capability_count": {
+          "type": "string",
+          "required": false,
+          "description": "当前在线可调度能力数量"
+        }
+      },
       "definition_sources": [
         "ads",
+        "brain.wire",
         "package:capabilities-summary"
       ],
       "has_checker": 0,
@@ -1378,16 +1645,18 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "brain"
       ],
-      "declared_by": [],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
+      "declared_by": [
+        "system.capabilities"
+      ],
       "packages": [
         "capabilities-summary"
       ],
@@ -1424,15 +1693,29 @@
         ],
         "decomposes_to": [],
         "input_schema": {},
-        "output_schema": {},
+        "output_schema": {
+          "answer_text": {
+            "type": "string",
+            "required": true,
+            "description": "给用户听的简短口语能力介绍"
+          },
+          "capability_count": {
+            "type": "string",
+            "required": false,
+            "description": "当前在线可调度能力数量"
+          }
+        },
         "sources": [
           "ads",
+          "brain.wire",
           "package:capabilities-summary"
         ]
       },
       "declaration": {
         "in_ads": true,
-        "declared_by": [],
+        "declared_by": [
+          "system.capabilities"
+        ],
         "conditional_lists": [],
         "packages": [
           "capabilities-summary"
@@ -1499,15 +1782,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "local.chat"
       ],
@@ -1693,15 +1976,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "livingroom.climate"
       ],
@@ -1886,15 +2169,16 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
+        "brain",
         "mac"
       ],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "local.clock"
       ],
@@ -1905,6 +2189,7 @@
       "declared": true,
       "has_preflight": false,
       "hosts_effective": [
+        "brain",
         "mac"
       ],
       "hosts_source": "code",
@@ -2026,15 +2311,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "xiaomi.tv.display"
       ],
@@ -2159,13 +2444,13 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T08:54:26+0800",
-      "in_catalog": false,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": false,
       "declared_by": [],
       "packages": [],
       "conditional_lists": [],
@@ -2285,15 +2570,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "chromecast.display",
         "xiaomi.tv.display"
@@ -2453,15 +2738,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "chromecast.display",
         "xiaomi.tv.display"
@@ -2619,13 +2904,13 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "chromecast.display",
         "xiaomi.tv.display"
@@ -2753,9 +3038,6 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
@@ -2764,6 +3046,9 @@
         "ios",
         "mac"
       ],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "chromecast.display",
         "xiaomi.tv.display"
@@ -2889,9 +3174,6 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
@@ -2900,6 +3182,9 @@
         "ios",
         "mac"
       ],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "chromecast.display",
         "xiaomi.tv.display"
@@ -3005,10 +3290,28 @@
         "金额识别"
       ],
       "decomposes_to": [],
-      "input_schema": {},
-      "output_schema": {},
+      "input_schema": {
+        "mode": {
+          "type": "string",
+          "required": false,
+          "description": "默认 document"
+        }
+      },
+      "output_schema": {
+        "status": {
+          "type": "string",
+          "required": true,
+          "description": "completed 或 cancelled"
+        },
+        "asset_ref": {
+          "type": "string",
+          "required": true,
+          "description": "Image AssetRef JSON。禁止 photo_url / path / 永久 URL。"
+        }
+      },
       "definition_sources": [
         "ads",
+        "brain.wire",
         "package:document-scanner"
       ],
       "has_checker": 0,
@@ -3017,16 +3320,18 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "ios"
       ],
-      "declared_by": [],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
+      "declared_by": [
+        "document.scanner"
+      ],
       "packages": [
         "document-scanner"
       ],
@@ -3060,16 +3365,36 @@
           "金额识别"
         ],
         "decomposes_to": [],
-        "input_schema": {},
-        "output_schema": {},
+        "input_schema": {
+          "mode": {
+            "type": "string",
+            "required": false,
+            "description": "默认 document"
+          }
+        },
+        "output_schema": {
+          "status": {
+            "type": "string",
+            "required": true,
+            "description": "completed 或 cancelled"
+          },
+          "asset_ref": {
+            "type": "string",
+            "required": true,
+            "description": "Image AssetRef JSON。禁止 photo_url / path / 永久 URL。"
+          }
+        },
         "sources": [
           "ads",
+          "brain.wire",
           "package:document-scanner"
         ]
       },
       "declaration": {
         "in_ads": true,
-        "declared_by": [],
+        "declared_by": [
+          "document.scanner"
+        ],
         "conditional_lists": [],
         "packages": [
           "document-scanner"
@@ -3157,15 +3482,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "local.file.convert"
       ],
@@ -3296,16 +3621,18 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "ios"
       ],
-      "declared_by": [],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
+      "declared_by": [
+        "iphone.game.input"
+      ],
       "packages": [
         "tv-game-input"
       ],
@@ -3343,7 +3670,9 @@
       },
       "declaration": {
         "in_ads": true,
-        "declared_by": [],
+        "declared_by": [
+          "iphone.game.input"
+        ],
         "conditional_lists": [],
         "packages": [
           "tv-game-input"
@@ -3420,16 +3749,17 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "ios"
       ],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
+        "chromecast.game",
         "mac.game.host"
       ],
       "packages": [
@@ -3505,6 +3835,7 @@
       "declaration": {
         "in_ads": true,
         "declared_by": [
+          "chromecast.game",
           "mac.game.host"
         ],
         "conditional_lists": [],
@@ -3547,10 +3878,38 @@
         "这个字读啥"
       ],
       "decomposes_to": [],
-      "input_schema": {},
-      "output_schema": {},
+      "input_schema": {
+        "asset_ref": {
+          "type": "string",
+          "required": true,
+          "description": "图片 AssetRef JSON {asset_id, type}。禁止 image_url / path / base64。"
+        },
+        "language": {
+          "type": "string",
+          "required": false,
+          "description": "zh（默认）或 en"
+        }
+      },
+      "output_schema": {
+        "text": {
+          "type": "string",
+          "required": true,
+          "description": "图上全部识别文字"
+        },
+        "blocks": {
+          "type": "string",
+          "required": true,
+          "description": "OCR 块 JSON 数组"
+        },
+        "asset_id": {
+          "type": "string",
+          "required": true,
+          "description": "入参图片 asset_id"
+        }
+      },
       "definition_sources": [
-        "ads"
+        "ads",
+        "brain.wire"
       ],
       "has_checker": 0,
       "in_ads": true,
@@ -3558,24 +3917,30 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
-      "runs_on": [],
-      "declared_by": [],
+      "runs_on": [
+        "brain"
+      ],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
+      "declared_by": [
+        "system.ocr"
+      ],
       "packages": [],
       "conditional_lists": [],
       "declared": true,
       "has_preflight": false,
-      "hosts_effective": [],
-      "hosts_source": "none",
+      "hosts_effective": [
+        "brain"
+      ],
+      "hosts_source": "code",
       "definition": {
         "kind": "system",
         "composition": "atomic",
-        "group": "image",
+        "group": "ocr",
         "display_name": "",
         "role": "图片文字识别器",
         "planner_recognize": "读已有 Image Asset 上整页/整段印着的字（小票、说明书、手写），原样吐出文字和坐标，不解释、不总结、不教识字。入参必须是 asset_ref。自己不拍照。手指指的单个字不要用本步，用 reading.point_to_character",
@@ -3601,21 +3966,51 @@
           "这个字读啥"
         ],
         "decomposes_to": [],
-        "input_schema": {},
-        "output_schema": {},
+        "input_schema": {
+          "asset_ref": {
+            "type": "string",
+            "required": true,
+            "description": "图片 AssetRef JSON {asset_id, type}。禁止 image_url / path / base64。"
+          },
+          "language": {
+            "type": "string",
+            "required": false,
+            "description": "zh（默认）或 en"
+          }
+        },
+        "output_schema": {
+          "text": {
+            "type": "string",
+            "required": true,
+            "description": "图上全部识别文字"
+          },
+          "blocks": {
+            "type": "string",
+            "required": true,
+            "description": "OCR 块 JSON 数组"
+          },
+          "asset_id": {
+            "type": "string",
+            "required": true,
+            "description": "入参图片 asset_id"
+          }
+        },
         "sources": [
-          "ads"
+          "ads",
+          "brain.wire"
         ]
       },
       "declaration": {
         "in_ads": true,
-        "declared_by": [],
+        "declared_by": [
+          "system.ocr"
+        ],
         "conditional_lists": [],
         "packages": [],
         "has_preflight": false,
         "docs": []
       },
-      "group": "image"
+      "group": "ocr"
     },
     {
       "capability_id": "light.set",
@@ -3670,9 +4065,6 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
@@ -3680,6 +4072,9 @@
         "ios",
         "mac"
       ],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "livingroom.ceiling_light"
       ],
@@ -3813,15 +4208,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "entry.lock"
       ],
@@ -3911,98 +4306,92 @@
       "prefer_when": "",
       "typical_triggers": [
         "从哪到哪开车多久",
-        "开车要多远",
         "坐地铁需要多久",
-        "多远",
         "多久能到",
+        "多远",
         "导航",
+        "开车要多远",
         "路线",
         "通勤时间"
       ],
       "do_not_dispatch": [
-        "知识百科",
-        "看图",
-        "拍照",
         "投屏",
         "报时",
+        "拍照",
+        "看图",
+        "知识百科",
         "闲聊"
       ],
       "decomposes_to": [],
       "input_schema": {
-        "city": {
-          "description": "城市名，用于地址消歧与公交规划，默认北京",
-          "required": false,
-          "type": "string"
+        "origin": {
+          "type": "string",
+          "required": true,
+          "description": "起点地名或地址"
         },
         "destination": {
-          "description": "终点地名或地址，如「顺义建邦顺颐府」",
+          "type": "string",
           "required": true,
-          "type": "string"
+          "description": "终点地名或地址"
         },
         "mode": {
-          "description": "出行方式：driving（驾车，默认）| transit（公交地铁）| walking（步行）",
+          "type": "string",
           "required": false,
-          "type": "string"
+          "description": "driving | transit | walking，默认 driving"
         },
-        "origin": {
-          "description": "起点地名或地址，如「望新花园」",
-          "required": true,
-          "type": "string"
+        "city": {
+          "type": "string",
+          "required": false,
+          "description": "城市，用于消歧与公交规划，默认北京"
         }
       },
       "output_schema": {
         "answer_text": {
-          "description": "给人听/看的路线距离与耗时摘要",
+          "type": "string",
           "required": true,
-          "type": "string"
+          "description": "口语化距离与耗时摘要"
         },
         "distance_km": {
-          "description": "路线距离（公里，小数）",
+          "type": "string",
           "required": true,
-          "type": "string"
-        },
-        "distance_m": {
-          "description": "路线距离（米）",
-          "required": false,
-          "type": "string"
+          "description": "距离（公里）"
         },
         "duration_min": {
-          "description": "预计耗时（分钟，向上取整）",
+          "type": "string",
           "required": true,
-          "type": "string"
-        },
-        "duration_sec": {
-          "description": "预计耗时（秒）",
-          "required": false,
-          "type": "string"
-        },
-        "mode": {
-          "description": "实际使用的出行方式 driving | transit | walking",
-          "required": false,
-          "type": "string"
+          "description": "预计耗时（分钟）"
         }
       },
-      "definition_sources": [],
+      "definition_sources": [
+        "brain.ads",
+        "brain.wire"
+      ],
       "has_checker": 0,
-      "in_ads": false,
+      "in_ads": true,
       "status": "active",
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T08:54:26+0800",
-      "in_catalog": false,
       "description": "",
       "keywords": [],
       "hosts": [],
-      "runs_on": [],
-      "declared_by": [],
+      "runs_on": [
+        "brain"
+      ],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
+      "declared_by": [
+        "system.map"
+      ],
       "packages": [],
       "conditional_lists": [],
-      "declared": false,
+      "declared": true,
       "has_preflight": false,
-      "hosts_effective": [],
-      "hosts_source": "none",
+      "hosts_effective": [
+        "brain"
+      ],
+      "hosts_source": "code",
       "definition": {
         "kind": "system",
         "composition": "atomic",
@@ -4013,82 +4402,72 @@
         "prefer_when": "",
         "typical_triggers": [
           "从哪到哪开车多久",
-          "开车要多远",
           "坐地铁需要多久",
-          "多远",
           "多久能到",
+          "多远",
           "导航",
+          "开车要多远",
           "路线",
           "通勤时间"
         ],
         "do_not_dispatch": [
-          "知识百科",
-          "看图",
-          "拍照",
           "投屏",
           "报时",
+          "拍照",
+          "看图",
+          "知识百科",
           "闲聊"
         ],
         "decomposes_to": [],
         "input_schema": {
-          "city": {
-            "description": "城市名，用于地址消歧与公交规划，默认北京",
-            "required": false,
-            "type": "string"
+          "origin": {
+            "type": "string",
+            "required": true,
+            "description": "起点地名或地址"
           },
           "destination": {
-            "description": "终点地名或地址，如「顺义建邦顺颐府」",
+            "type": "string",
             "required": true,
-            "type": "string"
+            "description": "终点地名或地址"
           },
           "mode": {
-            "description": "出行方式：driving（驾车，默认）| transit（公交地铁）| walking（步行）",
+            "type": "string",
             "required": false,
-            "type": "string"
+            "description": "driving | transit | walking，默认 driving"
           },
-          "origin": {
-            "description": "起点地名或地址，如「望新花园」",
-            "required": true,
-            "type": "string"
+          "city": {
+            "type": "string",
+            "required": false,
+            "description": "城市，用于消歧与公交规划，默认北京"
           }
         },
         "output_schema": {
           "answer_text": {
-            "description": "给人听/看的路线距离与耗时摘要",
+            "type": "string",
             "required": true,
-            "type": "string"
+            "description": "口语化距离与耗时摘要"
           },
           "distance_km": {
-            "description": "路线距离（公里，小数）",
+            "type": "string",
             "required": true,
-            "type": "string"
-          },
-          "distance_m": {
-            "description": "路线距离（米）",
-            "required": false,
-            "type": "string"
+            "description": "距离（公里）"
           },
           "duration_min": {
-            "description": "预计耗时（分钟，向上取整）",
+            "type": "string",
             "required": true,
-            "type": "string"
-          },
-          "duration_sec": {
-            "description": "预计耗时（秒）",
-            "required": false,
-            "type": "string"
-          },
-          "mode": {
-            "description": "实际使用的出行方式 driving | transit | walking",
-            "required": false,
-            "type": "string"
+            "description": "预计耗时（分钟）"
           }
         },
-        "sources": []
+        "sources": [
+          "brain.ads",
+          "brain.wire"
+        ]
       },
       "declaration": {
-        "in_ads": false,
-        "declared_by": [],
+        "in_ads": true,
+        "declared_by": [
+          "system.map"
+        ],
         "conditional_lists": [],
         "packages": [],
         "has_preflight": false,
@@ -4147,15 +4526,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "local.math"
       ],
@@ -4283,6 +4662,7 @@
       },
       "definition_sources": [
         "ads",
+        "brain.wire",
         "service:netease.music"
       ],
       "has_checker": 1,
@@ -4291,13 +4671,13 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "netease.music"
       ],
@@ -4359,6 +4739,7 @@
         },
         "sources": [
           "ads",
+          "brain.wire",
           "service:netease.music"
         ]
       },
@@ -4408,9 +4789,6 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
@@ -4419,6 +4797,9 @@
         "ios",
         "mac"
       ],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "netease.music"
       ],
@@ -4513,9 +4894,6 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
@@ -4524,6 +4902,9 @@
         "ios",
         "mac"
       ],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "netease.music"
       ],
@@ -4590,11 +4971,12 @@
       "composition": "atomic",
       "display_name": "网易云音乐",
       "role": "音乐播放器",
-      "planner_recognize": "从用户话里拆出歌名 song、可选作者 artist；不要把整句当 keyword。本轮必须有 song，不能只按歌手或专辑点播。不负责暂停/切歌。",
+      "planner_recognize": "从用户话里拆出歌名 song、可选作者 artist；不要把整句当 keyword。用户说「用小度音箱播放」时不要派本步，改派 xiaodu.play。本轮必须有 song，不能只按歌手或专辑点播。不负责暂停/切歌。",
       "prefer_when": "",
       "typical_triggers": [
         "播放陈奕迅的十年",
-        "放十年"
+        "放十年",
+        "用小度音箱播放"
       ],
       "do_not_dispatch": [
         "TTS",
@@ -4621,6 +5003,11 @@
           "type": "string",
           "required": false,
           "description": "专辑（本轮忽略）"
+        },
+        "speaker": {
+          "type": "string",
+          "required": false,
+          "description": "输出音箱；xiaodu/小度=客厅小度"
         }
       },
       "output_schema": {
@@ -4651,9 +5038,6 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
@@ -4662,6 +5046,9 @@
         "ios",
         "mac"
       ],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "netease.music"
       ],
@@ -4683,11 +5070,12 @@
         "group": "music",
         "display_name": "网易云音乐",
         "role": "音乐播放器",
-        "planner_recognize": "从用户话里拆出歌名 song、可选作者 artist；不要把整句当 keyword。本轮必须有 song，不能只按歌手或专辑点播。不负责暂停/切歌。",
+        "planner_recognize": "从用户话里拆出歌名 song、可选作者 artist；不要把整句当 keyword。用户说「用小度音箱播放」时不要派本步，改派 xiaodu.play。本轮必须有 song，不能只按歌手或专辑点播。不负责暂停/切歌。",
         "prefer_when": "",
         "typical_triggers": [
           "播放陈奕迅的十年",
-          "放十年"
+          "放十年",
+          "用小度音箱播放"
         ],
         "do_not_dispatch": [
           "TTS",
@@ -4714,6 +5102,11 @@
             "type": "string",
             "required": false,
             "description": "专辑（本轮忽略）"
+          },
+          "speaker": {
+            "type": "string",
+            "required": false,
+            "description": "输出音箱；xiaodu/小度=客厅小度"
           }
         },
         "output_schema": {
@@ -4788,9 +5181,6 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
@@ -4799,6 +5189,9 @@
         "ios",
         "mac"
       ],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "netease.music"
       ],
@@ -4933,15 +5326,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "music.recognize"
       ],
@@ -5075,9 +5468,6 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
@@ -5086,6 +5476,9 @@
         "ios",
         "mac"
       ],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "netease.music"
       ],
@@ -5180,9 +5573,6 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
@@ -5191,6 +5581,9 @@
         "ios",
         "mac"
       ],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "netease.music"
       ],
@@ -5284,13 +5677,13 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [],
       "packages": [],
       "conditional_lists": [],
@@ -5368,13 +5761,13 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [],
       "packages": [],
       "conditional_lists": [],
@@ -5464,6 +5857,7 @@
       "output_schema": {},
       "definition_sources": [
         "ads",
+        "brain.wire",
         "service:local.notify"
       ],
       "has_checker": 0,
@@ -5472,13 +5866,13 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "local.notify"
       ],
@@ -5533,6 +5927,7 @@
         "output_schema": {},
         "sources": [
           "ads",
+          "brain.wire",
           "service:local.notify"
         ]
       },
@@ -5726,15 +6121,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "local.paper.read"
       ],
@@ -6079,15 +6474,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "local.pdf.reader"
       ],
@@ -6340,15 +6735,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "local.pdf.rotate"
       ],
@@ -6543,15 +6938,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "local.pdf.images"
       ],
@@ -6693,13 +7088,13 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [],
       "packages": [],
       "conditional_lists": [],
@@ -6824,15 +7219,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "local.printer"
       ],
@@ -7042,15 +7437,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "local.pronunciation"
       ],
@@ -7268,15 +7663,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "local.query"
       ],
@@ -7429,6 +7824,7 @@
       },
       "definition_sources": [
         "ads",
+        "brain.wire",
         "service:local.character"
       ],
       "has_checker": 1,
@@ -7437,13 +7833,13 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "local.character"
       ],
@@ -7494,6 +7890,7 @@
         },
         "sources": [
           "ads",
+          "brain.wire",
           "service:local.character"
         ]
       },
@@ -7554,6 +7951,7 @@
       },
       "definition_sources": [
         "ads",
+        "brain.wire",
         "service:local.character"
       ],
       "has_checker": 1,
@@ -7562,13 +7960,13 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "local.character"
       ],
@@ -7623,6 +8021,7 @@
         },
         "sources": [
           "ads",
+          "brain.wire",
           "service:local.character"
         ]
       },
@@ -7695,6 +8094,7 @@
       },
       "definition_sources": [
         "ads",
+        "brain.wire",
         "service:local.character"
       ],
       "has_checker": 1,
@@ -7703,13 +8103,13 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "local.character"
       ],
@@ -7776,6 +8176,7 @@
         },
         "sources": [
           "ads",
+          "brain.wire",
           "service:local.character"
         ]
       },
@@ -7846,6 +8247,7 @@
       },
       "definition_sources": [
         "ads",
+        "brain.wire",
         "service:local.character"
       ],
       "has_checker": 1,
@@ -7854,13 +8256,13 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "local.character"
       ],
@@ -7925,6 +8327,7 @@
         },
         "sources": [
           "ads",
+          "brain.wire",
           "service:local.character"
         ]
       },
@@ -8028,6 +8431,7 @@
       },
       "definition_sources": [
         "ads",
+        "brain.wire",
         "service:local.search"
       ],
       "has_checker": 0,
@@ -8036,13 +8440,13 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "local.search"
       ],
@@ -8140,6 +8544,7 @@
         },
         "sources": [
           "ads",
+          "brain.wire",
           "service:local.search"
         ]
       },
@@ -8186,9 +8591,6 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
@@ -8196,7 +8598,12 @@
         "ios",
         "python"
       ],
-      "declared_by": [],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
+      "declared_by": [
+        "gopro.camera"
+      ],
       "packages": [
         "gopro-camera"
       ],
@@ -8236,7 +8643,9 @@
       },
       "declaration": {
         "in_ads": true,
-        "declared_by": [],
+        "declared_by": [
+          "gopro.camera"
+        ],
         "conditional_lists": [],
         "packages": [
           "gopro-camera"
@@ -8268,9 +8677,16 @@
       ],
       "decomposes_to": [],
       "input_schema": {},
-      "output_schema": {},
+      "output_schema": {
+        "stream_id": {
+          "type": "string",
+          "required": false,
+          "description": "本次推流 id（观测用；常驻入口不经计划逐步产出）"
+        }
+      },
       "definition_sources": [
         "ads",
+        "brain.wire",
         "package:video-live-stream"
       ],
       "has_checker": 0,
@@ -8279,16 +8695,18 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
-      "declared_by": [],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
+      "declared_by": [
+        "iphone.video"
+      ],
       "packages": [
         "video-live-stream"
       ],
@@ -8319,15 +8737,24 @@
         ],
         "decomposes_to": [],
         "input_schema": {},
-        "output_schema": {},
+        "output_schema": {
+          "stream_id": {
+            "type": "string",
+            "required": false,
+            "description": "本次推流 id（观测用；常驻入口不经计划逐步产出）"
+          }
+        },
         "sources": [
           "ads",
+          "brain.wire",
           "package:video-live-stream"
         ]
       },
       "declaration": {
         "in_ads": true,
-        "declared_by": [],
+        "declared_by": [
+          "iphone.video"
+        ],
         "conditional_lists": [],
         "packages": [
           "video-live-stream"
@@ -8396,15 +8823,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "local.vision"
       ],
@@ -8563,15 +8990,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "local.vision"
       ],
@@ -8693,10 +9120,28 @@
         "金额识别"
       ],
       "decomposes_to": [],
-      "input_schema": {},
-      "output_schema": {},
+      "input_schema": {
+        "mode": {
+          "type": "string",
+          "required": false,
+          "description": "默认 document"
+        }
+      },
+      "output_schema": {
+        "status": {
+          "type": "string",
+          "required": true,
+          "description": "completed 或 cancelled"
+        },
+        "asset_ref": {
+          "type": "string",
+          "required": true,
+          "description": "Image AssetRef JSON。禁止 photo_url / path / 永久 URL。"
+        }
+      },
       "definition_sources": [
-        "ads"
+        "ads",
+        "brain.wire"
       ],
       "has_checker": 0,
       "in_ads": true,
@@ -8704,14 +9149,16 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
-      "declared_by": [],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
+      "declared_by": [
+        "document.scanner"
+      ],
       "packages": [],
       "conditional_lists": [],
       "declared": true,
@@ -8721,7 +9168,7 @@
       "definition": {
         "kind": "input",
         "composition": "atomic",
-        "group": "visual",
+        "group": "document",
         "display_name": "",
         "role": "纸质文档扫描器",
         "planner_recognize": "纸质扫描的兼容入口：同样用手机文档扫描把小票/文件收成 Image Asset。不读字、不算账",
@@ -8738,21 +9185,41 @@
           "金额识别"
         ],
         "decomposes_to": [],
-        "input_schema": {},
-        "output_schema": {},
+        "input_schema": {
+          "mode": {
+            "type": "string",
+            "required": false,
+            "description": "默认 document"
+          }
+        },
+        "output_schema": {
+          "status": {
+            "type": "string",
+            "required": true,
+            "description": "completed 或 cancelled"
+          },
+          "asset_ref": {
+            "type": "string",
+            "required": true,
+            "description": "Image AssetRef JSON。禁止 photo_url / path / 永久 URL。"
+          }
+        },
         "sources": [
-          "ads"
+          "ads",
+          "brain.wire"
         ]
       },
       "declaration": {
         "in_ads": true,
-        "declared_by": [],
+        "declared_by": [
+          "document.scanner"
+        ],
         "conditional_lists": [],
         "packages": [],
         "has_preflight": false,
         "docs": []
       },
-      "group": "visual"
+      "group": "document"
     },
     {
       "capability_id": "voice.stream",
@@ -8792,15 +9259,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "local.voice"
       ],
@@ -8979,15 +9446,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "local.voice_test"
       ],
@@ -9165,6 +9632,7 @@
       },
       "definition_sources": [
         "ads",
+        "brain.wire",
         "service:local.voice"
       ],
       "has_checker": 0,
@@ -9173,13 +9641,13 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "local.voice"
       ],
@@ -9192,7 +9660,7 @@
       "definition": {
         "kind": "output",
         "composition": "atomic",
-        "group": "voicewakeup",
+        "group": "voice",
         "display_name": "",
         "role": "唤醒回声",
         "planner_recognize": "用户喊唤醒词之后，语音入口本机立刻回一句（如「又咋了」）。不是提醒、不是念答案、不是报时，不要排进用户任务计划",
@@ -9226,6 +9694,7 @@
         },
         "sources": [
           "ads",
+          "brain.wire",
           "service:local.voice"
         ]
       },
@@ -9239,7 +9708,7 @@
         "has_preflight": false,
         "docs": []
       },
-      "group": "voicewakeup"
+      "group": "voice"
     },
     {
       "capability_id": "web.scraper",
@@ -9390,15 +9859,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "local.web.scraper"
       ],
@@ -9616,13 +10085,13 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T08:54:26+0800",
-      "in_catalog": false,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": false,
       "declared_by": [],
       "packages": [],
       "conditional_lists": [],
@@ -9683,114 +10152,166 @@
       "capability_id": "xiaodu.play",
       "kind": "output",
       "composition": "atomic",
-      "display_name": "小度音箱",
+      "display_name": "小度音箱播放",
       "role": "小度音箱音频播放器",
-      "planner_recognize": "把本步已有的 audio Asset（如论文听读产出的音频、录音）交给客厅小度音箱放出来。入参 asset_ref（必填，type=audio，常为 $asset_ref）。用户没说是哪份音频时，先排 asset.inventory（type=audio, order=newest_first, index=1）再接本步。本步只放声音，不念文案（那是 xiaodu.speak）、不投屏、不放歌",
+      "planner_recognize": "把一条可拉流的 http(s) 音频 URL 交给客厅小度 DLNA 播放（SetAVTransportURI+Play）。入参 url（直接播）或 song（先解析出音频 URL 再播）或 asset_ref（已有 audio Asset，常为 $asset_ref）。用户说「用小度音箱播放歌曲十年」用本步，不要改派 music.play（那是本机网易云开播）。不念文案（xiaodu.speak）、不投屏",
       "prefer_when": "",
       "typical_triggers": [
         "把最新的音频用小度音箱播放",
-        "让小度音箱放这段音频",
-        "小度播放最新的录音",
-        "用客厅音箱放这段音频"
+        "用小度播放",
+        "用小度音箱播放歌曲十年",
+        "让小度音箱放这段音频"
       ],
       "do_not_dispatch": [
+        "Mac 本机播报",
+        "TTS 生成",
         "念一段文案",
         "投屏",
-        "点歌放歌",
-        "Mac 本机播报",
-        "TTS 生成"
+        "本机网易云开播"
       ],
       "decomposes_to": [],
       "input_schema": {
+        "url": {
+          "type": "string",
+          "required": false,
+          "description": "可拉流的 http(s) 音频地址；有则直接交给小度"
+        },
+        "song": {
+          "type": "string",
+          "required": false,
+          "description": "歌名；无 url 时先解析出音频 URL 再交给小度"
+        },
+        "artist": {
+          "type": "string",
+          "required": false,
+          "description": "歌手，仅收窄搜索"
+        },
         "asset_ref": {
-          "description": "AssetRef JSON {asset_id, type: \"audio\", mime_type?}。禁止 path / 永久 URL。常为 $asset_ref。",
-          "required": true,
-          "type": "string"
+          "type": "string",
+          "required": false,
+          "description": "AssetRef JSON {asset_id, type: \"audio\", mime_type?}。常为 $asset_ref。"
         }
       },
       "output_schema": {
-        "asset_id": {
-          "description": "实际播放的 audio asset_id",
-          "required": false,
-          "type": "string"
-        },
         "status_text": {
-          "description": "中文一句话，如「已在小度音箱播放最新音频」",
+          "type": "string",
           "required": true,
-          "type": "string"
+          "description": "中文一句话，如「已在小度音箱播放最新音频」"
+        },
+        "asset_id": {
+          "type": "string",
+          "required": false,
+          "description": "实际播放的 audio asset_id"
         }
       },
-      "definition_sources": [],
+      "definition_sources": [
+        "ads",
+        "package:xiaodu-play",
+        "service:xiaodu.play"
+      ],
       "has_checker": 0,
-      "in_ads": false,
+      "in_ads": true,
       "status": "active",
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T08:54:26+0800",
-      "in_catalog": false,
       "description": "",
       "keywords": [],
       "hosts": [],
-      "runs_on": [],
-      "declared_by": [],
-      "packages": [],
+      "runs_on": [
+        "mac"
+      ],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
+      "declared_by": [
+        "xiaodu.play"
+      ],
+      "packages": [
+        "xiaodu-play"
+      ],
       "conditional_lists": [],
-      "declared": false,
+      "declared": true,
       "has_preflight": false,
-      "hosts_effective": [],
-      "hosts_source": "none",
+      "hosts_effective": [
+        "mac"
+      ],
+      "hosts_source": "code",
       "definition": {
         "kind": "output",
         "composition": "atomic",
         "group": "notify",
-        "display_name": "小度音箱",
+        "display_name": "小度音箱播放",
         "role": "小度音箱音频播放器",
-        "planner_recognize": "把本步已有的 audio Asset（如论文听读产出的音频、录音）交给客厅小度音箱放出来。入参 asset_ref（必填，type=audio，常为 $asset_ref）。用户没说是哪份音频时，先排 asset.inventory（type=audio, order=newest_first, index=1）再接本步。本步只放声音，不念文案（那是 xiaodu.speak）、不投屏、不放歌",
+        "planner_recognize": "把一条可拉流的 http(s) 音频 URL 交给客厅小度 DLNA 播放（SetAVTransportURI+Play）。入参 url（直接播）或 song（先解析出音频 URL 再播）或 asset_ref（已有 audio Asset，常为 $asset_ref）。用户说「用小度音箱播放歌曲十年」用本步，不要改派 music.play（那是本机网易云开播）。不念文案（xiaodu.speak）、不投屏",
         "prefer_when": "",
         "typical_triggers": [
           "把最新的音频用小度音箱播放",
-          "让小度音箱放这段音频",
-          "小度播放最新的录音",
-          "用客厅音箱放这段音频"
+          "用小度播放",
+          "用小度音箱播放歌曲十年",
+          "让小度音箱放这段音频"
         ],
         "do_not_dispatch": [
+          "Mac 本机播报",
+          "TTS 生成",
           "念一段文案",
           "投屏",
-          "点歌放歌",
-          "Mac 本机播报",
-          "TTS 生成"
+          "本机网易云开播"
         ],
         "decomposes_to": [],
         "input_schema": {
+          "url": {
+            "type": "string",
+            "required": false,
+            "description": "可拉流的 http(s) 音频地址；有则直接交给小度"
+          },
+          "song": {
+            "type": "string",
+            "required": false,
+            "description": "歌名；无 url 时先解析出音频 URL 再交给小度"
+          },
+          "artist": {
+            "type": "string",
+            "required": false,
+            "description": "歌手，仅收窄搜索"
+          },
           "asset_ref": {
-            "description": "AssetRef JSON {asset_id, type: \"audio\", mime_type?}。禁止 path / 永久 URL。常为 $asset_ref。",
-            "required": true,
-            "type": "string"
+            "type": "string",
+            "required": false,
+            "description": "AssetRef JSON {asset_id, type: \"audio\", mime_type?}。常为 $asset_ref。"
           }
         },
         "output_schema": {
-          "asset_id": {
-            "description": "实际播放的 audio asset_id",
-            "required": false,
-            "type": "string"
-          },
           "status_text": {
-            "description": "中文一句话，如「已在小度音箱播放最新音频」",
+            "type": "string",
             "required": true,
-            "type": "string"
+            "description": "中文一句话，如「已在小度音箱播放最新音频」"
+          },
+          "asset_id": {
+            "type": "string",
+            "required": false,
+            "description": "实际播放的 audio asset_id"
           }
         },
-        "sources": []
+        "sources": [
+          "ads",
+          "package:xiaodu-play",
+          "service:xiaodu.play"
+        ]
       },
       "declaration": {
-        "in_ads": false,
-        "declared_by": [],
+        "in_ads": true,
+        "declared_by": [
+          "xiaodu.play"
+        ],
         "conditional_lists": [],
-        "packages": [],
+        "packages": [
+          "xiaodu-play"
+        ],
         "has_preflight": false,
-        "docs": []
+        "docs": [
+          "plugins/xiaodu-play/capability.md"
+        ]
       },
       "group": "notify"
     },
@@ -9841,15 +10362,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
-      "reviewed_at": "",
-      "updated_at": "2026-09-19T09:26:09+0800",
-      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
+      "reviewed_at": "",
+      "updated_at": "2026-10-11T09:00:57+0800",
+      "in_catalog": true,
       "declared_by": [
         "xiaodu.speaker"
       ],

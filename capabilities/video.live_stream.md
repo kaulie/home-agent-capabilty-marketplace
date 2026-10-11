@@ -26,11 +26,17 @@ kind=`input` · composition=`atomic` · group=`video` · 声明=`是` · 执行�
 
 ## 出参
 
-（无）
+| 参数 | 类型 | 必填 | 说明 |
+|---|---|---|---|
+| `stream_id` | string | 否 | 本次推流 id（观测用；常驻入口不经计划逐步产出） |
 
 ## 适用宿主（代码事实）
 
 - `mac`
+
+## 服务声明
+
+- `iphone.video`
 
 ## 能力包
 
@@ -38,15 +44,13 @@ kind=`input` · composition=`atomic` · group=`video` · 声明=`是` · 执行�
 
 ## 文档
 
-- [home-agent-os/plugins/video-live-stream/capability.md](https://github.com/kaulie/home-agent-os/blob/main/plugins/video-live-stream/capability.md)
+- [plugins/video-live-stream/capability.md](../plugins/video-live-stream/capability.md)
 
 ## 入口
 
 - mac: `mac/src/mac_edge/plugins/video_live_ingest.py`
 
 
-- 定义层来源：`ads`、`package:video-live-stream`
-
 ---
 
-<sub>由 `mac/scripts/export_capability_catalog.py` 生成（home-agent-os `5dc6531`），请勿手改。</sub>
+<sub>由 `scripts/export_catalog.py` 生成（marketplace `c272647`），请勿手改。</sub>

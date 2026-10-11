@@ -2,7 +2,7 @@
 
 拍照并上传器
 
-kind=`action` · composition=`composite` · group=`-` · 声明=`是` · 执行前自检=`有`
+kind=`action` · composition=`composite` · group=`camera` · 声明=`是` · 执行前自检=`有`
 
 ## 规划器怎么认它
 
@@ -25,11 +25,6 @@ kind=`action` · composition=`composite` · group=`-` · 声明=`是` · 执行�
 - 投屏本身
 - 看图理解本身
 
-## 分解为（接线图）
-
-- `asset.upload`
-- `camera.capture`
-
 ## 入参
 
 | 参数 | 类型 | 必填 | 说明 |
@@ -48,8 +43,6 @@ kind=`action` · composition=`composite` · group=`-` · 声明=`是` · 执行�
 - `gopro.camera`
 
 
-- 定义层来源：`ads`、`service:gopro.camera`
-
 ---
 
-<sub>由 `mac/scripts/export_capability_catalog.py` 生成（home-agent-os `5dc6531`），请勿手改。</sub>
+<sub>由 `scripts/export_catalog.py` 生成（marketplace `c272647`），请勿手改。</sub>
