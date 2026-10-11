@@ -184,9 +184,14 @@ def _finish_entries(by_id: dict[str, dict[str, Any]]) -> list[dict[str, Any]]:
         for field in ("declared_by", "declared_lists", "packages", "docs", "config_keys", "runs_on"):
             e[field] = sorted(dict.fromkeys(e.get(field) or []))
         definition = e.setdefault("definition", _blank_layer())
-        for field in ("typical_triggers", "do_not_dispatch", "decomposes_to"):
+        for field in ("typical_triggers", "do_not_dispatch"):
             if definition.get(field):
                 definition[field] = sorted(dict.fromkeys(definition[field]))
+        # decomposes_to 是执行顺序，不能按字母重排（拍照必须先于上传）。
+        if definition.get("decomposes_to"):
+            definition["decomposes_to"] = list(
+                dict.fromkeys(str(x).strip() for x in definition["decomposes_to"] if str(x).strip())
+            )
         if definition.get("sources"):
             definition["sources"] = sorted(dict.fromkeys(definition["sources"]))
         for field, fallback in (

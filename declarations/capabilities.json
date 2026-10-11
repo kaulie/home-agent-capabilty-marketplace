@@ -1025,8 +1025,8 @@
           "看图理解本身"
         ],
         "decomposes_to": [
-          "asset.upload",
-          "camera.capture"
+          "camera.capture",
+          "asset.upload"
         ],
         "prefer_when": "拍照后还有后续动作要消费这张照片（给人看、变成 Asset、vision、投屏）时，优先本能力，不要把 decomposes_to 拆成多步",
         "group": "camera",

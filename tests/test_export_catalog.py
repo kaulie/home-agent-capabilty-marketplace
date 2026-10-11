@@ -36,6 +36,15 @@ class ExportCatalogTest(unittest.TestCase):
         self.assertIn("xiaodu.speaker", speak["declared_by"])
         self.assertNotIn("xiaodu.speaker", play["declared_by"])
 
+    def test_decomposes_to_keeps_execution_order(self) -> None:
+        catalog = exporter.build_catalog()
+        by_id = {c["capability_id"]: c for c in catalog["capabilities"]}
+        composite = by_id["camera.capture_and_upload"]
+        parts = (composite.get("definition") or {}).get("decomposes_to") or composite.get(
+            "decomposes_to"
+        )
+        self.assertEqual(parts, ["camera.capture", "asset.upload"])
+
     def test_write_pages(self) -> None:
         catalog = exporter.build_catalog()
         with tempfile.TemporaryDirectory() as tmp:

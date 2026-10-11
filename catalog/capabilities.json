@@ -1406,8 +1406,8 @@
         "看图理解本身"
       ],
       "decomposes_to": [
-        "asset.upload",
-        "camera.capture"
+        "camera.capture",
+        "asset.upload"
       ],
       "input_schema": {
         "dest": {
@@ -1477,8 +1477,8 @@
           "看图理解本身"
         ],
         "decomposes_to": [
-          "asset.upload",
-          "camera.capture"
+          "camera.capture",
+          "asset.upload"
         ],
         "input_schema": {
           "dest": {
