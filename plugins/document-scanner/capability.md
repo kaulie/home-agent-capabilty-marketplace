@@ -12,9 +12,9 @@ UI 触发 → 系统文档扫描 → `POST /api/v1/assets/upload`（一次收文
 |------|-----|
 | kind | `input` |
 | role | 纸质文档扫描器 |
-| planner_recognize | 用 iPhone 系统文档扫描采集纸质并上传为 Image Asset |
+| planner_recognize | 用 iPhone 系统文档扫描采集纸质并上传为 Image Asset。不是普通拍照快门；用户说「拍照」时不要派本能力 |
 | typical_triggers | `扫描一下`、`扫一下`、`扫描一下这个小票` |
-| do_not_dispatch | OCR、金额识别、看图理解、投屏、开灯 |
+| do_not_dispatch | OCR、金额识别、看图理解、投屏、开灯、拍照、拍一张、照相、普通拍照 |
 
 ## 标识
 

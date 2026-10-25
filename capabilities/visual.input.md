@@ -6,7 +6,7 @@ kind=`input` · composition=`atomic` · group=`document` · 声明=`是` · 执�
 
 ## 规划器怎么认它
 
-纸质扫描的兼容入口：同样用手机文档扫描把小票/文件收成 Image Asset。不读字、不算账
+纸质扫描的兼容入口：同样用手机文档扫描把小票/文件收成 Image Asset。不读字、不算账。不是普通拍照
 
 ## 典型触发语
 
@@ -20,6 +20,10 @@ kind=`input` · composition=`atomic` · group=`document` · 声明=`是` · 执�
 - 投屏
 - 看图理解
 - 金额识别
+- 拍照
+- 拍一张
+- 照相
+- 普通拍照
 
 ## 入参
 
