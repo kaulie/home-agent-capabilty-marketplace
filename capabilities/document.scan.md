@@ -6,7 +6,7 @@ kind=`input` · composition=`atomic` · group=`document` · 声明=`是` · 执�
 
 ## 规划器怎么认它
 
-用手机系统文档扫描拍纸质（小票、文件、作业），直接上传成 Image Asset。只负责扫进系统，不读字、不算金额、不总结、不投屏。读字要另排 OCR
+用手机系统文档扫描拍纸质（小票、文件、作业），直接上传成 Image Asset。只负责扫进系统，不读字、不算金额、不总结、不投屏。读字要另排 OCR。不是普通拍照快门；用户说「拍照」时不要派本能力
 
 ## 典型触发语
 
@@ -21,6 +21,10 @@ kind=`input` · composition=`atomic` · group=`document` · 声明=`是` · 执�
 - OCR
 - 开灯
 - 投屏
+- 拍一张
+- 拍照
+- 普通拍照
+- 照相
 - 看图理解
 - 金额识别
 
@@ -60,4 +64,4 @@ kind=`input` · composition=`atomic` · group=`document` · 声明=`是` · 执�
 
 ---
 
-<sub>由 `scripts/export_catalog.py` 生成（marketplace `c272647`），请勿手改。</sub>
+<sub>由 `scripts/export_catalog.py` 生成（marketplace `62e850e`），请勿手改。</sub>

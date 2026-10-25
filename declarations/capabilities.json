@@ -2009,7 +2009,7 @@
         "kind": "input",
         "composition": "atomic",
         "role": "纸质文档扫描器",
-        "planner_recognize": "用手机系统文档扫描拍纸质（小票、文件、作业），直接上传成 Image Asset。只负责扫进系统，不读字、不算金额、不总结、不投屏。读字要另排 OCR",
+        "planner_recognize": "用手机系统文档扫描拍纸质（小票、文件、作业），直接上传成 Image Asset。只负责扫进系统，不读字、不算金额、不总结、不投屏。读字要另排 OCR。不是普通拍照快门；用户说「拍照」时不要派本能力",
         "typical_triggers": [
           "扫一下",
           "扫一下作业",
@@ -2022,7 +2022,11 @@
           "开灯",
           "投屏",
           "看图理解",
-          "金额识别"
+          "金额识别",
+          "拍照",
+          "拍一张",
+          "照相",
+          "普通拍照"
         ],
         "decomposes_to": [],
         "prefer_when": "",
@@ -5217,7 +5221,7 @@
         "kind": "input",
         "composition": "atomic",
         "role": "纸质文档扫描器",
-        "planner_recognize": "纸质扫描的兼容入口：同样用手机文档扫描把小票/文件收成 Image Asset。不读字、不算账",
+        "planner_recognize": "纸质扫描的兼容入口：同样用手机文档扫描把小票/文件收成 Image Asset。不读字、不算账。不是普通拍照",
         "typical_triggers": [
           "扫一下小票",
           "扫一下这个",
@@ -5227,7 +5231,11 @@
           "OCR",
           "投屏",
           "看图理解",
-          "金额识别"
+          "金额识别",
+          "拍照",
+          "拍一张",
+          "照相",
+          "普通拍照"
         ],
         "decomposes_to": [],
         "prefer_when": "",

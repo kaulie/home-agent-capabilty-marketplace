@@ -11,7 +11,7 @@ capabilities:
   - capability_id: document.scan
     description: >
       能：立刻打开系统文档扫描，上传并登记 Image Asset。
-      不能：OCR、经「扫描一下」文本意图理解、投屏、开灯。
+      不能：OCR、普通「拍照」、经「扫描一下」文本意图理解、投屏、开灯。
 
 entry:
   ios: ios/LivingRoomEdge/LivingRoomEdge/VisualInput/VisualInput.swift
