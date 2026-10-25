@@ -73,4 +73,4 @@ kind=`action` · composition=`atomic` · group=`pronunciation` · 声明=`是` �
 
 ---
 
-<sub>由 `scripts/export_catalog.py` 生成（marketplace `c272647`），请勿手改。</sub>
+<sub>由 `scripts/export_catalog.py` 生成（marketplace `62e850e`），请勿手改。</sub>

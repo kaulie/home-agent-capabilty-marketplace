@@ -21,12 +21,12 @@ kind=`input` · composition=`atomic` · group=`document` · 声明=`是` · 执�
 - OCR
 - 开灯
 - 投屏
+- 拍一张
+- 拍照
+- 普通拍照
+- 照相
 - 看图理解
 - 金额识别
-- 拍照
-- 拍一张
-- 照相
-- 普通拍照
 
 ## 入参
 
@@ -64,4 +64,4 @@ kind=`input` · composition=`atomic` · group=`document` · 声明=`是` · 执�
 
 ---
 
-<sub>由 `scripts/export_catalog.py` 生成（marketplace `c272647`），请勿手改。</sub>
+<sub>由 `scripts/export_catalog.py` 生成（marketplace `62e850e`），请勿手改。</sub>

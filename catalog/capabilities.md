@@ -1,6 +1,6 @@
 # 能力总表
 
-> 由 `scripts/export_catalog.py` 从本仓 `plugins/` + `declarations/` 生成（2026-10-11T01:00:56Z，commit `c272647`）；**请勿手改**。 改声明请改本仓再跑 `scripts/sync.sh`。
+> 由 `scripts/export_catalog.py` 从本仓 `plugins/` + `declarations/` 生成（2026-10-25T09:27:53Z，commit `62e850e`）；**请勿手改**。 改声明请改本仓再跑 `scripts/sync.sh`。
 
 ## 概览
 

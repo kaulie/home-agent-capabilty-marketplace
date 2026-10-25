@@ -2,12 +2,12 @@
   "schema": "home-agent.capability-catalog/v1",
   "kind": "declaration",
   "generated_by": "marketplace-db (server/catalog_cli.py export)",
-  "generated_at": "2026-10-11T09:00:57+0800",
+  "generated_at": "2026-10-25T17:27:54+0800",
   "source": {
     "repo": "home-agent-capabilty-marketplace",
-    "commit": "c272647",
+    "commit": "62e850e",
     "edge": "mac_edge",
-    "imported_at": "2026-10-11T09:00:57+0800"
+    "imported_at": "2026-10-25T17:27:54+0800"
   },
   "summary": {
     "capabilities": 62,
@@ -66,7 +66,7 @@
       "group_id": "display",
       "version": "0.4.0",
       "constant": "CHROMECAST_DISPLAY_SERVICE",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "chromecast.game",
@@ -74,7 +74,7 @@
       "group_id": "",
       "version": "",
       "constant": "",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "document.scanner",
@@ -82,7 +82,7 @@
       "group_id": "",
       "version": "",
       "constant": "",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "entry.lock",
@@ -90,7 +90,7 @@
       "group_id": "lock",
       "version": "0.1.0",
       "constant": "ENTRY_LOCK_SERVICE",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "gopro.camera",
@@ -98,7 +98,7 @@
       "group_id": "camera",
       "version": "0.9.0",
       "constant": "GOPRO_CAMERA_SERVICE",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "iphone.game.input",
@@ -106,7 +106,7 @@
       "group_id": "",
       "version": "",
       "constant": "",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "iphone.video",
@@ -114,7 +114,7 @@
       "group_id": "",
       "version": "",
       "constant": "",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "livingroom.aquarium",
@@ -122,7 +122,7 @@
       "group_id": "aquarium",
       "version": "0.1.0",
       "constant": "LIVINGROOM_AQUARIUM_SERVICE",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "livingroom.ceiling_light",
@@ -130,7 +130,7 @@
       "group_id": "light",
       "version": "0.1.1",
       "constant": "LIVINGROOM_LIGHT_SERVICE",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "livingroom.climate",
@@ -138,7 +138,7 @@
       "group_id": "climate",
       "version": "0.1.0",
       "constant": "LIVINGROOM_CLIMATE_SERVICE",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "local.asset",
@@ -146,7 +146,7 @@
       "group_id": "asset",
       "version": "0.3.0",
       "constant": "LOCAL_ASSET_SERVICE",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "local.character",
@@ -154,7 +154,7 @@
       "group_id": "reading",
       "version": "0.3.0",
       "constant": "LOCAL_CHARACTER_SERVICE",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "local.chat",
@@ -162,7 +162,7 @@
       "group_id": "chat",
       "version": "0.1.0",
       "constant": "LOCAL_CHAT_SERVICE",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "local.clock",
@@ -170,7 +170,7 @@
       "group_id": "clock",
       "version": "0.1.1",
       "constant": "LOCAL_CLOCK_SERVICE",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "local.file.convert",
@@ -178,7 +178,7 @@
       "group_id": "convert",
       "version": "0.1.0",
       "constant": "LOCAL_FILE_CONVERT_SERVICE",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "local.math",
@@ -186,7 +186,7 @@
       "group_id": "math",
       "version": "0.1.0",
       "constant": "LOCAL_MATH_SERVICE",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "local.notify",
@@ -194,7 +194,7 @@
       "group_id": "notify",
       "version": "0.1.1",
       "constant": "LOCAL_NOTIFY_SERVICE",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "local.paper.read",
@@ -202,7 +202,7 @@
       "group_id": "read",
       "version": "0.1.0",
       "constant": "LOCAL_PAPER_READ_SERVICE",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "local.pdf.images",
@@ -210,7 +210,7 @@
       "group_id": "convert",
       "version": "0.1.0",
       "constant": "LOCAL_PDF_IMAGES_SERVICE",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "local.pdf.reader",
@@ -218,7 +218,7 @@
       "group_id": "convert",
       "version": "0.1.0",
       "constant": "LOCAL_PDF_READER_SERVICE",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "local.pdf.rotate",
@@ -226,7 +226,7 @@
       "group_id": "convert",
       "version": "0.1.0",
       "constant": "LOCAL_PDF_ROTATE_SERVICE",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "local.printer",
@@ -234,7 +234,7 @@
       "group_id": "printer",
       "version": "0.1.0",
       "constant": "LOCAL_PRINTER_SERVICE",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "local.pronunciation",
@@ -242,7 +242,7 @@
       "group_id": "pronunciation",
       "version": "0.1.0",
       "constant": "LOCAL_PRONUNCIATION_SERVICE",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "local.query",
@@ -250,7 +250,7 @@
       "group_id": "query",
       "version": "0.2.1",
       "constant": "LOCAL_QUERY_SERVICE",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "local.search",
@@ -258,7 +258,7 @@
       "group_id": "search",
       "version": "0.1.0",
       "constant": "LOCAL_SEARCH_SERVICE",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "local.vision",
@@ -266,7 +266,7 @@
       "group_id": "vision",
       "version": "0.5.0",
       "constant": "LOCAL_VISION_SERVICE",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "local.voice",
@@ -274,7 +274,7 @@
       "group_id": "voice",
       "version": "0.2.0",
       "constant": "LOCAL_VOICE_SERVICE",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "local.voice_test",
@@ -282,7 +282,7 @@
       "group_id": "experiment",
       "version": "0.1.0",
       "constant": "LOCAL_VOICE_TEST_SERVICE",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "local.web.scraper",
@@ -290,7 +290,7 @@
       "group_id": "convert",
       "version": "0.1.0",
       "constant": "LOCAL_WEB_SCRAPER_SERVICE",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "mac.game.host",
@@ -298,7 +298,7 @@
       "group_id": "game",
       "version": "0.1.0",
       "constant": "GAME_HOST_SERVICE",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "marshall.willen",
@@ -306,7 +306,7 @@
       "group_id": "",
       "version": "",
       "constant": "",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "music.recognize",
@@ -314,7 +314,7 @@
       "group_id": "music",
       "version": "0.1.0",
       "constant": "MUSIC_RECOGNIZE_SERVICE",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "netease.music",
@@ -322,7 +322,7 @@
       "group_id": "music",
       "version": "0.5.0",
       "constant": "NETEASE_MUSIC_SERVICE",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "system.asset",
@@ -330,7 +330,7 @@
       "group_id": "",
       "version": "",
       "constant": "",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "system.capabilities",
@@ -338,7 +338,7 @@
       "group_id": "",
       "version": "",
       "constant": "",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "system.map",
@@ -346,7 +346,7 @@
       "group_id": "",
       "version": "",
       "constant": "",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "system.ocr",
@@ -354,7 +354,7 @@
       "group_id": "",
       "version": "",
       "constant": "",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "xiaodu.play",
@@ -362,7 +362,7 @@
       "group_id": "notify",
       "version": "0.1.0",
       "constant": "XIAODU_PLAY_SERVICE",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "xiaodu.speaker",
@@ -370,7 +370,7 @@
       "group_id": "notify",
       "version": "0.1.0",
       "constant": "XIAODU_SPEAKER_SERVICE",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     },
     {
       "service_id": "xiaomi.tv.display",
@@ -378,7 +378,7 @@
       "group_id": "display",
       "version": "0.1.0",
       "constant": "XIAOMI_TV_DISPLAY_SERVICE",
-      "updated_at": "2026-10-11T09:00:57+0800"
+      "updated_at": "2026-10-25T17:27:54+0800"
     }
   ],
   "hosts": [
@@ -389,7 +389,7 @@
       "notes": "",
       "status": "active",
       "curated": false,
-      "updated_at": "2026-10-11T09:00:57+0800",
+      "updated_at": "2026-09-19T09:04:51+0800",
       "capabilities": 8
     },
     {
@@ -399,7 +399,7 @@
       "notes": "",
       "status": "active",
       "curated": false,
-      "updated_at": "2026-10-11T09:00:57+0800",
+      "updated_at": "2026-09-19T09:04:51+0800",
       "capabilities": 5
     },
     {
@@ -409,7 +409,7 @@
       "notes": "",
       "status": "active",
       "curated": false,
-      "updated_at": "2026-10-11T09:00:57+0800",
+      "updated_at": "2026-09-19T09:04:51+0800",
       "capabilities": 14
     },
     {
@@ -419,7 +419,7 @@
       "notes": "",
       "status": "active",
       "curated": false,
-      "updated_at": "2026-10-11T09:00:57+0800",
+      "updated_at": "2026-09-19T09:05:02+0800",
       "capabilities": 35
     },
     {
@@ -429,7 +429,7 @@
       "notes": "",
       "status": "active",
       "curated": false,
-      "updated_at": "2026-10-11T09:00:57+0800",
+      "updated_at": "2026-09-19T09:04:51+0800",
       "capabilities": 2
     }
   ],
@@ -532,15 +532,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "livingroom.aquarium"
       ],
@@ -782,15 +782,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "brain"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "system.asset"
       ],
@@ -997,13 +997,13 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "local.asset"
       ],
@@ -1115,13 +1115,13 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "marshall.willen"
       ],
@@ -1202,13 +1202,13 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "marshall.willen"
       ],
@@ -1303,6 +1303,9 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
@@ -1310,9 +1313,6 @@
         "ios",
         "python"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "gopro.camera"
       ],
@@ -1439,13 +1439,13 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "gopro.camera"
       ],
@@ -1547,13 +1547,13 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [],
       "packages": [],
       "conditional_lists": [],
@@ -1645,15 +1645,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "brain"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "system.capabilities"
       ],
@@ -1782,15 +1782,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "local.chat"
       ],
@@ -1976,15 +1976,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "livingroom.climate"
       ],
@@ -2169,6 +2169,9 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
@@ -2176,9 +2179,6 @@
         "brain",
         "mac"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "local.clock"
       ],
@@ -2311,15 +2311,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "xiaomi.tv.display"
       ],
@@ -2444,13 +2444,13 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-09-19T08:54:26+0800",
+      "in_catalog": false,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": false,
       "declared_by": [],
       "packages": [],
       "conditional_lists": [],
@@ -2570,15 +2570,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "chromecast.display",
         "xiaomi.tv.display"
@@ -2738,15 +2738,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "chromecast.display",
         "xiaomi.tv.display"
@@ -2904,13 +2904,13 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "chromecast.display",
         "xiaomi.tv.display"
@@ -3038,6 +3038,9 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
@@ -3046,9 +3049,6 @@
         "ios",
         "mac"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "chromecast.display",
         "xiaomi.tv.display"
@@ -3174,6 +3174,9 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
@@ -3182,9 +3185,6 @@
         "ios",
         "mac"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "chromecast.display",
         "xiaomi.tv.display"
@@ -3273,7 +3273,7 @@
       "composition": "atomic",
       "display_name": "Document Scanner",
       "role": "纸质文档扫描器",
-      "planner_recognize": "用手机系统文档扫描拍纸质（小票、文件、作业），直接上传成 Image Asset。只负责扫进系统，不读字、不算金额、不总结、不投屏。读字要另排 OCR",
+      "planner_recognize": "用手机系统文档扫描拍纸质（小票、文件、作业），直接上传成 Image Asset。只负责扫进系统，不读字、不算金额、不总结、不投屏。读字要另排 OCR。不是普通拍照快门；用户说「拍照」时不要派本能力",
       "prefer_when": "",
       "typical_triggers": [
         "扫一下",
@@ -3286,6 +3286,10 @@
         "OCR",
         "开灯",
         "投屏",
+        "拍一张",
+        "拍照",
+        "普通拍照",
+        "照相",
         "看图理解",
         "金额识别"
       ],
@@ -3320,15 +3324,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "ios"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "document.scanner"
       ],
@@ -3361,12 +3365,12 @@
           "OCR",
           "开灯",
           "投屏",
-          "看图理解",
-          "金额识别",
-          "拍照",
           "拍一张",
+          "拍照",
+          "普通拍照",
           "照相",
-          "普通拍照"
+          "看图理解",
+          "金额识别"
         ],
         "decomposes_to": [],
         "input_schema": {
@@ -3486,15 +3490,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "local.file.convert"
       ],
@@ -3625,15 +3629,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "ios"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "iphone.game.input"
       ],
@@ -3753,15 +3757,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "ios"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "chromecast.game",
         "mac.game.host"
@@ -3921,15 +3925,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "brain"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "system.ocr"
       ],
@@ -4069,6 +4073,9 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
@@ -4076,9 +4083,6 @@
         "ios",
         "mac"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "livingroom.ceiling_light"
       ],
@@ -4212,15 +4216,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "entry.lock"
       ],
@@ -4376,15 +4380,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "brain"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "system.map"
       ],
@@ -4530,15 +4534,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "local.math"
       ],
@@ -4675,13 +4679,13 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "netease.music"
       ],
@@ -4793,6 +4797,9 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
@@ -4801,9 +4808,6 @@
         "ios",
         "mac"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "netease.music"
       ],
@@ -4898,6 +4902,9 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
@@ -4906,9 +4913,6 @@
         "ios",
         "mac"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "netease.music"
       ],
@@ -5042,6 +5046,9 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
@@ -5050,9 +5057,6 @@
         "ios",
         "mac"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "netease.music"
       ],
@@ -5185,6 +5189,9 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
@@ -5193,9 +5200,6 @@
         "ios",
         "mac"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "netease.music"
       ],
@@ -5330,15 +5334,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "music.recognize"
       ],
@@ -5472,6 +5476,9 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
@@ -5480,9 +5487,6 @@
         "ios",
         "mac"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "netease.music"
       ],
@@ -5577,6 +5581,9 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
@@ -5585,9 +5592,6 @@
         "ios",
         "mac"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "netease.music"
       ],
@@ -5681,13 +5685,13 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [],
       "packages": [],
       "conditional_lists": [],
@@ -5765,13 +5769,13 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [],
       "packages": [],
       "conditional_lists": [],
@@ -5870,13 +5874,13 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "local.notify"
       ],
@@ -6125,15 +6129,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "local.paper.read"
       ],
@@ -6478,15 +6482,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "local.pdf.reader"
       ],
@@ -6739,15 +6743,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "local.pdf.rotate"
       ],
@@ -6942,15 +6946,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "local.pdf.images"
       ],
@@ -7092,13 +7096,13 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [],
       "packages": [],
       "conditional_lists": [],
@@ -7223,15 +7227,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "local.printer"
       ],
@@ -7441,15 +7445,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "local.pronunciation"
       ],
@@ -7667,15 +7671,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "local.query"
       ],
@@ -7837,13 +7841,13 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "local.character"
       ],
@@ -7964,13 +7968,13 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "local.character"
       ],
@@ -8107,13 +8111,13 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "local.character"
       ],
@@ -8260,13 +8264,13 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "local.character"
       ],
@@ -8444,13 +8448,13 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "local.search"
       ],
@@ -8595,6 +8599,9 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
@@ -8602,9 +8609,6 @@
         "ios",
         "python"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "gopro.camera"
       ],
@@ -8699,15 +8703,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "iphone.video"
       ],
@@ -8827,15 +8831,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "local.vision"
       ],
@@ -8994,15 +8998,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "local.vision"
       ],
@@ -9110,7 +9114,7 @@
       "composition": "atomic",
       "display_name": "",
       "role": "纸质文档扫描器",
-      "planner_recognize": "纸质扫描的兼容入口：同样用手机文档扫描把小票/文件收成 Image Asset。不读字、不算账",
+      "planner_recognize": "纸质扫描的兼容入口：同样用手机文档扫描把小票/文件收成 Image Asset。不读字、不算账。不是普通拍照",
       "prefer_when": "",
       "typical_triggers": [
         "扫一下小票",
@@ -9120,6 +9124,10 @@
       "do_not_dispatch": [
         "OCR",
         "投屏",
+        "拍一张",
+        "拍照",
+        "普通拍照",
+        "照相",
         "看图理解",
         "金额识别"
       ],
@@ -9153,13 +9161,13 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "document.scanner"
       ],
@@ -9185,12 +9193,12 @@
         "do_not_dispatch": [
           "OCR",
           "投屏",
-          "看图理解",
-          "金额识别",
-          "拍照",
           "拍一张",
+          "拍照",
+          "普通拍照",
           "照相",
-          "普通拍照"
+          "看图理解",
+          "金额识别"
         ],
         "decomposes_to": [],
         "input_schema": {
@@ -9267,15 +9275,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "local.voice"
       ],
@@ -9454,15 +9462,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "local.voice_test"
       ],
@@ -9649,13 +9657,13 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "local.voice"
       ],
@@ -9867,15 +9875,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "local.web.scraper"
       ],
@@ -10093,13 +10101,13 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-09-19T08:54:26+0800",
+      "in_catalog": false,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": false,
       "declared_by": [],
       "packages": [],
       "conditional_lists": [],
@@ -10223,15 +10231,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "xiaodu.play"
       ],
@@ -10370,15 +10378,15 @@
       "owner": "",
       "tags": [],
       "notes": "",
+      "reviewed_at": "",
+      "updated_at": "2026-10-25T17:27:54+0800",
+      "in_catalog": true,
       "description": "",
       "keywords": [],
       "hosts": [],
       "runs_on": [
         "mac"
       ],
-      "reviewed_at": "",
-      "updated_at": "2026-10-11T09:00:57+0800",
-      "in_catalog": true,
       "declared_by": [
         "xiaodu.speaker"
       ],
